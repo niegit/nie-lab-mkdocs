@@ -22,132 +22,176 @@ This lab guides you through the complete setup process of a Cisco SG-350X 24P sw
 - Switch default IP address or a method to discover its current IP.
 - Cisco switch login credentials.
 
-💡 *Tip: If you're unsure of the default IP, try `192.168.1.254` or check the documentation.*
+---
+
+# Cisco Switch Setup Lab 🛠️
+
+## 1. Initial Setup - NIC Configuration and Reset ⚙️
+
+Before beginning, update your NIC settings:
+
+- Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0`. 🌐
+- Try to access the switch at `192.168.1.254` using the default credentials (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`).
+- **Oops! No access?** 😬 If you can’t get in, perform a factory reset! Here’s how:
+  - Use a **paperclip** or another object to **carefully** press and hold the reset button on the front of the switch for **15-20 seconds**, then release. For more help, check out the [Cisco Reset Guide](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html).
 
 ---
 
-## Step-by-Step Instructions
+## 2. Reset the Switch 🔄
 
-### 1. Access the Web GUI
-🖥️ **Connect to the Switch:**
-1. Connect your PC to one of the switch’s Ethernet ports.
-2. Open a web browser and navigate to the switch’s default IP address (e.g., `192.168.1.254`).
-3. Log in with the default credentials:
-   - Username: `cisco`
-   - Password: `cisco`
-4. Change the default password when prompted.
-
-📌 *Note: If you can't access the web GUI, ensure your PC's IP is in the same subnet as the switch.*
+- **Ethernet Connection**: Connect your computer to the switch via Ethernet.
+- **Set Static NIC Settings**: Set your computer to `192.168.1.100/255.255.255.0` (no gateway needed at this point).
+- **Access the Switch**: Open a browser and visit `192.168.1.254` (or related DHCP address).
+- **Login**: Use the default credentials: (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`) 🔑.
+- **Change Password**: Please change the password to something secure, such as `{{ devices.cisco_switch.custom_pass }}`.
 
 ---
 
-### 2. Update Firmware
-⚙️ **Keep It Up-to-Date:**
-1. Go to **Administration > File Management > Upgrade/Backup Firmware/Language**.
-2. Download the latest firmware from Cisco’s website and upload it to the switch.
-3. Reboot the switch after the update is complete.
+### 3. Add User and Update Settings 🧑‍💻
 
-⚠️ *Warning: Do not power off the switch during the firmware update process!*
+- **Add User**:
+  - Go to `Administration > User Accounts > Add`.
+  - Create a user with these details:
+    - **Username**: `{{ devices.cisco_switch.custom_user }}`
+    - **Password**: `{{ devices.cisco_switch.custom_pass }}`
+    - **Level**: `15` (this gives admin privileges).
+  - **Note**: Make sure the user has full administrative rights (Level 15) to make all necessary configuration changes. 🛠️
 
----
+- **System Settings**:
+  - Go to `Administration > System Settings`.
+  - Set the **System Location** to `5400 Patton Dr. Unit 4A, Lisle, Illinois 60532`.
+  - Set the **Contact** to `support@networkiteasy.com`.
+  - Change the **Host Name** to a friendly name: `{{ devices.cisco_switch.name }}`
+  - Set a **Login Banner** and **Welcome Banner** (you can use the same text): `NIE 24-Port Cisco Lab Switch`.
+  - Click **Apply**. 👍
 
-### 3. Add Users and Passwords
-🔐 **Secure Your Switch:**
-1. Navigate to **Administration > User Accounts > Add New User**.
-2. Create new users with appropriate roles:
-   - Example: Add an administrator user.
-3. Save changes.
-
-💡 *Did You Know? Creating multiple users with unique credentials enhances security and accountability.*
-
----
-
-### 4. Save Running Configuration to Startup Configuration
-💾 **Don’t Lose Your Work:**
-1. Go to **Administration > File Management > Copy/Save Configuration**.
-2. Select **Running Configuration** as the source and **Startup Configuration** as the destination.
-3. Click **Apply**.
+- **Time Settings**:
+  - Go to `Administration > Time Settings > System Time`.
+  - Configure the time zone to **UTC -6 (Central)** or set it from "Click Here" to import from your computer.
+  - Click **Apply**. ⏰
 
 ---
 
-### 5. Configure Time Settings
-⏰ **Sync Time:**
-1. Navigate to **System > Time > SNTP Settings**.
-2. Enable SNTP and configure time servers.
-3. Set the time zone and daylight saving settings.
+## 4. Save Configuration 💾
 
-💡 *Tip: Accurate time settings are critical for logging and troubleshooting.*
+- **Running Config vs Startup Config**: The running config is the current active configuration, while the startup config is what loads when the device reboots. Always save your configuration to both to ensure your changes persist across reboots.
+  
+---
+
+## 5. Firmware Upgrade 🔧
+
+- Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files.
+- **Check Firmware Version**: Compare the current firmware version with the one provided in the lab files to ensure an upgrade is necessary.
+- Navigate to `Administration > File Management > Firmware Operations`.
+- Click **Update Firmware**, browse to the folder containing the firmware, and apply the upgrade. 🚀
 
 ---
 
-### 6. Update Management IP Address
-🌐 **Set a Static IP:**
-1. Go to **System > IP Configuration > IPv4 Interface**.
-2. Assign a static IP address for management access.
-   - Example: `192.168.10.2` with subnet mask `255.255.255.0`.
-3. Apply the changes and verify the new IP address.
+## 6. Configure IP Address 🌍
 
-📌 *Note: Document the new IP address to avoid losing access.*
+- Navigate to `IP Configuration > IPv4 Management and Interfaces > IPv4 Interface`.
+- Add the new IP address:
+  - **IP Address**: `{{ devices.cisco_switch.ip }}`
+  - **Subnet Mask**: `{{ devices.cisco_switch.subnet_mask }}`
+- Update your NIC adapter settings to a compatible address within the same subnet (e.g., `192.168.1.100`).
+- Re-navigate to the switch's new IP (`{{ devices.cisco_switch.ip }}`) and log in again.
 
----
-
-### 7. Add and Configure VLANs
-📶 **Segment Your Network:**
-1. Navigate to **VLAN Management > VLAN Settings**.
-2. Add the required VLANs:
-   - Example: VLAN 10 (Data), VLAN 20 (Voice).
-3. Assign ports to VLANs as needed.
-   - Example: Assign ports `GE2-GE12` to VLAN 10, and ports `GE13-GE20` to VLAN 20.
-
-💡 *Fun Fact: VLANs can improve network performance by reducing broadcast domains.*
+- **Save Config**: Don’t forget to save your changes! 💾
 
 ---
 
-### 8. Update Trunk Ports for Uplinks
-🔗 **Connect Your Network:**
-1. Navigate to **Port Management > Port Settings**.
-2. Set `GE1` and `GE24` as trunk ports.
-3. Configure allowed VLANs on these trunk ports for uplinks to:
-   - Firewall (GE1).
-   - Another switch (GE24).
+## 7. Name Critical Interfaces 🔌
+
+- Go to `Port Management > Port Settings`.
+- For each port:
+  - **GE1**: Set the Description to `Firewall Uplink`.
+  - **GE2**: Set the Description to `Aruba AP1`.
+  - **GE3**: Set the Description to `DC1`.
+  - **GE24**: Set the Description to `Uplink to Aruba Switch`.
+- Click **Apply**. 🔧
 
 ---
 
-### 9. Back Up Configuration
-📂 **Protect Your Config:**
-1. Go to **Administration > File Management > Copy/Save Configuration**.
-2. Select **Startup Configuration** as the source and **External Storage** (USB or PC) as the destination.
-3. Save the file.
+## 8. Add VLANs 🖧
 
-💡 *Tip: Regular backups are crucial for disaster recovery.*
+Navigate to `VLAN Management > VLAN Settings > Add`.
 
----
+For each VLAN, enter the following configuration:
 
-### 10. Factory Reset and Restore Configuration
-#### Factory Reset:
-🚨 **Reset to Defaults:**
-1. Navigate to **Administration > Reboot**.
-2. Select the factory reset option and confirm.
+| **VLAN Name** | **VLAN ID** |
+|---------------|-------------|
+{% for vlan in vlans.values() -%}
+| {{ vlan.name }} | {{ vlan.id }} |
+{% endfor %}
 
-#### Restore Configuration:
-♻️ **Bring It Back:**
-1. After the reset, access the switch GUI again.
-2. Go to **Administration > File Management > Restore Configuration**.
-3. Upload the backup configuration file from USB or PC.
-4. Reboot the switch to apply the restored configuration.
-
-📌 *Note: Always verify the restored configuration after rebooting.*
+Click **Apply** and save the configuration. 💾
 
 ---
 
-## Verification
-✅ **Check Your Work:**
-1. Confirm all settings are correctly applied.
-2. Test VLAN connectivity and uplink functionality.
-3. Verify the backed-up configuration works as expected after restoration.
+## 9. Auto Voice VLAN and Smartport 🎤
+
+- Navigate to `VLAN Management > Voice VLAN > Properties`.
+- Set the **Voice VLAN ID** to `{{ vlans.voip.id }}` and click **Apply** and **OK**.
+- Go to `Smartport > Properties`.
+- Confirm that **Smartport** is enabled by **Auto Voice VLAN**. 🎶
 
 ---
 
-## Conclusion
-🎉 **Well Done!**
-You have successfully set up, configured, and backed up a Cisco SG-350X 24P switch using the web GUI. Practice these steps to become proficient in managing Cisco switches.
+## 10. Trunk vs Access Ports 🌐
+
+- **Trunk Ports**: Used for devices that need to communicate with multiple VLANs (e.g., PC with both data and VoIP).
+- **Access Ports**: Used for devices that only need to communicate with a single VLAN (e.g., security camera on the security VLAN).
+
+---
+
+## 11. Adjusting Interfaces ⚙️
+
+- Navigate to `VLAN Management > Interface Settings`.
+- Select the following interfaces and change them to **Trunk**:
+  - **GE1**: Firewall Uplink.
+  - **GE2**: Aruba AP1.
+  - **GE24**: Uplink to Aruba Switch.
+- Navigate to `VLAN Management > Port VLAN Membership > Select GE2 and Join VLAN`.
+  - **GE2 (Access Point)** should only have VLAN `{{ vlans.guest.id }}` ({{ vlans.guest.name }} ) Tagged and Native VLAN set to `{{ vlans.lan.id }}` ({{ vlans.lan.name }}).
+  
+- **Save Config**: Make sure all your changes are saved! 💾
+
+---
+
+## 12. Backup Configuration 🔐
+
+- Navigate to `Administration > File Management > File Operations`.
+- Select **Backup File**.
+- Choose either **Running Config** or **Startup Config**.
+- Select **HTTP/HTTPS** or **USB** to download the backup file:
+  - If using HTTP/HTTPS, the file will download directly to your browser.
+  - If using USB, ensure a USB drive is inserted into the switch.
+- **Encrypt Sensitive Data**: Always check the option to encrypt the configuration file to keep it secure. 🔒
+- Name your backup file something useful: e.g., `username_cisco_config_lab1.txt`.
+
+---
+
+## 13. Reset the Switch and Restore Config 🔄
+
+- Navigate to `Administration > Reboot`.
+- Choose **Immediate** and select **Restore to Factory Defaults**. Click **Reboot**.
+- Reset your NIC Adapter to something like `192.168.1.1000` and reconnect to the switch at `192.168.1.254`.
+- Log in using the temporary password and reset it.
+- Navigate to `Administration > File Management > File Operations`.
+- Choose **Update File** and upload your saved config file.
+- Set the NIC to `192.168.1.100` and reconnect to the switch at `{{ devices.cisco_switch.ip }}`.
+- Ensure all your settings are restored.
+- **Save Config**: Don’t forget to save your running config to the startup config to ensure persistence after reboot.
+
+---
+
+## 14. Reset for Future Labs 🔄
+
+- Navigate to `Administration > Reboot`.
+- Select **Immediate** and **Restore to Factory Defaults**. Click **Reboot**.
+- Reset your NIC adapter to **DHCP** for IPv4.
+- Your lab is now ready for the next user! 🎉
+
+---
+
+**End of Lab Instructions**
