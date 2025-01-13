@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../lab_info/">
+        <link rel="prev" href="../">
       
       
         <link rel="next" href="../lab2/">
@@ -198,7 +198,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../lab_info/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   Labs
@@ -355,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab_info/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -420,15 +420,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objectives
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -599,15 +590,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objectives
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
@@ -633,23 +615,50 @@
 
 <h1 id="lab-1-setting-up-a-cisco-sg-350x-24p-switch-using-the-web-gui">Lab 1: Setting Up a Cisco SG-350X 24P Switch Using the Web GUI<a class="headerlink" href="#lab-1-setting-up-a-cisco-sg-350x-24p-switch-using-the-web-gui" title="Permanent link">&para;</a></h1>
 <p>This lab guides you through the complete setup process of a Cisco SG-350X 24P switch using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
-<h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>🎯 <strong>What You'll Learn:</strong>
-1. 🛠️ Update firmware and add users/passwords.
-2. 💾 Save the running configuration to startup configuration.
-3. ⏰ Configure time settings.
-4. 🌐 Update the IP address for management access.
-5. 📶 Add and configure VLANs.
-6. 🔗 Update trunk ports for uplinks to a firewall and another switch.
-7. 📂 Back up the configuration to a USB or PC.
-8. 🔄 Factory reset the switch and restore the configuration.</p>
+<p>🎯 <strong>What You'll Learn:</strong></p>
+<ol>
+<li>
+<p>🛠️ Update firmware and add users/passwords.</p>
+</li>
+<li>
+<p>💾 Save the running configuration to startup configuration.</p>
+</li>
+<li>
+<p>⏰ Configure time settings.</p>
+</li>
+<li>
+<p>🌐 Update the IP address for management access.</p>
+</li>
+<li>
+<p>📶 Add and configure VLANs.</p>
+</li>
+<li>
+<p>🔗 Update trunk ports for uplinks to a firewall and another switch.</p>
+</li>
+<li>
+<p>📂 Back up the configuration to a USB or PC.</p>
+</li>
+<li>
+<p>🔄 Factory reset the switch and restore the configuration.</p>
+</li>
+</ol>
 <hr />
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>⚡ <strong>Before You Begin:</strong>
-- Access to the Cisco SG-350X 24P switch.
-- A PC connected to the switch for accessing the web GUI.
-- Switch default IP address or a method to discover its current IP.
-- Cisco switch login credentials.</p>
+<p>⚡ <strong>Before You Begin:</strong>  </p>
+<ul>
+<li>
+<p>Access to the Cisco SG-350X 24P switch.  </p>
+</li>
+<li>
+<p>A PC connected to the switch for accessing the web GUI. </p>
+</li>
+<li>
+<p>Switch default IP address or a method to discover its current IP.  </p>
+</li>
+<li>
+<p>Cisco switch login credentials.  </p>
+</li>
+</ul>
 <hr />
 <h1 id="cisco-switch-setup-lab">Cisco Switch Setup Lab 🛠️<a class="headerlink" href="#cisco-switch-setup-lab" title="Permanent link">&para;</a></h1>
 <h2 id="1-initial-setup-nic-configuration-and-reset">1. Initial Setup - NIC Configuration and Reset ⚙️<a class="headerlink" href="#1-initial-setup-nic-configuration-and-reset" title="Permanent link">&para;</a></h2>
@@ -657,9 +666,12 @@
 <ul>
 <li>Set your NIC IP to <code>192.168.1.100</code> and ensure the subnet mask is <code>255.255.255.0</code>. 🌐</li>
 <li>Try to access the switch at <code>192.168.1.254</code> using the default credentials (<code>cisco / cisco</code>).</li>
-<li><strong>Oops! No access?</strong> 😬 If you can’t get in, perform a factory reset! Here’s how:</li>
-<li>Use a <strong>paperclip</strong> or another object to <strong>carefully</strong> press and hold the reset button on the front of the switch for <strong>15-20 seconds</strong>, then release. For more help, check out the <a href="https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html">Cisco Reset Guide</a>.</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Oops! No access? 😬</p>
+<p>If you can’t get in, perform a factory reset! <strong>Here’s how:</strong></p>
+<p>Use a <strong>paperclip</strong> or another object to <strong>carefully</strong> press and hold the reset button on the front of the switch for <strong>15-20 seconds</strong>, then release. For more help, check out the <a href="https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html">Cisco Reset Guide</a>.</p>
+</div>
 <hr />
 <h2 id="2-reset-the-switch">2. Reset the Switch 🔄<a class="headerlink" href="#2-reset-the-switch" title="Permanent link">&para;</a></h2>
 <ul>
@@ -816,15 +828,33 @@
 <hr />
 <h2 id="13-reset-the-switch-and-restore-config">13. Reset the Switch and Restore Config 🔄<a class="headerlink" href="#13-reset-the-switch-and-restore-config" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Navigate to <code>Administration &gt; Reboot</code>.</li>
-<li>Choose <strong>Immediate</strong> and select <strong>Restore to Factory Defaults</strong>. Click <strong>Reboot</strong>.</li>
-<li>Reset your NIC Adapter to something like <code>192.168.1.1000</code> and reconnect to the switch at <code>192.168.1.254</code>.</li>
-<li>Log in using the temporary password and reset it.</li>
-<li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>
-<li>Choose <strong>Update File</strong> and upload your saved config file.</li>
-<li>Set the NIC to <code>192.168.1.100</code> and reconnect to the switch at <code>192.168.10.2</code>.</li>
-<li>Ensure all your settings are restored.</li>
-<li><strong>Save Config</strong>: Don’t forget to save your running config to the startup config to ensure persistence after reboot.</li>
+<li>
+<p>Navigate to <code>Administration &gt; Reboot</code>.</p>
+</li>
+<li>
+<p>Choose <strong>Immediate</strong> and select <strong>Restore to Factory Defaults</strong>. Click <strong>Reboot</strong>.</p>
+</li>
+<li>
+<p>Reset your NIC Adapter to something like <code>192.168.1.100</code> and reconnect to the switch at <code>192.168.1.254</code>.</p>
+</li>
+<li>
+<p>Log in using the temporary password and reset it.</p>
+</li>
+<li>
+<p>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</p>
+</li>
+<li>
+<p>Choose <strong>Update File</strong> and upload your saved config file.</p>
+</li>
+<li>
+<p>Set the NIC to <code>192.168.1.100</code> and reconnect to the switch at <code>192.168.10.2</code>.</p>
+</li>
+<li>
+<p>Ensure all your settings are restored.</p>
+</li>
+<li>
+<p><strong>Save Config</strong>: Don’t forget to save your running config to the startup config to ensure persistence after reboot.</p>
+</li>
 </ul>
 <hr />
 <h2 id="14-reset-for-future-labs">14. Reset for Future Labs 🔄<a class="headerlink" href="#14-reset-for-future-labs" title="Permanent link">&para;</a></h2>

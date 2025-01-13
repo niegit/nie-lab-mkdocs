@@ -13,8 +13,8 @@ nav:
   - Home: index.md
   - Labs:
       - Networking:
-          - Network Lab Info: labs/networking/lab_info.md
-          - Lab 1: labs/networking/lab1.md
+          - Networking Information: labs/networking/index.md
+          - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
           - Lab 2: labs/networking/lab2.md
           - Lab 3: labs/networking/lab3.md
       - Azure:
@@ -53,11 +53,11 @@ extra:
       dhcp_range: "192.168.40.10 - .62"
       dhcp_server: "Firewall"
       gateway: "192.168.40.1"
-      description: "Isolated guest network (for up to 62 devices)"
+      description: "Isolated guest network"
   devices:
     cisco_switch:
       name: "SW01"
-      type: "Cisco Switch"
+      type: "Cisco SG350X 24 Port Switch"
       ip: "192.168.10.2"
       subnet_mask: "255.255.255.0"
       cidr: "/24"
@@ -66,13 +66,16 @@ extra:
       default_pass: "cisco"
       custom_user: "nie"
       custom_pass: "pass123!"
+      description: "Cisco SG350X 24 Port Switch"
+      banner: "NIE 24-Port Cisco Lab Switch"
     aruba_switch:
       name: "SW02"
-      type: "Aruba Switch"
+      type: "Aruba 1930 Instant On 24 Port Switch"
       ip: "192.168.10.3"
       subnet_mask: "255.255.255.0"
       cidr: "/24"
       vlan: "LAN"
+      description: "Aruba 1930 Instant On 24 Port Switch"
     ap01:
       name: "AP01"
       type: "Access Point"
@@ -80,6 +83,8 @@ extra:
       subnet_mask: "255.255.255.0"
       cidr: "/24"
       vlan: "LAN"
+      description: "Aruba AP22 Instant On Access Point"
+      mac: 60:26:EF:CB:E6:CE
     dc01:
       name: "DC01"
       type: "Windows Server"
@@ -87,6 +92,7 @@ extra:
       subnet_mask: "255.255.255.0"
       cidr: "/24"
       vlan: "LAN"
+      description: "Windows Server 2022 running Active Directory."
     allworx:
       name: "Allworx"
       type: "Allworx Server"
@@ -94,9 +100,17 @@ extra:
       cidr: "/24"
       ip: "192.168.30.254"
       vlan: "VOIP"
+      description: "Allworx Verge XXXX Server. Allows for a full-fledged on-prem VoIP system."
+    firewall:
+      name: "NIE-LAB-T45-PAX8"
+      type: "WatchGuard Firewall"
+      ip: "192.168.10.1"
+      subnet_mask: "255.255.255.0"
+      cidr: "/24"
+      vlan: "LAN"
+      description: "WatchGuard T45 Firewall."
+      model: "T45"
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/nie-git/nie-labs-mkdocs
   palette:
     primary: deep purple
     accent: cyan
@@ -105,6 +119,7 @@ markdown_extensions:
   - codehilite
   - toc:
       permalink: true
+      toc_depth: 3
   - footnotes
 extra_javascript:
   - js/open_links_in_new_tab.js  # Include custom JavaScript file to force external links to open in New Tabs throughout docs
