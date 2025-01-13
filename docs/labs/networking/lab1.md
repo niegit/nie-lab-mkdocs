@@ -2,25 +2,38 @@
 
 This lab guides you through the complete setup process of a Cisco SG-350X 24P switch using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.
 
-## Objectives
 🎯 **What You'll Learn:**
+
 1. 🛠️ Update firmware and add users/passwords.
+
 2. 💾 Save the running configuration to startup configuration.
+
 3. ⏰ Configure time settings.
+
 4. 🌐 Update the IP address for management access.
+
 5. 📶 Add and configure VLANs.
+
 6. 🔗 Update trunk ports for uplinks to a firewall and another switch.
+
 7. 📂 Back up the configuration to a USB or PC.
+
 8. 🔄 Factory reset the switch and restore the configuration.
+
 
 ---
 
 ## Prerequisites
-⚡ **Before You Begin:**
-- Access to the Cisco SG-350X 24P switch.
-- A PC connected to the switch for accessing the web GUI.
-- Switch default IP address or a method to discover its current IP.
-- Cisco switch login credentials.
+⚡ **Before You Begin:**  
+
+- Access to the Cisco SG-350X 24P switch.  
+
+- A PC connected to the switch for accessing the web GUI. 
+
+- Switch default IP address or a method to discover its current IP.  
+
+- Cisco switch login credentials.  
+
 
 ---
 
@@ -32,8 +45,11 @@ Before beginning, update your NIC settings:
 
 - Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0`. 🌐
 - Try to access the switch at `192.168.1.254` using the default credentials (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`).
-- **Oops! No access?** 😬 If you can’t get in, perform a factory reset! Here’s how:
-  - Use a **paperclip** or another object to **carefully** press and hold the reset button on the front of the switch for **15-20 seconds**, then release. For more help, check out the [Cisco Reset Guide](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html).
+
+!!! tip "Oops! No access? 😬"
+    If you can’t get in, perform a factory reset! **Here’s how:**
+    
+    Use a **paperclip** or another object to **carefully** press and hold the reset button on the front of the switch for **15-20 seconds**, then release. For more help, check out the [Cisco Reset Guide](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html).
 
 ---
 
@@ -174,13 +190,21 @@ Click **Apply** and save the configuration. 💾
 ## 13. Reset the Switch and Restore Config 🔄
 
 - Navigate to `Administration > Reboot`.
+
 - Choose **Immediate** and select **Restore to Factory Defaults**. Click **Reboot**.
-- Reset your NIC Adapter to something like `192.168.1.1000` and reconnect to the switch at `192.168.1.254`.
+
+- Reset your NIC Adapter to something like `192.168.1.100` and reconnect to the switch at `192.168.1.254`.
+
 - Log in using the temporary password and reset it.
+
 - Navigate to `Administration > File Management > File Operations`.
+
 - Choose **Update File** and upload your saved config file.
+
 - Set the NIC to `192.168.1.100` and reconnect to the switch at `{{ devices.cisco_switch.ip }}`.
+
 - Ensure all your settings are restored.
+
 - **Save Config**: Don’t forget to save your running config to the startup config to ensure persistence after reboot.
 
 ---
