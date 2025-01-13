@@ -1,6 +1,6 @@
 site_name: Internal Lab Guide
-site_description: A guide for practice labs within our MSP.
-site_author: Leap IT
+site_description: A guide for practice labs within NIE.
+site_author: Network It Easy
 theme:
   name: material
 nav:
@@ -15,7 +15,7 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/dlepi24/mkdocs-leapit
+      link: https://github.com/nie-git/nie-labs-mkdocs
   palette:
     primary: deep purple
     accent: cyan
