@@ -3,6 +3,9 @@ site_description: A guide for practice labs within NIE.
 site_author: Network It Easy
 theme:
   name: material
+  features:
+    - navigation.top  # Enables top navigation
+    - navigation.tabs # Adds tabs for better organization
 nav:
   - Home: index.md
   - Labs:
@@ -13,6 +16,69 @@ nav:
           - Lab 2: labs/networking/lab2.md
           - Lab 3: labs/networking/lab3.md
 extra:
+  vlans:
+    lan:
+      name: "LAN"
+      id: 1
+      subnet: "192.168.10.0/24"
+      dhcp_range: "192.168.10.10 - .254"
+      dhcp_server: "DC01"
+      gateway: "192.168.10.1"
+      purpose: "Main Office Data VLAN"
+    security:
+      name: "SECURITY"
+      id: 20
+      subnet: "192.168.20.0/24"
+      dhcp_range: "192.168.20.50 - .254"
+      dhcp_server: "Firewall"
+      gateway: "192.168.20.1"
+      purpose: "Security devices (Cameras, NVR, Building Access Controls)"
+    voip:
+      name: "VOIP"
+      id: 30
+      subnet: "192.168.30.0/24"
+      dhcp_range: "192.168.30.50 - .253"
+      dhcp_server: "Allworx Server"
+      gateway: "192.168.30.1"
+      purpose: "IP phones and voice-related services"
+    guest:
+      name: "GUEST"
+      id: 40
+      subnet: "192.168.40.0/26"
+      dhcp_range: "192.168.40.10 - .62"
+      dhcp_server: "Firewall"
+      gateway: "192.168.40.1"
+      purpose: "Isolated guest network (for up to 62 devices)"
+  devices:
+    sw01:
+      name: "SW01"
+      type: "Cisco Switch"
+      ip: "192.168.10.2"
+      vlan: "LAN"
+      default_user: "cisco"
+      default_password: "cisco"
+      custom_user: "nie"
+      custom_pass: "pass123!"
+    sw02:
+      name: "SW02"
+      type: "Aruba Switch"
+      ip: "192.168.10.3"
+      vlan: "LAN"
+    ap01:
+      name: "AP01"
+      type: "Access Point"
+      ip: "192.168.10.5"
+      vlan: "LAN"
+    dc01:
+      name: "DC01"
+      type: "Windows Server"
+      ip: "192.168.10.10"
+      vlan: "LAN"
+    allworx:
+      name: "Allworx"
+      type: "Allworx Server"
+      ip: "192.168.30.254"
+      vlan: "VOIP"
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/nie-git/nie-labs-mkdocs
