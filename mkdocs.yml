@@ -13,6 +13,7 @@ nav:
   - Home: index.md
   - Labs:
       - Networking:
+          - Lab Overview: labs/networking/lab_overview.md
           - Network Details: labs/networking/lab_info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
           - Lab 2: labs/networking/lab2.md
@@ -78,7 +79,7 @@ extra:
       description: "Aruba 1930 Instant On 24 Port Switch"
     ap01:
       name: "AP01"
-      type: "Access Point"
+      type: "Aruba Instant On AP22"
       ip: "192.168.10.5"
       subnet_mask: "255.255.255.0"
       cidr: "/24"
@@ -103,7 +104,7 @@ extra:
       description: "Allworx Verge XXXX Server. Allows for a full-fledged on-prem VoIP system."
     firewall:
       name: "NIE-LAB-T45-PAX8"
-      type: "WatchGuard Firewall"
+      type: "WatchGuard T45 Firewall"
       ip: "192.168.10.1"
       subnet_mask: "255.255.255.0"
       cidr: "/24"

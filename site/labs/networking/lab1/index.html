@@ -198,7 +198,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../lab_info/" class="md-tabs__link">
+        <a href="../lab_overview/" class="md-tabs__link">
           
   
   Labs
@@ -355,6 +355,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../lab_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lab_info/" class="md-nav__link">
         
   
@@ -424,7 +445,7 @@
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Overview 🔎
     </span>
   </a>
   
@@ -733,7 +754,7 @@
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Overview 🔎
     </span>
   </a>
   
@@ -897,7 +918,6 @@
 
 <!-- To Fix
 
-- Start with uplinking from your PC to a port into the switch
 
 - Add generic instructions for configuring NIC. Might be best to add into a main page and link to it for multiple uses. Mention disabling dock if using on dock.
 
@@ -908,7 +928,7 @@
  -->
 
 <h1 id="lab-1-setting-up-a-cisco-sg350x-24-port-switch">Lab 1: Setting Up a Cisco SG350X 24 Port Switch<a class="headerlink" href="#lab-1-setting-up-a-cisco-sg350x-24-port-switch" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview 🔎<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>This lab guides you through the complete setup process of a <strong>Cisco SG350X 24 Port Switch</strong> using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
 <p>⚡ <strong>Before You Begin:</strong>  </p>
 <ul>
@@ -924,10 +944,12 @@
 </ul>
 <hr />
 <h2 id="1-initial-setup-nic-configuration-and-reset">1. Initial Setup - NIC Configuration and Reset ⚙️<a class="headerlink" href="#1-initial-setup-nic-configuration-and-reset" title="Permanent link">&para;</a></h2>
-<p>Before beginning, update your NIC settings:</p>
+<p>Before beginning, be sure to update your NIC settings:</p>
+<p>On Windows 11 you can get there from <code>Settings &gt; Network &amp; Internet &gt; Advanced Network Settings</code> then expand your built-in Ethernet adapter and edit the IPv4 Properties and <strong>save</strong>.</p>
 <ul>
 <li>Set your NIC IP to <code>192.168.1.100</code> and ensure the subnet mask is <code>255.255.255.0</code>. 🌐</li>
 </ul>
+<p><img alt="NIC Adapter Settings" src="../img/win11-nic-properties-default.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because we're plugged directly into the switch we can communicate on the <strong>Layer 2 (L2) network</strong>, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!</p>

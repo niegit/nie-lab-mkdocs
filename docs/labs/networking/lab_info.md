@@ -1,13 +1,9 @@
-# Networking Lab Overview
 
-Welcome to the **Networking** section—a place designed to help you sharpen your networking skills and explore Network It Easy’s operations in a hands-on, safe environment. From configuring firewalls and switches to implementing VLANs for VoIP or troubleshooting network issues, this lab empowers you to experiment freely. Reset configurations and practice as much as you like without affecting a customer's network.  
+# Lab Resources
 
-!!! tip
-    **This is your safe space to fail and learn, so step outside your comfort zone and dive in! For guidance, don’t hesitate to reach out to your manager or other resources.**
+The information below will be used throughout the Networking labs and may be helpful to you. While each lab will strive to give you the information needed to complete it, this page will serve as a single resource where common information such as VLANs and IP addresses can be located for all networking labs. 
 
----
-
-## Lab Resources
+If you find any consistencies please let the proper resources know so that we can address them! We want to give you the best lab experience possible. 😊
 
 ### 🔶 **VLAN Summary**
 
@@ -48,18 +44,7 @@ This section outlines the physical and logical setup of the lab network for bett
 - **GE24**: Connects to SW02's GE1  
 
 #### Aruba Switch Uplinks
-- **GE1**: Connects to SW01's GE2  
-
----
-
-### 💾 **Cisco Backup and Recovery Procedures**
-
-#### **Backup Process**  
-Configurations are regularly backed up to prevent data loss.  
-- **Backup Location**: `{{ devices.cisco_switch.backup_location | default("USB/HTTP") }}`  
-
-#### **Recovery Process**  
-Restore configurations by uploading the saved file via the **File Operations** section after performing a factory reset.  
+- **GE1**: Connects to SW01's GE24 
 
 ---
 
