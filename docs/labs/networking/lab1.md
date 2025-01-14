@@ -6,21 +6,7 @@
 
 - Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
 
-- Step 2 should be "Connect to Switch" and reset if necessary vs just reset it. Mention why there's no gateway needed since it's all L2 and no L3/router
-
-- Mention case sensitivity with uers/passwords
-
-- Update the time settings to say that typically you'd use SNTP but we don't have Internet in this portion, so it can't talk to get out.
-
-- Explain Run and Start config and why it's important to save!
-
-- Explain the firmware process but skip it since it's already updated?
-
 - Get Lab Sharepoint setup for Files
-
-- Why we update critical interfaces!
-
-- Recap at the end, mention the importance of saving your config files somewhere. 
 
  -->
 
@@ -28,28 +14,8 @@
 # Lab 1: Setting Up a {{ devices.cisco_switch.type }}
 ## Overview
 
-This lab guides you through the complete setup process of a {{ devices.cisco_switch.type }} using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.
+This lab guides you through the complete setup process of a **{{ devices.cisco_switch.type }}** using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.
 
-🎯 **What You'll Learn:**
-
-1. 🛠️ Update firmware and add users/passwords.
-
-2. 💾 Save the running configuration to startup configuration.
-
-3. ⏰ Configure time settings.
-
-4. 🌐 Update the IP address for management access.
-
-5. 📶 Add and configure VLANs.
-
-6. 🔗 Update trunk ports for uplinks to a firewall and another switch.
-
-7. 📂 Back up the configuration to a USB or PC.
-
-8. 🔄 Factory reset the switch and restore the configuration.
-
-
----
 
 ⚡ **Before You Begin:**  
 
@@ -68,22 +34,30 @@ This lab guides you through the complete setup process of a {{ devices.cisco_swi
 Before beginning, update your NIC settings:
 
 - Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0`. 🌐
-- Try to access the switch at `192.168.1.254` using the default credentials (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`).
 
-!!! tip "Oops! No access? 😬"
-    If you can’t get in, perform a factory reset! **Here’s how:**
-    
-    Use a **paperclip** or another object to **carefully** press and hold the reset button on the front of the switch for **15-20 seconds**, then release. For more help, check out the [Cisco Reset Guide](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html).
+!!! note
+
+    Because we're plugged directly into the switch we can communicate on the **Layer 2 (L2) network**, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!
+
+    [_Layer 2 or Layer 3 - What's the Difference?_ from **Auvik**📜](https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/)
+
 
 ---
 
-## 2. Reset the Switch 🔄
+## 2. Connect to the Switch 🔄
 
-- **Ethernet Connection**: Connect your computer to the switch via Ethernet.
+- **Ethernet Connection**: Connect your computer to the {{ devices.cisco_switch.type }} via an Ethernet cable into port 12 (top-right).
 - **Set Static NIC Settings**: Set your computer to `192.168.1.100/255.255.255.0` (no gateway needed at this point).
 - **Access the Switch**: Open a browser and visit `192.168.1.254` (or related DHCP address).
 - **Login**: Use the default credentials: (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`) 🔑.
 - **Change Password**: Please change the password to something secure, such as `{{ devices.cisco_switch.custom_pass }}`.
+
+⚠️ Usernames and passwords are **case sensitive**, so be careful what you type!
+
+!!! danger "Oops! No access? 😬"
+    If you can’t get in, perform a factory reset! **Here’s how:**
+    
+    Use a **paperclip** or another object to **carefully** press and hold the reset button on the front of the switch for **15-20 seconds**, then release. For more help, check out the [Cisco Reset Guide](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html).
 
 ---
 
@@ -113,20 +87,35 @@ Before beginning, update your NIC settings:
   - Configure the time zone under **Manual Settings** by using the "Click Here" button to import from your computer.
   - Click **Apply**. ⏰
 
+!!! note "Why not use SNTP?"
+    In most cases it would probably make sense to configure SNTP servers for keeping time up-to-date. This allows the switch to check in with public servers whose sole purpose is keeping track of time. In this lab we won't have an outside Internet connection to reach the public servers, but be sure to try this out in future labs.
+
 ---
 
 ## 4. Save Configuration 💾
 
-- **Running Config vs Startup Config**: The running config is the current active configuration, while the startup config is what loads when the device reboots. Always save your configuration to both to ensure your changes persist across reboots.
-  
----
+!!! tip "🛠️ Running and Startup Configurations with Cisco Switches"
+
+    When working with Cisco switches, understanding the distinction between **running** and **startup configurations** is critical for managing and preserving network settings effectively.
+    
+    <br>
+    🔄 The **running configuration** refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s **RAM**. If the switch is restarted or powered off, the running configuration is erased.
+
+    💾 The **startup configuration** is the saved version of your settings stored in **NVRAM** (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.
+
+🔑 **Saving Changes in the Web GUI**
+
+To ensure your changes are preserved after a reboot, you must save the **running configuration** to the **startup configuration**. Along the top of the Web GUI you’ll notice a flashing **Save Icon** (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.
+
+💡**Bailout Strategy**:
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved **startup configuration**, effectively bailing you out.
+
 
 ## 5. Firmware Upgrade 🔧
 
 - Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files.
-- **Check Firmware Version**: Compare the current firmware version with the one provided in the lab files to ensure an upgrade is necessary.
 - Navigate to `Administration > File Management > Firmware Operations`.
-- Click **Update Firmware**, browse to the folder containing the firmware, and apply the upgrade. 🚀
+- Click **Update Firmware**, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀
 
 ---
 
@@ -146,6 +135,11 @@ Before beginning, update your NIC settings:
 ---
 
 ## 7. Name Critical Interfaces 🔌
+
+!!! note "But do we have to?"
+    I'm sure you've worked a ticket before where you _**really**_ wished someone labeled which port some critical device was plugged into. 
+
+    Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll **save your teammates day**!⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure _(firewalls, access points, switches, servers, printers, UPS)_, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.
 
 - Go to `Port Management > Port Settings`.
 - Click the radio button for **GE1** and scroll down to the bottom of the page then select **edit**. 
@@ -173,8 +167,7 @@ For each VLAN, enter the following configuration:
 
 Click **Apply** and save the configuration. 💾
 
-!!! tip
-    **VLAN 1** is already configured for you by default.
+!!! tip "VLAN 1 is configured by default."
 
 ---
 
@@ -189,10 +182,11 @@ Click **Apply** and save the configuration. 💾
 
 ## 10. Access vs Trunk Ports 🌐
 
-!!! tip
-    - **Access Ports**: Used for devices that only need to communicate with a **single VLAN**. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN only. Most ports should be configured to Access typically.
+!!! note "**What's the difference between the two?**💡"
 
-    - **Trunk Ports**: Configuring trunk ports allows the connected device to communicate with **multiple VLANs** instead of just one. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of **all VLANs** so you'd need to configure a single Trunk port for each port that links two switches together. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone can be plugged into the main Voice VLAN, but can then tag the Lan VLAN on the port so that the phone can passthru the Lan connection to a PC. 
+    - **Access Ports**: Used for devices that only need to communicate with a **single VLAN or network**. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN. Most ports should be configured to **Access** typically unless needed otherwise.
+
+    - **Trunk Ports**: Configuring trunk ports allows the connected device to communicate with **multiple VLANs**. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of **all possible VLANs** so you'd need to configure a **Trunk** port on each switch. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC.
 
 - Navigate to `VLAN Management > Interface Settings`.
 - **Select** the following interfaces and **edit** them to **Trunk** and **Apply**:
@@ -201,12 +195,12 @@ Click **Apply** and save the configuration. 💾
     - **GE24**: `{{ devices.aruba_switch.name }}`.
 
 ## 11. Tagging VLANs 🏷️
-!!! tip
-    - **Untagged / Native VLAN**: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default.
-    - **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag other VLANs that the port should be able to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then you'd tag all other VLANs so that it can "passthru" those other VLANs so that they can be tagged on other ports on the switch.
+!!! tip "These can be hard to keep straight!"
+    - **Untagged / Native VLAN**: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default, especially in _'flat networks'_ where there are no VLANs.
+    - **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.
 
-- Navigate to `VLAN Management > Port VLAN Membership > Select GE2 and Join VLAN`.
-  - Select **GE2 (Access Point)** and click **Join VLAN**
+- Navigate to `VLAN Management > Port VLAN Membership`.
+  - Select **GE2 {{ devices.ap01.name }}** and click **Join VLAN**
   - Set to **User Defined** and only tag the **{{ vlans.guest.name }}** (`{{ vlans.guest.id }}`).
   - **Apply** your changes and close the window.
   - **Save Config**: Make sure all your changes are saved! 💾
@@ -217,10 +211,10 @@ Click **Apply** and save the configuration. 💾
 
 - Navigate to `Administration > File Management > File Operations`.
 - Select **Backup File**.
-- Choose **Running Config** _(save your configuration if you didn't just do it!)_.
+- Choose **Running Config** _(save your configuration if you didn't already do it!)_.
 - Select **HTTP/HTTPS** or **USB** to download the backup file:
-  - If using HTTP/HTTPS, the file will download directly to your PC via your browser.
-  - If using USB, ensure a USB drive is inserted into the switch. It will save to the root of the USB.
+    - If using HTTP/HTTPS, the file will download directly to your PC via your browser.
+    - If using USB, ensure a USB drive is inserted into the switch. It will save to the root of the USB.
 - **Encrypt Sensitive Data**: Always check the option to encrypt the configuration file to keep it secure. 🔒
 - Name your backup file something useful: e.g., `username_cisco_config_lab1.txt`.
 
@@ -243,7 +237,7 @@ Click **Apply** and save the configuration. 💾
   - Navigate to `Administration > File Management > File Operations`.
   - Choose **Update File** and upload your saved config file to the **Running Configuration**. Hit **Apply**. 
 
-!!! tip
+!!! danger "Connection Lost . . . 🤖" 
     Because you're updating to the running configuration, it should "instantly" switch to the IP stored in the config file. That means you're disconnected and need to update your NIC again. 😊
 
   <br>
@@ -263,3 +257,37 @@ Click **Apply** and save the configuration. 💾
 - Your lab is now ready for the next user! 🎉
 
 ---
+
+
+🎯**Congratulations on completing this lab!** At this point you'll have successfully learned how to:
+
+1. 🛠️ Update firmware and add users/passwords.
+
+2. 💾 Save the running configuration to startup configuration.
+
+3. ⏰ Configure time settings.
+
+4. 🌐 Update the IP address for management access.
+
+5. 📶 Add and configure VLANs.
+
+6. 🔗 Update trunk ports for uplinks to a firewall and another switch.
+
+7. 📂 Back up the configuration to a USB or PC.
+
+8. 🔄 Factory reset the switch and restore the configuration.
+
+!!! tip "**The Bigger Picture** 🌐"
+
+    This lab provided foundational skills for managing Cisco switches, but the techniques you’ve learned here apply across various network devices and scenarios from simple setups to complex enterprise environments.
+
+    ### Next Steps 🚀
+
+    - Explore the GUI and practice restoring configurations to reinforce your troubleshooting skills.
+    - Experiment with SNTP time settings and other advanced features to enhance your understanding of its capabilities.
+    - Document the steps you’ve taken for future reference, ensuring that you can replicate and troubleshoot as needed.
+    - Move on to the next Lab once you're ready.
+
+    By developing strong habits and staying consistent, you’ll be well-equipped to tackle real-world networking challenges in no time! 
+
+    Happy networking! 🌟

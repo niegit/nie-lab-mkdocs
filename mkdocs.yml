@@ -13,7 +13,7 @@ nav:
   - Home: index.md
   - Labs:
       - Networking:
-          - Networking Information: labs/networking/index.md
+          - Network Details: labs/networking/lab_info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
           - Lab 2: labs/networking/lab2.md
           - Lab 3: labs/networking/lab3.md
