@@ -3,6 +3,8 @@ site_description: The Lab guide for all practice labs at NIE. Sharpen your skill
 site_author: Network It Easy
 theme:
   name: material
+  favicon: /img/favicon.ico
+  logo: /img/logo.png
   features:
     - navigation.top  # Enables top navigation
     - navigation.tabs # Adds tabs for better organization

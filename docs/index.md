@@ -22,4 +22,6 @@ Explore our curated labs and start building your expertise:
 
 Need assistance? Contact us at **[it@networkiteasy.com](mailto:it@networkiteasy.com)** for any questions or help with labs.
 
-Happy Lab Learning! 🎉
+<br>
+
+**Happy Lab Learning!** 🎉

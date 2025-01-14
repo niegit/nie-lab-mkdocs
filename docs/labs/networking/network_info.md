@@ -46,12 +46,3 @@ This section outlines the physical and logical setup of the lab network for bett
 #### Aruba Switch Uplinks
 - **GE1**: Connects to SW01's GE24 
 
----
-
-## Tips for Success
-
-- **Experiment Freely**: Feel confident resetting and reconfiguring devices.  
-- **Learn Actively**: Refer to this page often for VLANs, devices, and network design details.  
-- **Seek Support**: Your manager and peers are here to assist you when needed.  
-
-Good luck and happy networking! 😊
