@@ -1,6 +1,5 @@
 <!-- To Fix
 
-- Start with uplinking from your PC to a port into the switch
 
 - Add generic instructions for configuring NIC. Might be best to add into a main page and link to it for multiple uses. Mention disabling dock if using on dock.
 
@@ -12,14 +11,14 @@
 
 
 # Lab 1: Setting Up a {{ devices.cisco_switch.type }}
-## Overview
+## Overview 🔎
 
 This lab guides you through the complete setup process of a **{{ devices.cisco_switch.type }}** using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.
 
 
 ⚡ **Before You Begin:**  
 
-- Access to the {{ devices.cisco_switch.type }} (_{{ devices.cisco_switch.name }}_).  
+- Access to the {{ devices.cisco_switch.type }} **(_{{ devices.cisco_switch.name }}_)**.  
 
 - A PC connected to the switch for accessing the web GUI. 
 
@@ -31,9 +30,14 @@ This lab guides you through the complete setup process of a **{{ devices.cisco_s
 
 ## 1. Initial Setup - NIC Configuration and Reset ⚙️
 
-Before beginning, update your NIC settings:
+Before beginning, be sure to update your NIC settings:
+
+On Windows 11 you can get there from `Settings > Network & Internet > Advanced Network Settings` then expand your built-in Ethernet adapter and edit the IPv4 Properties and **save**.
 
 - Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0`. 🌐
+
+![NIC Adapter Settings](img/win11-nic-properties-default.jpg)
+
 
 !!! note
 

@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../lab_info/">
       
       
         <link rel="next" href="../lab2/">
@@ -198,7 +198,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../lab_info/" class="md-tabs__link">
           
   
   Labs
@@ -355,28 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../lab_info/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,9 +440,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-reset-the-switch" class="md-nav__link">
+  <a href="#2-connect-to-the-switch" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Reset the Switch 🔄
+      2. Connect to the Switch 🔄
     </span>
   </a>
   
@@ -574,6 +553,21 @@
       14. Reset for Future Labs 🔄
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="14. Reset for Future Labs 🔄">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps 🚀
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -755,9 +749,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-reset-the-switch" class="md-nav__link">
+  <a href="#2-connect-to-the-switch" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Reset the Switch 🔄
+      2. Connect to the Switch 🔄
     </span>
   </a>
   
@@ -869,6 +863,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="14. Reset for Future Labs 🔄">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps 🚀
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -894,59 +903,17 @@
 
 - Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
 
-- Step 2 should be "Connect to Switch" and reset if necessary vs just reset it. Mention why there's no gateway needed since it's all L2 and no L3/router
-
-- Mention case sensitivity with uers/passwords
-
-- Update the time settings to say that typically you'd use SNTP but we don't have Internet in this portion, so it can't talk to get out.
-
-- Explain Run and Start config and why it's important to save!
-
-- Explain the firmware process but skip it since it's already updated?
-
 - Get Lab Sharepoint setup for Files
-
-- Why we update critical interfaces!
-
-- Recap at the end, mention the importance of saving your config files somewhere. 
 
  -->
 
 <h1 id="lab-1-setting-up-a-cisco-sg350x-24-port-switch">Lab 1: Setting Up a Cisco SG350X 24 Port Switch<a class="headerlink" href="#lab-1-setting-up-a-cisco-sg350x-24-port-switch" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This lab guides you through the complete setup process of a Cisco SG350X 24 Port Switch using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
-<p>🎯 <strong>What You'll Learn:</strong></p>
-<ol>
-<li>
-<p>🛠️ Update firmware and add users/passwords.</p>
-</li>
-<li>
-<p>💾 Save the running configuration to startup configuration.</p>
-</li>
-<li>
-<p>⏰ Configure time settings.</p>
-</li>
-<li>
-<p>🌐 Update the IP address for management access.</p>
-</li>
-<li>
-<p>📶 Add and configure VLANs.</p>
-</li>
-<li>
-<p>🔗 Update trunk ports for uplinks to a firewall and another switch.</p>
-</li>
-<li>
-<p>📂 Back up the configuration to a USB or PC.</p>
-</li>
-<li>
-<p>🔄 Factory reset the switch and restore the configuration.</p>
-</li>
-</ol>
-<hr />
+<p>This lab guides you through the complete setup process of a <strong>Cisco SG350X 24 Port Switch</strong> using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
 <p>⚡ <strong>Before You Begin:</strong>  </p>
 <ul>
 <li>
-<p>Access to the Cisco SG350X 24 Port Switch (<em>SW01</em>).  </p>
+<p>Access to the Cisco SG350X 24 Port Switch <strong>(<em>SW01</em>)</strong>.  </p>
 </li>
 <li>
 <p>A PC connected to the switch for accessing the web GUI. </p>
@@ -960,22 +927,27 @@
 <p>Before beginning, update your NIC settings:</p>
 <ul>
 <li>Set your NIC IP to <code>192.168.1.100</code> and ensure the subnet mask is <code>255.255.255.0</code>. 🌐</li>
-<li>Try to access the switch at <code>192.168.1.254</code> using the default credentials (<code>cisco / cisco</code>).</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Oops! No access? 😬</p>
-<p>If you can’t get in, perform a factory reset! <strong>Here’s how:</strong></p>
-<p>Use a <strong>paperclip</strong> or another object to <strong>carefully</strong> press and hold the reset button on the front of the switch for <strong>15-20 seconds</strong>, then release. For more help, check out the <a href="https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html">Cisco Reset Guide</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because we're plugged directly into the switch we can communicate on the <strong>Layer 2 (L2) network</strong>, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!</p>
+<p><a href="https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/"><em>Layer 2 or Layer 3 - What's the Difference?</em> from <strong>Auvik</strong>📜</a></p>
 </div>
 <hr />
-<h2 id="2-reset-the-switch">2. Reset the Switch 🔄<a class="headerlink" href="#2-reset-the-switch" title="Permanent link">&para;</a></h2>
+<h2 id="2-connect-to-the-switch">2. Connect to the Switch 🔄<a class="headerlink" href="#2-connect-to-the-switch" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Ethernet Connection</strong>: Connect your computer to the switch via Ethernet.</li>
+<li><strong>Ethernet Connection</strong>: Connect your computer to the Cisco SG350X 24 Port Switch via an Ethernet cable into port 12 (top-right).</li>
 <li><strong>Set Static NIC Settings</strong>: Set your computer to <code>192.168.1.100/255.255.255.0</code> (no gateway needed at this point).</li>
 <li><strong>Access the Switch</strong>: Open a browser and visit <code>192.168.1.254</code> (or related DHCP address).</li>
 <li><strong>Login</strong>: Use the default credentials: (<code>cisco / cisco</code>) 🔑.</li>
 <li><strong>Change Password</strong>: Please change the password to something secure, such as <code>pass123!</code>.</li>
 </ul>
+<p>⚠️ Usernames and passwords are <strong>case sensitive</strong>, so be careful what you type!</p>
+<div class="admonition danger">
+<p class="admonition-title">Oops! No access? 😬</p>
+<p>If you can’t get in, perform a factory reset! <strong>Here’s how:</strong></p>
+<p>Use a <strong>paperclip</strong> or another object to <strong>carefully</strong> press and hold the reset button on the front of the switch for <strong>15-20 seconds</strong>, then release. For more help, check out the <a href="https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-350-series-managed-switches/smb985-how-to-manually-reboot-or-reset-a-switch.html">Cisco Reset Guide</a>.</p>
+</div>
 <hr />
 <h2 id="3-add-user-and-update-settings">3. Add User and Update Settings 🧑‍💻<a class="headerlink" href="#3-add-user-and-update-settings" title="Permanent link">&para;</a></h2>
 <p><strong>Add User</strong>:</p>
@@ -1004,18 +976,28 @@
 <li>Configure the time zone under <strong>Manual Settings</strong> by using the "Click Here" button to import from your computer.</li>
 <li>Click <strong>Apply</strong>. ⏰</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Why not use SNTP?</p>
+<p>In most cases it would probably make sense to configure SNTP servers for keeping time up-to-date. This allows the switch to check in with public servers whose sole purpose is keeping track of time. In this lab we won't have an outside Internet connection to reach the public servers, but be sure to try this out in future labs.</p>
+</div>
 <hr />
 <h2 id="4-save-configuration">4. Save Configuration 💾<a class="headerlink" href="#4-save-configuration" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Running Config vs Startup Config</strong>: The running config is the current active configuration, while the startup config is what loads when the device reboots. Always save your configuration to both to ensure your changes persist across reboots.</li>
-</ul>
-<hr />
+<div class="admonition tip">
+<p class="admonition-title">🛠️ Running and Startup Configurations with Cisco Switches</p>
+<p>When working with Cisco switches, understanding the distinction between <strong>running</strong> and <strong>startup configurations</strong> is critical for managing and preserving network settings effectively.</p>
+<p><br>
+🔄 The <strong>running configuration</strong> refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s <strong>RAM</strong>. If the switch is restarted or powered off, the running configuration is erased.</p>
+<p>💾 The <strong>startup configuration</strong> is the saved version of your settings stored in <strong>NVRAM</strong> (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.</p>
+</div>
+<p>🔑 <strong>Saving Changes in the Web GUI</strong></p>
+<p>To ensure your changes are preserved after a reboot, you must save the <strong>running configuration</strong> to the <strong>startup configuration</strong>. Along the top of the Web GUI you’ll notice a flashing <strong>Save Icon</strong> (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.</p>
+<p>💡<strong>Bailout Strategy</strong>:
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved <strong>startup configuration</strong>, effectively bailing you out.</p>
 <h2 id="5-firmware-upgrade">5. Firmware Upgrade 🔧<a class="headerlink" href="#5-firmware-upgrade" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files.</li>
-<li><strong>Check Firmware Version</strong>: Compare the current firmware version with the one provided in the lab files to ensure an upgrade is necessary.</li>
 <li>Navigate to <code>Administration &gt; File Management &gt; Firmware Operations</code>.</li>
-<li>Click <strong>Update Firmware</strong>, browse to the folder containing the firmware, and apply the upgrade. 🚀</li>
+<li>Click <strong>Update Firmware</strong>, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀</li>
 </ul>
 <hr />
 <h2 id="6-configure-ip-address">6. Configure IP Address 🌍<a class="headerlink" href="#6-configure-ip-address" title="Permanent link">&para;</a></h2>
@@ -1041,6 +1023,11 @@
 </ul>
 <hr />
 <h2 id="7-name-critical-interfaces">7. Name Critical Interfaces 🔌<a class="headerlink" href="#7-name-critical-interfaces" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">But do we have to?</p>
+<p>I'm sure you've worked a ticket before where you <em><strong>really</strong></em> wished someone labeled which port some critical device was plugged into. </p>
+<p>Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll <strong>save your teammates day</strong>!⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure <em>(firewalls, access points, switches, servers, printers, UPS)</em>, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.</p>
+</div>
 <ul>
 <li>Go to <code>Port Management &gt; Port Settings</code>.</li>
 <li>Click the radio button for <strong>GE1</strong> and scroll down to the bottom of the page then select <strong>edit</strong>. </li>
@@ -1089,8 +1076,7 @@
 </table>
 <p>Click <strong>Apply</strong> and save the configuration. 💾</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><strong>VLAN 1</strong> is already configured for you by default.</p>
+<p class="admonition-title">VLAN 1 is configured by default.</p>
 </div>
 <hr />
 <h2 id="9-auto-voice-vlan-and-smartport">9. Auto Voice VLAN and Smartport ☎️<a class="headerlink" href="#9-auto-voice-vlan-and-smartport" title="Permanent link">&para;</a></h2>
@@ -1102,14 +1088,14 @@
 </ul>
 <hr />
 <h2 id="10-access-vs-trunk-ports">10. Access vs Trunk Ports 🌐<a class="headerlink" href="#10-access-vs-trunk-ports" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>What's the difference between the two?</strong>💡</p>
 <ul>
 <li>
-<p><strong>Access Ports</strong>: Used for devices that only need to communicate with a <strong>single VLAN</strong>. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN only. Most ports should be configured to Access typically.</p>
+<p><strong>Access Ports</strong>: Used for devices that only need to communicate with a <strong>single VLAN or network</strong>. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN. Most ports should be configured to <strong>Access</strong> typically unless needed otherwise.</p>
 </li>
 <li>
-<p><strong>Trunk Ports</strong>: Configuring trunk ports allows the connected device to communicate with <strong>multiple VLANs</strong> instead of just one. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of <strong>all VLANs</strong> so you'd need to configure a single Trunk port for each port that links two switches together. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone can be plugged into the main Voice VLAN, but can then tag the Lan VLAN on the port so that the phone can passthru the Lan connection to a PC. </p>
+<p><strong>Trunk Ports</strong>: Configuring trunk ports allows the connected device to communicate with <strong>multiple VLANs</strong>. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of <strong>all possible VLANs</strong> so you'd need to configure a <strong>Trunk</strong> port on each switch. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC.</p>
 </li>
 </ul>
 </div>
@@ -1124,15 +1110,15 @@
 </ul>
 <h2 id="11-tagging-vlans">11. Tagging VLANs 🏷️<a class="headerlink" href="#11-tagging-vlans" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">These can be hard to keep straight!</p>
 <ul>
-<li><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default.</li>
-<li><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag other VLANs that the port should be able to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then you'd tag all other VLANs so that it can "passthru" those other VLANs so that they can be tagged on other ports on the switch.</li>
+<li><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default, especially in <em>'flat networks'</em> where there are no VLANs.</li>
+<li><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.</li>
 </ul>
 </div>
 <ul>
-<li>Navigate to <code>VLAN Management &gt; Port VLAN Membership &gt; Select GE2 and Join VLAN</code>.</li>
-<li>Select <strong>GE2 (Access Point)</strong> and click <strong>Join VLAN</strong></li>
+<li>Navigate to <code>VLAN Management &gt; Port VLAN Membership</code>.</li>
+<li>Select <strong>GE2 AP01</strong> and click <strong>Join VLAN</strong></li>
 <li>Set to <strong>User Defined</strong> and only tag the <strong>GUEST</strong> (<code>40</code>).</li>
 <li><strong>Apply</strong> your changes and close the window.</li>
 <li><strong>Save Config</strong>: Make sure all your changes are saved! 💾</li>
@@ -1142,10 +1128,12 @@
 <ul>
 <li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>
 <li>Select <strong>Backup File</strong>.</li>
-<li>Choose <strong>Running Config</strong> <em>(save your configuration if you didn't just do it!)</em>.</li>
-<li>Select <strong>HTTP/HTTPS</strong> or <strong>USB</strong> to download the backup file:</li>
+<li>Choose <strong>Running Config</strong> <em>(save your configuration if you didn't already do it!)</em>.</li>
+<li>Select <strong>HTTP/HTTPS</strong> or <strong>USB</strong> to download the backup file:<ul>
 <li>If using HTTP/HTTPS, the file will download directly to your PC via your browser.</li>
 <li>If using USB, ensure a USB drive is inserted into the switch. It will save to the root of the USB.</li>
+</ul>
+</li>
 <li><strong>Encrypt Sensitive Data</strong>: Always check the option to encrypt the configuration file to keep it secure. 🔒</li>
 <li>Name your backup file something useful: e.g., <code>username_cisco_config_lab1.txt</code>.</li>
 </ul>
@@ -1165,8 +1153,8 @@
 <li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>
 <li>Choose <strong>Update File</strong> and upload your saved config file to the <strong>Running Configuration</strong>. Hit <strong>Apply</strong>. </li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition danger">
+<p class="admonition-title">Connection Lost . . . 🤖</p>
 <p>Because you're updating to the running configuration, it should "instantly" switch to the IP stored in the config file. That means you're disconnected and need to update your NIC again. 😊</p>
 </div>
 <p><br>
@@ -1185,6 +1173,46 @@
 <li>Your lab is now ready for the next user! 🎉</li>
 </ul>
 <hr />
+<p>🎯<strong>Congratulations on completing this lab!</strong> At this point you'll have successfully learned how to:</p>
+<ol>
+<li>
+<p>🛠️ Update firmware and add users/passwords.</p>
+</li>
+<li>
+<p>💾 Save the running configuration to startup configuration.</p>
+</li>
+<li>
+<p>⏰ Configure time settings.</p>
+</li>
+<li>
+<p>🌐 Update the IP address for management access.</p>
+</li>
+<li>
+<p>📶 Add and configure VLANs.</p>
+</li>
+<li>
+<p>🔗 Update trunk ports for uplinks to a firewall and another switch.</p>
+</li>
+<li>
+<p>📂 Back up the configuration to a USB or PC.</p>
+</li>
+<li>
+<p>🔄 Factory reset the switch and restore the configuration.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title"><strong>The Bigger Picture</strong> 🌐</p>
+<p>This lab provided foundational skills for managing Cisco switches, but the techniques you’ve learned here apply across various network devices and scenarios from simple setups to complex enterprise environments.</p>
+<h3 id="next-steps">Next Steps 🚀<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Explore the GUI and practice restoring configurations to reinforce your troubleshooting skills.</li>
+<li>Experiment with SNTP time settings and other advanced features to enhance your understanding of its capabilities.</li>
+<li>Document the steps you’ve taken for future reference, ensuring that you can replicate and troubleshoot as needed.</li>
+<li>Move on to the next Lab once you're ready.</li>
+</ul>
+<p>By developing strong habits and staying consistent, you’ll be well-equipped to tackle real-world networking challenges in no time! </p>
+<p>Happy networking! 🌟</p>
+</div>
 
 
 
