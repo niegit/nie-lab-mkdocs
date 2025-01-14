@@ -39,7 +39,7 @@ This section outlines the physical and logical setup of the lab network for bett
 
 #### Cisco Switch Uplinks
 - **GE1**: Connects to Firewall Port 1 (LAN)  
-- **GE2**: Connects to Aruba Access Point  
+- **GE2**: Connects to Aruba Access Point
 - **GE3**: Connects to DC01's NIC (Raspberry Pi)  
 - **GE24**: Connects to SW02's GE1  
 

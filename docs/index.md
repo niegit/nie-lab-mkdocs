@@ -1,6 +1,25 @@
-# Internal Lab Guide
+# Welcome to the NIE Lab Site 🚀
 
-Welcome to the Internal Lab Guide for Network It Easy. Here, you'll find resources and step-by-step instructions for various practice labs to help enhance your skills. Navigate to our Labs to get started!
+This is your one-stop resource for hands-on practice and learning within the NIE lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
+
+
+## Get Started with Labs 🧑‍💻
+
+### 🔗 Quick Links
+Explore our curated labs and start building your expertise:
+
+- **[Networking Labs](labs/networking/lab_overview.md):** Configure switches, firewalls, and other networking essentials.
+- **[Azure Labs](labs/azure/azure_lab1.md):** Master cloud services and infrastructure with Azure.
 
 ---
-TO-DO: Link to the root of /lab
+
+### 📝 Next Steps
+1. **Pick a Lab:** Choose a category from the links above or use the navigation menu.
+2. **Follow the Steps:** Each lab is organized with detailed, step-by-step instructions.
+3. **Complete the Objectives:** Test your knowledge and grow your skills.
+
+<br>
+
+Need assistance? Contact us at **[it@networkiteasy.com](mailto:it@networkiteasy.com)** for any questions or help with labs.
+
+Happy Lab Learning! 🎉

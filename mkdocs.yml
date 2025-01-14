@@ -1,26 +1,41 @@
-site_name: Internal Lab Guide
-site_description: A guide for practice labs within NIE.
+site_name: NIE Lab Guide
+site_description: The Lab guide for all practice labs at NIE. Sharpen your skills with these exercises spanning networking, Microsoft, and general IT skills!
 site_author: Network It Easy
 theme:
   name: material
   features:
     - navigation.top  # Enables top navigation
     - navigation.tabs # Adds tabs for better organization
+    - navigation.footer # Enables previous/next page navigation
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
 plugins:
   - search
   - macros
+  - glightbox:
+      zoomable: true
+      shadow: true
 nav:
   - Home: index.md
   - Labs:
       - Networking:
           - Lab Overview: labs/networking/lab_overview.md
-          - Network Details: labs/networking/lab_info.md
+          - Network Details: labs/networking/network_info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
           - Lab 2: labs/networking/lab2.md
           - Lab 3: labs/networking/lab3.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
-
 extra:
   vlans:
     lan:
@@ -69,6 +84,7 @@ extra:
       custom_pass: "pass123!"
       description: "Cisco SG350X 24 Port Switch"
       banner: "NIE 24-Port Cisco Lab Switch"
+      mac: "40:A6:E8:EF:D0:EC"
     aruba_switch:
       name: "SW02"
       type: "Aruba 1930 Instant On 24 Port Switch"
@@ -77,6 +93,7 @@ extra:
       cidr: "/24"
       vlan: "LAN"
       description: "Aruba 1930 Instant On 24 Port Switch"
+      mac: "D4:E0:53:7B:38:A2"
     ap01:
       name: "AP01"
       type: "Aruba Instant On AP22"
@@ -85,7 +102,7 @@ extra:
       cidr: "/24"
       vlan: "LAN"
       description: "Aruba AP22 Instant On Access Point"
-      mac: 60:26:EF:CB:E6:CE
+      mac: "60:26:EF:CB:E6:CE"
     dc01:
       name: "DC01"
       type: "Windows Server"

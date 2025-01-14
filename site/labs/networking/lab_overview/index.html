@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A guide for practice labs within NIE.">
+        <meta name="description" content="The Lab guide for all practice labs at NIE. Sharpen your skills with these exercises spanning networking, Microsoft, and general IT skills!">
       
       
         <meta name="author" content="Network It Easy">
@@ -16,7 +16,7 @@
         <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../lab_info/">
+        <link rel="next" href="../network_info/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,11 +24,14 @@
     
     
       
-        <title>Lab Overview - Internal Lab Guide</title>
+        <title>Lab Overview - NIE Lab Guide</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -54,10 +57,26 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -66,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use-the-lab" class="md-skip">
+        <a href="#networking-lab-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +99,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Internal Lab Guide" class="md-header__button md-logo" aria-label="Internal Lab Guide" data-md-component="logo">
+    <a href="../../.." title="NIE Lab Guide" class="md-header__button md-logo" aria-label="NIE Lab Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -94,7 +113,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Internal Lab Guide
+            NIE Lab Guide
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -106,6 +125,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -125,7 +170,7 @@
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
@@ -234,13 +279,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Internal Lab Guide" class="md-nav__button md-logo" aria-label="Internal Lab Guide" data-md-component="logo">
+    <a href="../../.." title="NIE Lab Guide" class="md-nav__button md-logo" aria-label="NIE Lab Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Internal Lab Guide
+    NIE Lab Guide
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -364,6 +409,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -373,6 +429,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-setup-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Setup Overview 🛠️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Setup Overview 🛠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equipment-in-the-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equipment in the Rack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use the Lab
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -386,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab_info/" class="md-nav__link">
+      <a href="../network_info/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,6 +673,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-setup-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Setup Overview 🛠️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Setup Overview 🛠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equipment-in-the-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equipment in the Rack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use the Lab
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -578,8 +727,81 @@
                   
 
 
-<h1 id="how-to-use-the-lab">How To Use the Lab<a class="headerlink" href="#how-to-use-the-lab" title="Permanent link">&para;</a></h1>
-<p>Add Pictures and details of general "how to" when using NIE's networking lab.</p>
+<h1 id="networking-lab-overview">Networking Lab Overview<a class="headerlink" href="#networking-lab-overview" title="Permanent link">&para;</a></h1>
+<p>Welcome to the <strong>Networking Lab</strong>—a hands-on environment designed to help you sharpen your networking skills and explore NIE’s operations in a controlled, safe space. From configuring firewalls and switches to implementing VLANs for VoIP or troubleshooting network issues, this lab empowers you to experiment freely. Reset configurations and practice as much as you like!  </p>
+<div class="admonition tip">
+<p class="admonition-title">Test, Test, and Test Again!</p>
+<p>This is your <strong>safe space to fail and learn</strong>, so step outside your comfort zone and dive in! Here you can make changes without fear of bringing down the network or causing unexpected issues. Go ahead—break it and figure out how to fix it!</p>
+</div>
+<hr />
+<h2 id="lab-setup-overview">Lab Setup Overview 🛠️<a class="headerlink" href="#lab-setup-overview" title="Permanent link">&para;</a></h2>
+<p>Our lab is housed in a compact, rolling 12U rack that can be easily moved to your desk or a dedicated <strong>lab bench</strong>. Here's what you'll find in the rack:  </p>
+<h3 id="equipment-in-the-rack">Equipment in the Rack<a class="headerlink" href="#equipment-in-the-rack" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PDU (Power Distribution Unit):</strong> Powers all devices in the rack.  </li>
+<li><strong>WatchGuard T45:</strong> Firewall for network security and routing.  </li>
+<li><strong>Cisco SG350X-24P:</strong> Managed switch for core network configurations.  </li>
+<li><strong>Aruba Instant On 1930-24P:</strong> Secondary switch for extended network setups.  </li>
+<li><strong>Aruba Instant On AP22:</strong> Wireless access point for Wi-Fi connectivity.  </li>
+<li>(Planned) <strong>Raspberry Pi with Windows Server &amp; ADDS:</strong> A versatile server for labs involving Active Directory.  </li>
+</ul>
+<p><a class="glightbox" href="../img/rack-full-front.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network Rack Front View" src="../img/rack-full-front.png" /></a>  </p>
+<hr />
+<h2 id="how-to-use-the-lab">How to Use the Lab<a class="headerlink" href="#how-to-use-the-lab" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Position the Rack</strong>  </p>
+<ul>
+<li>Move the rack to your desk or the <strong>lab bench</strong>.  </li>
+<li>Ensure it’s stable and positioned conveniently.  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">⛔ Do Not Disturb ⛔</p>
+<p>While the lab is not overly noisy when running, please be sure not to disturb your teammates. If you are sitting next to someone, ask if they mind. Otherwise, feel free to move to a hoteling desk or the bench in the back!  </p>
+</div>
+</li>
+<li>
+<p><strong>Power It On</strong>  </p>
+<ul>
+<li>Plug the single <strong>PDU power cable</strong> into a wall outlet.  </li>
+<li>Power on the required devices as per the lab instructions.  </li>
+</ul>
+<p><em><strong>Note:</strong> You may need to open the plastic cover and flip the red master switch on the PDU.</em>  </p>
+</li>
+<li>
+<p><strong>Connect Your Laptop</strong>  </p>
+<ul>
+<li>Use the provided <strong>blue Ethernet cables</strong> to connect your laptop to the lab. The specific lab will give you more information on how to get connected.  </li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Connecting the Lab to Internet</p>
+<p><strong>Internet Access:</strong> If the specific lab calls for Internet, please be sure to connect the firewall WAN into the dedicated <strong>Lab Network</strong> port in the back room! <strong>Please do NOT plug any part of the lab into the existing corporate network.</strong>  </p>
+</div>
+</li>
+<li>
+<p><strong>Save Your Work</strong>  </p>
+<ul>
+<li>Use a <strong>USB drive</strong> to store lab files.  </li>
+<li>Alternatively, save them to <strong>OneDrive</strong> if you're working on the labs on your device.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Clean Up</strong>  </p>
+<ul>
+<li>Remove <strong>blue cables</strong> connecting your laptop or other endpoints.  </li>
+<li>Leave the infrastructure connected <em>(e.g., switches, firewall, AP)</em>.  </li>
+<li>Power off devices and neatly organize cables. Leave the rack ready for the next person!  </li>
+</ul>
+</li>
+<li>
+<p><strong>Report Issues</strong>  </p>
+<ul>
+<li>If you encounter any problems, contact <a href="mailto:it@networkiteasy.com">it@networkiteasy.com</a> for assistance.  </li>
+</ul>
+</li>
+</ol>
+<p><br>
+This lab is here to support your growth—have fun experimenting and learning! If you have any questions or feedback, please let us know!</p>
 
 
 
@@ -632,7 +854,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.pages"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
@@ -640,5 +862,7 @@
         <script src="../../../js/open_links_in_new_tab.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
