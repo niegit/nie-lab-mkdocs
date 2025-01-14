@@ -24,7 +24,7 @@
     
     
       
-        <title>Lab 1 - Internal Lab Guide</title>
+        <title>Lab 1 - Configure Cisco Switch - Internal Lab Guide</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-1-setting-up-a-cisco-sg-350x-24p-switch-using-the-web-gui" class="md-skip">
+        <a href="#lab-1-setting-up-a-cisco-sg350x-24-port-switch" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 1
+              Lab 1 - Configure Cisco Switch
             
           </span>
         </div>
@@ -359,7 +359,7 @@
         
   
   <span class="md-ellipsis">
-    Network Lab Info
+    Networking Information
   </span>
   
 
@@ -389,7 +389,7 @@
           
   
   <span class="md-ellipsis">
-    Lab 1
+    Lab 1 - Configure Cisco Switch
   </span>
   
 
@@ -400,7 +400,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 1
+    Lab 1 - Configure Cisco Switch
   </span>
   
 
@@ -422,9 +422,135 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-initial-setup-nic-configuration-and-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Initial Setup - NIC Configuration and Reset ⚙️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-reset-the-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Reset the Switch 🔄
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-add-user-and-update-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Add User and Update Settings 🧑‍💻
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-save-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Save Configuration 💾
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-firmware-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Firmware Upgrade 🔧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Configure IP Address 🌍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-name-critical-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Name Critical Interfaces 🔌
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-add-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Add VLANs 🖧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-voice-vlan-and-smartport" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Auto Voice VLAN and Smartport ☎️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-access-vs-trunk-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Access vs Trunk Ports 🌐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-tagging-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Tagging VLANs 🏷️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-backup-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Backup Configuration 🔐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-reset-the-switch-and-restore-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Reset the Switch and Restore Config 🔄
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-reset-for-future-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Reset for Future Labs 🔄
     </span>
   </a>
   
@@ -590,9 +716,135 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-initial-setup-nic-configuration-and-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Initial Setup - NIC Configuration and Reset ⚙️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-reset-the-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Reset the Switch 🔄
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-add-user-and-update-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Add User and Update Settings 🧑‍💻
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-save-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Save Configuration 💾
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-firmware-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Firmware Upgrade 🔧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Configure IP Address 🌍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-name-critical-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Name Critical Interfaces 🔌
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-add-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Add VLANs 🖧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-voice-vlan-and-smartport" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Auto Voice VLAN and Smartport ☎️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-access-vs-trunk-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Access vs Trunk Ports 🌐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-tagging-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Tagging VLANs 🏷️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-backup-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Backup Configuration 🔐
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-reset-the-switch-and-restore-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Reset the Switch and Restore Config 🔄
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-reset-for-future-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Reset for Future Labs 🔄
     </span>
   </a>
   
@@ -613,8 +865,35 @@
                   
 
 
-<h1 id="lab-1-setting-up-a-cisco-sg-350x-24p-switch-using-the-web-gui">Lab 1: Setting Up a Cisco SG-350X 24P Switch Using the Web GUI<a class="headerlink" href="#lab-1-setting-up-a-cisco-sg-350x-24p-switch-using-the-web-gui" title="Permanent link">&para;</a></h1>
-<p>This lab guides you through the complete setup process of a Cisco SG-350X 24P switch using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
+<!-- To Fix
+
+- Start with uplinking from your PC to a port into the switch
+
+- Add generic instructions for configuring NIC. Might be best to add into a main page and link to it for multiple uses. Mention disabling dock if using on dock.
+
+- Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
+
+- Step 2 should be "Connect to Switch" and reset if necessary vs just reset it. Mention why there's no gateway needed since it's all L2 and no L3/router
+
+- Mention case sensitivity with uers/passwords
+
+- Update the time settings to say that typically you'd use SNTP but we don't have Internet in this portion, so it can't talk to get out.
+
+- Explain Run and Start config and why it's important to save!
+
+- Explain the firmware process but skip it since it's already updated?
+
+- Get Lab Sharepoint setup for Files
+
+- Why we update critical interfaces!
+
+- Recap at the end, mention the importance of saving your config files somewhere. 
+
+ -->
+
+<h1 id="lab-1-setting-up-a-cisco-sg350x-24-port-switch">Lab 1: Setting Up a Cisco SG350X 24 Port Switch<a class="headerlink" href="#lab-1-setting-up-a-cisco-sg350x-24-port-switch" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This lab guides you through the complete setup process of a Cisco SG350X 24 Port Switch using its web GUI. By the end of this lab, you'll have configured the switch, saved and backed up its configuration, and tested factory reset and restoration.</p>
 <p>🎯 <strong>What You'll Learn:</strong></p>
 <ol>
 <li>
@@ -643,24 +922,19 @@
 </li>
 </ol>
 <hr />
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>⚡ <strong>Before You Begin:</strong>  </p>
 <ul>
 <li>
-<p>Access to the Cisco SG-350X 24P switch.  </p>
+<p>Access to the Cisco SG350X 24 Port Switch (<em>SW01</em>).  </p>
 </li>
 <li>
 <p>A PC connected to the switch for accessing the web GUI. </p>
 </li>
 <li>
-<p>Switch default IP address or a method to discover its current IP.  </p>
-</li>
-<li>
-<p>Cisco switch login credentials.  </p>
+<p>A USB or PC to save and restore configuration files to and from.</p>
 </li>
 </ul>
 <hr />
-<h1 id="cisco-switch-setup-lab">Cisco Switch Setup Lab 🛠️<a class="headerlink" href="#cisco-switch-setup-lab" title="Permanent link">&para;</a></h1>
 <h2 id="1-initial-setup-nic-configuration-and-reset">1. Initial Setup - NIC Configuration and Reset ⚙️<a class="headerlink" href="#1-initial-setup-nic-configuration-and-reset" title="Permanent link">&para;</a></h2>
 <p>Before beginning, update your NIC settings:</p>
 <ul>
@@ -682,9 +956,9 @@
 <li><strong>Change Password</strong>: Please change the password to something secure, such as <code>pass123!</code>.</li>
 </ul>
 <hr />
-<h3 id="3-add-user-and-update-settings">3. Add User and Update Settings 🧑‍💻<a class="headerlink" href="#3-add-user-and-update-settings" title="Permanent link">&para;</a></h3>
+<h2 id="3-add-user-and-update-settings">3. Add User and Update Settings 🧑‍💻<a class="headerlink" href="#3-add-user-and-update-settings" title="Permanent link">&para;</a></h2>
+<p><strong>Add User</strong>:</p>
 <ul>
-<li><strong>Add User</strong>:</li>
 <li>Go to <code>Administration &gt; User Accounts &gt; Add</code>.</li>
 <li>Create a user with these details:<ul>
 <li><strong>Username</strong>: <code>nie</code></li>
@@ -692,25 +966,21 @@
 <li><strong>Level</strong>: <code>15</code> (this gives admin privileges).</li>
 </ul>
 </li>
-<li>
-<p><strong>Note</strong>: Make sure the user has full administrative rights (Level 15) to make all necessary configuration changes. 🛠️</p>
-</li>
-<li>
+<li><strong>Note</strong>: Make sure the user has full administrative rights (Level 15) to make all necessary configuration changes. 🛠️</li>
+</ul>
 <p><strong>System Settings</strong>:</p>
-</li>
+<ul>
 <li>Go to <code>Administration &gt; System Settings</code>.</li>
 <li>Set the <strong>System Location</strong> to <code>5400 Patton Dr. Unit 4A, Lisle, Illinois 60532</code>.</li>
 <li>Set the <strong>Contact</strong> to <code>support@networkiteasy.com</code>.</li>
-<li>Change the <strong>Host Name</strong> to a friendly name: <code>SW01</code></li>
+<li>Change the <strong>Host Name</strong> to <strong>User Defined</strong> and give it a new name: <code>SW01</code></li>
 <li>Set a <strong>Login Banner</strong> and <strong>Welcome Banner</strong> (you can use the same text): <code>NIE 24-Port Cisco Lab Switch</code>.</li>
-<li>
-<p>Click <strong>Apply</strong>. 👍</p>
-</li>
-<li>
+<li>Click <strong>Apply</strong>. 👍</li>
+</ul>
 <p><strong>Time Settings</strong>:</p>
-</li>
+<ul>
 <li>Go to <code>Administration &gt; Time Settings &gt; System Time</code>.</li>
-<li>Configure the time zone to <strong>UTC -6 (Central)</strong> or set it from "Click Here" to import from your computer.</li>
+<li>Configure the time zone under <strong>Manual Settings</strong> by using the "Click Here" button to import from your computer.</li>
 <li>Click <strong>Apply</strong>. ⏰</li>
 </ul>
 <hr />
@@ -730,10 +1000,17 @@
 <h2 id="6-configure-ip-address">6. Configure IP Address 🌍<a class="headerlink" href="#6-configure-ip-address" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Navigate to <code>IP Configuration &gt; IPv4 Management and Interfaces &gt; IPv4 Interface</code>.</li>
-<li>Add the new IP address:</li>
+<li>
+<p>Add the new Static IP address and <strong>Apply</strong> the details below:</p>
+<ul>
 <li><strong>IP Address</strong>: <code>192.168.10.2</code></li>
-<li><strong>Subnet Mask</strong>: <code>255.255.255.0</code></li>
-<li>Update your NIC adapter settings to a compatible address within the same subnet (e.g., <code>192.168.1.100</code>).</li>
+<li><strong>Network Mask</strong>: <code>255.255.255.0</code></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>OK</strong> through the popup. The switch will now lose connection as it updates to the new IP address.</p>
+</li>
+<li>Update your NIC adapter settings to a compatible address within the same subnet (e.g., <code>192.168.10.100</code>).</li>
 <li>
 <p>Re-navigate to the switch's new IP (<code>192.168.10.2</code>) and log in again.</p>
 </li>
@@ -745,12 +1022,19 @@
 <h2 id="7-name-critical-interfaces">7. Name Critical Interfaces 🔌<a class="headerlink" href="#7-name-critical-interfaces" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Go to <code>Port Management &gt; Port Settings</code>.</li>
-<li>For each port:</li>
-<li><strong>GE1</strong>: Set the Description to <code>Firewall Uplink</code>.</li>
-<li><strong>GE2</strong>: Set the Description to <code>Aruba AP1</code>.</li>
-<li><strong>GE3</strong>: Set the Description to <code>DC1</code>.</li>
-<li><strong>GE24</strong>: Set the Description to <code>Uplink to Aruba Switch</code>.</li>
-<li>Click <strong>Apply</strong>. 🔧</li>
+<li>Click the radio button for <strong>GE1</strong> and scroll down to the bottom of the page then select <strong>edit</strong>. </li>
+<li>Set the Description to <code>NIE-LAB-T45-PAX8</code> and click <strong>Apply</strong>.</li>
+<li>
+<p>You can switch ports from within the window by selecting them in the Port dropdown at the top. <strong>Update and Apply</strong> the descriptions for each of the remaining ports below:</p>
+<ul>
+<li><strong>GE2</strong>: <code>AP01</code>.</li>
+<li><strong>GE3</strong>: <code>DC01</code>.</li>
+<li><strong>GE24</strong>: <code>SW02</code>.</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Close</strong> when the critical ports have all benn renamed. 🔧</p>
+</li>
 </ul>
 <hr />
 <h2 id="8-add-vlans">8. Add VLANs 🖧<a class="headerlink" href="#8-add-vlans" title="Permanent link">&para;</a></h2>
@@ -783,78 +1067,93 @@
 </tbody>
 </table>
 <p>Click <strong>Apply</strong> and save the configuration. 💾</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>VLAN 1</strong> is already configured for you by default.</p>
+</div>
 <hr />
-<h2 id="9-auto-voice-vlan-and-smartport">9. Auto Voice VLAN and Smartport 🎤<a class="headerlink" href="#9-auto-voice-vlan-and-smartport" title="Permanent link">&para;</a></h2>
+<h2 id="9-auto-voice-vlan-and-smartport">9. Auto Voice VLAN and Smartport ☎️<a class="headerlink" href="#9-auto-voice-vlan-and-smartport" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Navigate to <code>VLAN Management &gt; Voice VLAN &gt; Properties</code>.</li>
 <li>Set the <strong>Voice VLAN ID</strong> to <code>30</code> and click <strong>Apply</strong> and <strong>OK</strong>.</li>
 <li>Go to <code>Smartport &gt; Properties</code>.</li>
-<li>Confirm that <strong>Smartport</strong> is enabled by <strong>Auto Voice VLAN</strong>. 🎶</li>
+<li>Set <strong>Smartport</strong> to <code>enabled by Auto Voice VLAN</code>.</li>
 </ul>
 <hr />
-<h2 id="10-trunk-vs-access-ports">10. Trunk vs Access Ports 🌐<a class="headerlink" href="#10-trunk-vs-access-ports" title="Permanent link">&para;</a></h2>
+<h2 id="10-access-vs-trunk-ports">10. Access vs Trunk Ports 🌐<a class="headerlink" href="#10-access-vs-trunk-ports" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <ul>
-<li><strong>Trunk Ports</strong>: Used for devices that need to communicate with multiple VLANs (e.g., PC with both data and VoIP).</li>
-<li><strong>Access Ports</strong>: Used for devices that only need to communicate with a single VLAN (e.g., security camera on the security VLAN).</li>
+<li>
+<p><strong>Access Ports</strong>: Used for devices that only need to communicate with a <strong>single VLAN</strong>. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN only. Most ports should be configured to Access typically.</p>
+</li>
+<li>
+<p><strong>Trunk Ports</strong>: Configuring trunk ports allows the connected device to communicate with <strong>multiple VLANs</strong> instead of just one. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of <strong>all VLANs</strong> so you'd need to configure a single Trunk port for each port that links two switches together. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone can be plugged into the main Voice VLAN, but can then tag the Lan VLAN on the port so that the phone can passthru the Lan connection to a PC. </p>
+</li>
 </ul>
-<hr />
-<h2 id="11-adjusting-interfaces">11. Adjusting Interfaces ⚙️<a class="headerlink" href="#11-adjusting-interfaces" title="Permanent link">&para;</a></h2>
+</div>
 <ul>
 <li>Navigate to <code>VLAN Management &gt; Interface Settings</code>.</li>
-<li>Select the following interfaces and change them to <strong>Trunk</strong>:</li>
-<li><strong>GE1</strong>: Firewall Uplink.</li>
-<li><strong>GE2</strong>: Aruba AP1.</li>
-<li><strong>GE24</strong>: Uplink to Aruba Switch.</li>
+<li><strong>Select</strong> the following interfaces and <strong>edit</strong> them to <strong>Trunk</strong> and <strong>Apply</strong>:<ul>
+<li><strong>GE1</strong>: <code>NIE-LAB-T45-PAX8</code>.</li>
+<li><strong>GE2</strong>: <code>AP01</code>.</li>
+<li><strong>GE24</strong>: <code>SW02</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-tagging-vlans">11. Tagging VLANs 🏷️<a class="headerlink" href="#11-tagging-vlans" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default.</li>
+<li><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag other VLANs that the port should be able to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then you'd tag all other VLANs so that it can "passthru" those other VLANs so that they can be tagged on other ports on the switch.</li>
+</ul>
+</div>
+<ul>
 <li>Navigate to <code>VLAN Management &gt; Port VLAN Membership &gt; Select GE2 and Join VLAN</code>.</li>
-<li>
-<p><strong>GE2 (Access Point)</strong> should only have VLAN <code>40</code> (GUEST ) Tagged and Native VLAN set to <code>1</code> (LAN).</p>
-</li>
-<li>
-<p><strong>Save Config</strong>: Make sure all your changes are saved! 💾</p>
-</li>
+<li>Select <strong>GE2 (Access Point)</strong> and click <strong>Join VLAN</strong></li>
+<li>Set to <strong>User Defined</strong> and only tag the <strong>GUEST</strong> (<code>40</code>).</li>
+<li><strong>Apply</strong> your changes and close the window.</li>
+<li><strong>Save Config</strong>: Make sure all your changes are saved! 💾</li>
 </ul>
 <hr />
 <h2 id="12-backup-configuration">12. Backup Configuration 🔐<a class="headerlink" href="#12-backup-configuration" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>
 <li>Select <strong>Backup File</strong>.</li>
-<li>Choose either <strong>Running Config</strong> or <strong>Startup Config</strong>.</li>
+<li>Choose <strong>Running Config</strong> <em>(save your configuration if you didn't just do it!)</em>.</li>
 <li>Select <strong>HTTP/HTTPS</strong> or <strong>USB</strong> to download the backup file:</li>
-<li>If using HTTP/HTTPS, the file will download directly to your browser.</li>
-<li>If using USB, ensure a USB drive is inserted into the switch.</li>
+<li>If using HTTP/HTTPS, the file will download directly to your PC via your browser.</li>
+<li>If using USB, ensure a USB drive is inserted into the switch. It will save to the root of the USB.</li>
 <li><strong>Encrypt Sensitive Data</strong>: Always check the option to encrypt the configuration file to keep it secure. 🔒</li>
 <li>Name your backup file something useful: e.g., <code>username_cisco_config_lab1.txt</code>.</li>
 </ul>
 <hr />
 <h2 id="13-reset-the-switch-and-restore-config">13. Reset the Switch and Restore Config 🔄<a class="headerlink" href="#13-reset-the-switch-and-restore-config" title="Permanent link">&para;</a></h2>
+<p><strong>Reset to Factory Defaults</strong></p>
 <ul>
-<li>
-<p>Navigate to <code>Administration &gt; Reboot</code>.</p>
-</li>
-<li>
-<p>Choose <strong>Immediate</strong> and select <strong>Restore to Factory Defaults</strong>. Click <strong>Reboot</strong>.</p>
-</li>
-<li>
-<p>Reset your NIC Adapter to something like <code>192.168.1.100</code> and reconnect to the switch at <code>192.168.1.254</code>.</p>
-</li>
-<li>
-<p>Log in using the temporary password and reset it.</p>
-</li>
-<li>
-<p>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</p>
-</li>
-<li>
-<p>Choose <strong>Update File</strong> and upload your saved config file.</p>
-</li>
-<li>
-<p>Set the NIC to <code>192.168.1.100</code> and reconnect to the switch at <code>192.168.10.2</code>.</p>
-</li>
-<li>
-<p>Ensure all your settings are restored.</p>
-</li>
-<li>
-<p><strong>Save Config</strong>: Don’t forget to save your running config to the startup config to ensure persistence after reboot.</p>
-</li>
+<li>Navigate to <code>Administration &gt; Reboot</code>.</li>
+<li>Choose <strong>Immediate</strong> and select <strong>Restore to Factory Defaults</strong>. Click <strong>Reboot</strong> and <strong>OK</strong>.</li>
+</ul>
+<p><br>
+<strong>Restore the Configuration</strong></p>
+<ul>
+<li>Reset your NIC Adapter to something like <code>192.168.1.100</code> and reconnect to the switch at the default IP <code>192.168.1.254</code>.</li>
+<li>Log in using the default credentials (<code>cisco/cisco</code>).</li>
+<li>Configure a temporary new password to complete the login.</li>
+<li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>
+<li>Choose <strong>Update File</strong> and upload your saved config file to the <strong>Running Configuration</strong>. Hit <strong>Apply</strong>. </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because you're updating to the running configuration, it should "instantly" switch to the IP stored in the config file. That means you're disconnected and need to update your NIC again. 😊</p>
+</div>
+<p><br>
+<strong>Reconnect to the Switch</strong></p>
+<ul>
+<li>Set the NIC to <code>192.168.10.100</code> and reconnect to the switch at <code>192.168.10.2</code>. You should notice your Welcome Message is configured if successful.</li>
+<li>Ensure all your settings are restored. </li>
+<li><strong>Save Config</strong>: Don’t forget to save your running config to the startup config to ensure persistence after reboot!</li>
 </ul>
 <hr />
 <h2 id="14-reset-for-future-labs">14. Reset for Future Labs 🔄<a class="headerlink" href="#14-reset-for-future-labs" title="Permanent link">&para;</a></h2>
@@ -865,7 +1164,6 @@
 <li>Your lab is now ready for the next user! 🎉</li>
 </ul>
 <hr />
-<p><strong>End of Lab Instructions</strong></p>
 
 
 
@@ -904,21 +1202,6 @@
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
-    </a>
-  
-</div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/nie-git/nie-labs-mkdocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>

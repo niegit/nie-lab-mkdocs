@@ -24,7 +24,7 @@
     
     
       
-        <title>Network Lab Info - Internal Lab Guide</title>
+        <title>Networking Information - Internal Lab Guide</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Network Lab Info
+              Networking Information
             
           </span>
         </div>
@@ -368,7 +368,7 @@
         
   
   <span class="md-ellipsis">
-    Network Lab Info
+    Networking Information
   </span>
   
 
@@ -390,7 +390,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 1
+    Lab 1 - Configure Cisco Switch
   </span>
   
 
@@ -558,12 +558,13 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p>The Networking lab section is intended to help get you comfortable with general networking information and processes related to Network It easy. From configuring new hardware like firewalls and switches, to implementing VLANs for VoIP platforms, to troubleshooting common networking problems. All we ask is for your attention and effort in working through these logs. Let's raise the tide together!</p>
+<p>The Networking lab section is intended to help get you comfortable with general networking information and processes related to Network It Easy. From configuring new hardware like firewalls and switches, to implementing VLANs for VoIP platforms, to troubleshooting common networking problems. All we ask is for your attention and effort in working through these logs. Let's raise the tide together!</p>
 <p>The information below will be useful throughout the networking portion of the labs. Here you will find common VLANs and networks, device specific information, and common tasks used throughout such as backing up and restoring configurations. </p>
 <p>Good luck! Please reach out to your manager or appropriate resources if you need assistance.</p>
+<p><br><br></p>
 <h1 id="lab-information-and-details">Lab Information and Details<a class="headerlink" href="#lab-information-and-details" title="Permanent link">&para;</a></h1>
 <h2 id="vlan-summary">🔶 VLAN Summary<a class="headerlink" href="#vlan-summary" title="Permanent link">&para;</a></h2>
-<p>This section provides an overview of all VLANs in the lab, including their associated IDs, subnets, and default gateways. Each VLAN serves to isolate network traffic for different purposes, ensuring better security and performance.</p>
+<p>This section provides an overview of all VLANs in the lab, including their associated IDs, subnets, default gateways, DHCP servers, and ranges. Each VLAN serves to isolate network traffic for different purposes, ensuring better security and performance.</p>
 <table>
 <thead>
 <tr>
@@ -571,7 +572,8 @@
 <th><strong>VLAN ID</strong></th>
 <th><strong>Subnet</strong></th>
 <th><strong>Default Gateway</strong></th>
-<th><strong>Description</strong></th>
+<th><strong>DHCP Server</strong></th>
+<th><strong>DHCP Range</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -580,28 +582,32 @@
 <td>1</td>
 <td>192.168.10.0/24</td>
 <td>192.168.10.1</td>
-<td>Main Office Data VLAN</td>
+<td>DC01</td>
+<td>192.168.10.10 - .254</td>
 </tr>
 <tr>
 <td>SECURITY</td>
 <td>20</td>
 <td>192.168.20.0/24</td>
 <td>192.168.20.1</td>
-<td>Security devices (Cameras, NVR, Building Access Controls)</td>
+<td>Firewall</td>
+<td>192.168.20.50 - .254</td>
 </tr>
 <tr>
 <td>VOIP</td>
 <td>30</td>
 <td>192.168.30.0/24</td>
 <td>192.168.30.1</td>
-<td>IP phones and voice-related services</td>
+<td>Allworx Server</td>
+<td>192.168.30.50 - .253</td>
 </tr>
 <tr>
 <td>GUEST</td>
 <td>40</td>
 <td>192.168.40.0/26</td>
 <td>192.168.40.1</td>
-<td>Isolated guest network (for up to 62 devices)</td>
+<td>Firewall</td>
+<td>192.168.40.10 - .62</td>
 </tr>
 </tbody>
 </table>
@@ -616,37 +622,33 @@
 <th><strong>IP Address</strong></th>
 <th><strong>VLAN</strong></th>
 <th><strong>MAC Address</strong></th>
-<th><strong>Location</strong></th>
 <th><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SW01</td>
-<td>Cisco Switch</td>
+<td>Cisco SG350X 24 Port Switch</td>
 <td>192.168.10.2</td>
 <td>LAN</td>
 <td>Not Available</td>
-<td>Not Specified</td>
-<td>No description defined.</td>
+<td>Cisco SG350X 24 Port Switch</td>
 </tr>
 <tr>
 <td>SW02</td>
-<td>Aruba Switch</td>
+<td>Aruba 1930 Instant On 24 Port Switch</td>
 <td>192.168.10.3</td>
 <td>LAN</td>
 <td>Not Available</td>
-<td>Not Specified</td>
-<td>No description defined.</td>
+<td>Aruba 1930 Instant On 24 Port Switch</td>
 </tr>
 <tr>
 <td>AP01</td>
 <td>Access Point</td>
 <td>192.168.10.5</td>
 <td>LAN</td>
-<td>Not Available</td>
-<td>Not Specified</td>
-<td>No description defined.</td>
+<td>60:26:EF:CB:E6:CE</td>
+<td>Aruba AP22 Instant On Access Point</td>
 </tr>
 <tr>
 <td>DC01</td>
@@ -654,8 +656,7 @@
 <td>192.168.10.10</td>
 <td>LAN</td>
 <td>Not Available</td>
-<td>Not Specified</td>
-<td>No description defined.</td>
+<td>Windows Server 2022 running Active Directory.</td>
 </tr>
 <tr>
 <td>Allworx</td>
@@ -663,26 +664,18 @@
 <td>192.168.30.254</td>
 <td>VOIP</td>
 <td>Not Available</td>
-<td>Not Specified</td>
-<td>No description defined.</td>
+<td>Allworx Verge XXXX Server. Allows for a full-fledged on-prem VoIP system.</td>
+</tr>
+<tr>
+<td>NIE-LAB-T45-PAX8</td>
+<td>WatchGuard Firewall</td>
+<td>192.168.10.1</td>
+<td>LAN</td>
+<td>Not Available</td>
+<td>WatchGuard T45 Firewall.</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="configuration-details">🛠️ Configuration Details<a class="headerlink" href="#configuration-details" title="Permanent link">&para;</a></h2>
-<p>This section outlines key configuration settings for the lab setup, including time settings, management IPs, and firmware versions.</p>
-<ul>
-<li><strong>Time Settings</strong>: The lab's devices synchronize with an NTP server to ensure accurate timekeeping.</li>
-<li><strong>Management IPs</strong>: Devices are assigned fixed IPs for remote management:<ul>
-<li><strong>Cisco Switch</strong>: <code>192.168.10.2</code></li>
-<li><strong>Aruba Switch</strong>: <code>192.168.10.3</code></li>
-<li><strong>Access Point</strong>: <code>192.168.10.5</code></li>
-<li><strong>Windows Server (DC01)</strong>: <code>192.168.10.10</code></li>
-<li><strong>Allworx Server</strong>: <code>192.168.30.254</code></li>
-</ul>
-</li>
-<li><strong>Firmware Versions</strong>: Ensure that all devices run the latest available firmware.</li>
-</ul>
 <hr />
 <h2 id="network-design-and-topology">🔄 Network Design and Topology<a class="headerlink" href="#network-design-and-topology" title="Permanent link">&para;</a></h2>
 <p><strong>Firewall Uplink</strong>:</p>
@@ -707,7 +700,6 @@
 <p>Configuration files are regularly backed up to ensure recovery in case of failure. <strong>Backup Location</strong>: <code>USB/HTTP</code></p>
 <h3 id="recovery">Recovery:<a class="headerlink" href="#recovery" title="Permanent link">&para;</a></h3>
 <p>To restore a configuration, use the <strong>File Operations</strong> section and upload the saved config file after performing a factory reset.</p>
-<h3 id="end-of-lab-information">End of Lab Information<a class="headerlink" href="#end-of-lab-information" title="Permanent link">&para;</a></h3>
 
 
 
@@ -746,21 +738,6 @@
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
-    </a>
-  
-</div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/nie-git/nie-labs-mkdocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
