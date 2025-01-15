@@ -2,14 +2,6 @@
   "navigationFallback": {
     "rewrite": "/index.html"
   },
-  "routes": [
-    {
-      "route": "/*",
-      "allowedRoles": [
-        "authenticated"
-      ]
-    }
-  ],
   "responseOverrides": {
     "401": {
       "statusCode": 302,
