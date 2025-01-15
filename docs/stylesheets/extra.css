@@ -1,0 +1,33 @@
+/* Light Mode */
+[data-md-color-scheme="default"] {
+  /* Header and tab text colors in light mode */
+  --md-primary-fg-color: #242524; /* Header text and tab names */
+  --md-accent-fg-color: #F15A2B; /* Hover/active accent color */
+
+  /* Default link color for documents in light mode */
+  --md-typeset-a-color: #1a73e8; /* Default blue for links */
+  --md-typeset-a-color--hover: #F15A2B; /* Accent color on hover */
+}
+
+/* Dark Mode */
+[data-md-color-scheme="slate"] {
+  /* Header and tab text colors in dark mode */
+  --md-primary-fg-color: #242524; /* Header text and tab names */
+  --md-accent-fg-color: #F15A2B; /* Hover/active accent color */
+
+  /* Default link color for documents in dark mode */
+  --md-typeset-a-color: #8ab4f8; /* Lighter blue for links in dark mode */
+  --md-typeset-a-color--hover: #F15A2B; /* Accent color on hover */
+}
+
+/* Apply the link colors to the document content */
+.md-typeset a {
+  color: var(--md-typeset-a-color);
+  text-decoration: none; /* Optional: Removes underline */
+  transition: color 0.3s ease;
+}
+
+.md-typeset a:hover {
+  color: var(--md-typeset-a-color--hover);
+  text-decoration: underline; /* Optional: Adds underline on hover */
+}

@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -76,7 +78,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -131,7 +133,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -141,7 +143,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -490,7 +492,7 @@
         
   
   <span class="md-ellipsis">
-    Network Details
+    Network Information
   </span>
   
 
@@ -714,17 +716,17 @@
 
 
 <h1 id="networking-lab-overview">Networking Lab Overview<a class="headerlink" href="#networking-lab-overview" title="Permanent link">&para;</a></h1>
-<p>Welcome to the <strong>Networking Lab</strong>—a hands-on environment designed to help you sharpen your networking skills and explore NIE’s operations in a controlled, safe space. From configuring firewalls and switches to implementing VLANs for VoIP or troubleshooting network issues, this lab empowers you to experiment freely. Reset configurations and practice as much as you like!  </p>
+<p>Welcome to our <strong>Networking Labs</strong>—a hands-on environment designed to help you sharpen your networking skills and explore NIE’s operations in a controlled, safe space. From configuring firewalls and switches to implementing VLANs for VoIP or troubleshooting network issues, this lab empowers you to experiment freely. Reset configurations and practice as much as you like!  </p>
 <div class="admonition tip">
 <p class="admonition-title">Test, Test, and Test Again!</p>
-<p>This is your <strong>safe space to fail and learn</strong>, so step outside your comfort zone and dive in! Here you can make changes without fear of bringing down the network or causing unexpected issues. Go ahead—break it and figure out how to fix it!</p>
+<p>This is a <strong>safe space to fail and learn</strong>, so step outside your comfort zone and dive in! Here you can make changes without fear of bringing down the network or causing unexpected issues. Go ahead—break it and figure out how to fix it!</p>
 </div>
 <p><br></p>
 <h2 id="equipment-in-the-rack">Equipment in the Rack<a class="headerlink" href="#equipment-in-the-rack" title="Permanent link">&para;</a></h2>
 <p>Our lab is housed in a compact, rolling 12U rack that can be easily moved to your desk or a dedicated <strong>lab bench</strong>. Here's what you'll find in the rack:  </p>
 <ul>
 <li><strong>PDU (Power Distribution Unit):</strong> Powers all devices in the rack.  </li>
-<li><strong>WatchGuard T45:</strong> Firewall for network security and routing.  </li>
+<li><strong>WatchGuard T45:</strong> Firewall appliance for network security and routing.  </li>
 <li><strong>Cisco SG350X-24P:</strong> Managed switch ideal for more robust network configurations.  </li>
 <li><strong>Aruba Instant On 1930-24P:</strong> Cloud managed switch perfect for SMB network setups.  </li>
 <li><strong>Aruba Instant On AP22:</strong> Cloud managed wireless access point that enables Wi-Fi connectivity.  </li>
@@ -733,47 +735,46 @@
 <p><a class="glightbox" href="../img/rack-full-front.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network Rack Front View" src="../img/rack-full-front.png" /></a>  </p>
 <hr />
 <h2 id="how-to-use-the-lab">How to Use the Lab<a class="headerlink" href="#how-to-use-the-lab" title="Permanent link">&para;</a></h2>
+<p>Each lab will provide you with the specific instructions to complete that lab, but below is <strong>general</strong> information about getting setup.</p>
 <ol>
 <li>
 <p><strong>Position the Rack</strong>  </p>
 <ul>
-<li>Move the rack to your desk or the <strong>lab bench</strong>.  </li>
-<li>Ensure it’s stable and positioned conveniently.  </li>
+<li>Move the rack to your desk or the <strong>lab bench</strong> in the back room. <em>You may need to unlock the caster wheels on the front of the rack.</em></li>
+<li>Ensure it’s stable and positioned conveniently, but out of the way of others.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">⛔ Do Not Disturb ⛔</p>
-<p>While the lab is not overly noisy when running, please be sure not to disturb your teammates. If you are sitting next to someone, ask if they mind. Otherwise, feel free to move to a hoteling desk or the bench in the back!  </p>
+<p>While the lab is not overly noisy, please be considerate of those around you. If you are sitting near someone, please ask if they mind if you power on the lab. Otherwise, feel free to move to a hoteling desk or the lab bench in the back!  </p>
 </div>
 </li>
 <li>
 <p><strong>Power It On</strong>  </p>
 <ul>
-<li>Plug the single <strong>PDU power cable</strong> into a wall outlet.  </li>
-<li>Power on the required devices as per the lab instructions.  </li>
+<li>Plug the single <strong>PDU power cable</strong> into a wall outlet to provide power to the entire rack. <em>You may need to open the plastic cover and flip the red master switch on the PDU.</em></li>
 </ul>
-<p><em><strong>Note:</strong> You may need to open the plastic cover and flip the red master switch on the PDU.</em>  </p>
 </li>
 <li>
 <p><strong>Connect Your Laptop</strong>  </p>
 <ul>
-<li>Use the provided <strong>blue Ethernet cables</strong> to connect your laptop to the lab. The specific lab will give you more information on how to get connected.  </li>
+<li>Use the provided <strong>blue Ethernet cables</strong> to connect your laptop to the lab. Each specific lab will give you more information on how to get connected. If you need additional cables please let someone know.</li>
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Connecting the Lab to Internet</p>
-<p><strong>Internet Access:</strong> If the specific lab calls for Internet, please be sure to connect the firewall WAN into the dedicated <strong>Lab Network</strong> port in the back room! <strong>Please do NOT plug any part of the lab into the existing corporate network.</strong>  </p>
+<p><strong>Internet Access:</strong> Most of our labs don't require Internet to function as we're mostly communicating on the Layer 2 network. If a specific lab calls for Internet, please be sure to connect the firewall WAN into the dedicated <strong>Lab Network</strong> port in the back room! <strong>Please do NOT plug any part of the lab into the existing network.</strong>  </p>
 </div>
 </li>
 <li>
 <p><strong>Save Your Work</strong>  </p>
 <ul>
-<li>Use a <strong>USB drive</strong> to store lab files.  </li>
-<li>Alternatively, save them to <strong>OneDrive</strong> if you're working on the labs on your device.  </li>
+<li>Our labs will continuously build onto one another, so having a defined placed to store your configuration files will be important. We recommend saving them to your <strong>OneDrive</strong> or to a dedicated <strong>USB drive</strong>.  </li>
+<li>By doing this, you'll be able to quickly restore your previous configurations and pick up exactly where you left off last time!</li>
 </ul>
 </li>
 <li>
 <p><strong>Clean Up</strong>  </p>
 <ul>
-<li>Remove <strong>blue cables</strong> connecting your laptop or other endpoints.  </li>
+<li>Remove the <strong>blue Ethernet cables</strong> connecting your laptop or other endpoints.  </li>
 <li>Leave the infrastructure connected <em>(e.g., switches, firewall, AP)</em>.  </li>
 <li>Power off devices and neatly organize cables. Leave the rack ready for the next person!  </li>
 </ul>
@@ -792,9 +793,8 @@
 <li><strong>Learn Actively</strong>: Take advantage of our hands-on learning and comfortable configuring enterprise hardware. </li>
 <li><strong>Seek Support</strong>: Your manager and peers are here to assist you when needed. Just give us a shout!  </li>
 </ul>
+<p><br></p>
 <p>Good luck and happy networking! 😊</p>
-<p><br>
-This lab is here to support your growth—have fun experimenting and learning! If you have any questions or feedback, please let us know!</p>
 
 
 
@@ -847,13 +847,13 @@ This lab is here to support your growth—have fun experimenting and learning! I
         
         
           
-          <a href="../network_info/" class="md-footer__link md-footer__link--next" aria-label="Next: Network Details">
+          <a href="../network_info/" class="md-footer__link md-footer__link--next" aria-label="Next: Network Information">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Network Details
+                Network Information
               </div>
             </div>
             <div class="md-footer__button md-icon">

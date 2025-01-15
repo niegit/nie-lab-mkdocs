@@ -1,13 +1,13 @@
 
 # Lab Resources
 
-The information below will be used throughout the Networking labs and may be helpful to you. While each lab will strive to give you the information needed to complete it, this page will serve as a single resource where common information such as VLANs and IP addresses can be located for all networking labs. 
+The information below will be used throughout all Networking labs and will be a helpful "cheat sheet" of information. While each lab will strive to give you the information needed to complete it, this page will serve as a single resource where common information such as VLANs and IP addresses can be located for all networking labs. 
 
 If you find any consistencies please let the proper resources know so that we can address them! We want to give you the best lab experience possible. 😊
 
-### 🔶 **VLAN Summary**
+### 🌐 **VLAN Summary**
 
-Get an at-a-glance overview of VLAN configurations, including IDs, subnets, and DHCP settings. These VLANs are designed to optimize security and network performance.
+Get an at-a-glance overview of VLAN configurations, including IDs, subnets, and DHCP settings.
 
 | **VLAN Name** | **VLAN ID** | **Subnet**         | **Default Gateway** | **DHCP Server**       | **DHCP Range**          |
 |---------------|-------------|--------------------|---------------------|-----------------------|-------------------------|
@@ -17,9 +17,9 @@ Get an at-a-glance overview of VLAN configurations, including IDs, subnets, and 
 
 ---
 
-### 🖧 **Device Summary**
+### 💻 **Device Summary**
 
-Easily locate lab devices and their key details, including IPs, VLANs, and descriptions, to understand their roles in the network.
+Easily locate lab devices and their key details, including IPs, VLANs, and descriptions.
 
 | **Device Name** | **Type**          | **IP Address**     | **VLAN**   | **MAC Address**        | **Description**        |
 |-----------------|-------------------|--------------------|-----------|------------------------|-------------------------|
@@ -35,14 +35,14 @@ This section outlines the physical and logical setup of the lab network for bett
 
 #### Firewall Uplink
 - **Port 0 (WAN)**: Connects to the Lab Internet wall port  
-- **Port 1 (LAN)**: Connects to SW01's GE1  
+- **Port 1 (LAN)**: Connects to **{{ devices.cisco_switch.name }}**'s GE1  
 
 #### Cisco Switch Uplinks
-- **GE1**: Connects to Firewall Port 1 (LAN)  
-- **GE2**: Connects to Aruba Access Point
-- **GE3**: Connects to DC01's NIC (Raspberry Pi)  
-- **GE24**: Connects to SW02's GE1  
+- **GE1**: Connects to **{{ devices.firewall.name }}** Port 1 (LAN)  
+- **GE2**: Connects to **{{ devices.ap01.name }}**
+- **GE3**: Connects to **{{ devices.dc01.name }}**'s NIC (Raspberry Pi)  
+- **GE24**: Connects to **{{ devices.aruba_switch.name }}**'s GE1  
 
 #### Aruba Switch Uplinks
-- **GE1**: Connects to SW01's GE24 
+- **GE1**: Connects to **{{ devices.cisco_switch.name }}**'s GE24 
 

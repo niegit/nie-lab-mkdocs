@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -76,7 +78,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -131,7 +133,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -141,7 +143,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -423,7 +425,7 @@
         
   
   <span class="md-ellipsis">
-    Network Details
+    Network Information
   </span>
   
 
@@ -979,7 +981,7 @@
 <p>Access to the Cisco SG350X 24 Port Switch <strong>(<em>SW01</em>)</strong>.  </p>
 </li>
 <li>
-<p>A PC connected to the switch for accessing the web GUI. </p>
+<p>A PC to connect to the switch for accessing the web GUI. </p>
 </li>
 <li>
 <p>A USB or PC to save and restore configuration files to and from.</p>
@@ -987,11 +989,15 @@
 </ul>
 <hr />
 <h2 id="1-initial-setup-nic-configuration-and-reset">1. Initial Setup - NIC Configuration and Reset ⚙️<a class="headerlink" href="#1-initial-setup-nic-configuration-and-reset" title="Permanent link">&para;</a></h2>
-<p>Before beginning, be sure to update your NIC settings:</p>
-<p>On Windows 11 you can get there from <code>Settings &gt; Network &amp; Internet &gt; Advanced Network Settings</code> then expand your built-in Ethernet adapter and edit the IPv4 Properties and <strong>save</strong>.</p>
+<p>In most environments you will have a <strong>DHCP server</strong> <em>(firewall or DC typically)</em> that hands out IP addresses when a device plugs into the network. Without one, <strong>we'll have to assign our own IP address</strong>. Cisco switches have a default IP address of <code>192.168.1.254</code> so we need to ensure our new IP is in the same subnet so that we can communicate.</p>
+<p>On Windows 11 you can update your NIC by going to <code>Settings &gt; Network &amp; Internet &gt; Advanced Network Settings</code> then expand your built-in Ethernet adapter and edit the IPv4 Properties.</p>
 <ul>
-<li>Set your NIC IP to <code>192.168.1.100</code> and ensure the subnet mask is <code>255.255.255.0</code>. 🌐</li>
+<li>Set your NIC IP to <code>192.168.1.100</code> and ensure the subnet mask is <code>255.255.255.0</code> and <strong>save</strong>. </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>If you are also plugged into a docking station</strong>, then please temporarily <strong>disable</strong> your additional Ethernet Adapter(s) so that traffic doesn't get mistakenly routed through them. You can re-enable them at the end of the lab.</p>
+</div>
 <p><a class="glightbox" href="../img/win11-nic-properties-default.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NIC Adapter Settings" src="../img/win11-nic-properties-default.jpg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1001,11 +1007,10 @@
 <hr />
 <h2 id="2-connect-to-the-switch">2. Connect to the Switch 🔄<a class="headerlink" href="#2-connect-to-the-switch" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Ethernet Connection</strong>: Connect your computer to the Cisco SG350X 24 Port Switch via an Ethernet cable into port 12 (top-right).</li>
-<li><strong>Set Static NIC Settings</strong>: Set your computer to <code>192.168.1.100/255.255.255.0</code> (no gateway needed at this point).</li>
-<li><strong>Access the Switch</strong>: Open a browser and visit <code>192.168.1.254</code> (or related DHCP address).</li>
+<li><strong>Ethernet Connection</strong>: Connect your computer to the Cisco SG350X 24 Port Switch via an Ethernet cable into port <code>GE12</code> (top-right).</li>
+<li><strong>Access the Switch</strong>: Open a browser and visit <code>192.168.1.254</code>.</li>
 <li><strong>Login</strong>: Use the default credentials: (<code>cisco / cisco</code>) 🔑.</li>
-<li><strong>Change Password</strong>: Please change the password to something secure, such as <code>pass123!</code>.</li>
+<li><strong>Change Password</strong>: Please update the password to something secure, such as <code>pass123!</code>.</li>
 </ul>
 <p>⚠️ Usernames and passwords are <strong>case sensitive</strong>, so be careful what you type!</p>
 <div class="admonition danger">
@@ -1021,7 +1026,7 @@
 <li>Create a user with these details:<ul>
 <li><strong>Username</strong>: <code>nie</code></li>
 <li><strong>Password</strong>: <code>pass123!</code></li>
-<li><strong>Level</strong>: <code>15</code> (this gives admin privileges).</li>
+<li><strong>Level</strong>: <code>15</code></li>
 </ul>
 </li>
 <li><strong>Note</strong>: Make sure the user has full administrative rights (Level 15) to make all necessary configuration changes. 🛠️</li>
@@ -1033,13 +1038,13 @@
 <li>Set the <strong>Contact</strong> to <code>support@networkiteasy.com</code>.</li>
 <li>Change the <strong>Host Name</strong> to <strong>User Defined</strong> and give it a new name: <code>SW01</code></li>
 <li>Set a <strong>Login Banner</strong> and <strong>Welcome Banner</strong> (you can use the same text): <code>NIE 24-Port Cisco Lab Switch</code>.</li>
-<li>Click <strong>Apply</strong>. 👍</li>
+<li>Click <strong>Apply</strong>.</li>
 </ul>
 <p><strong>Time Settings</strong>:</p>
 <ul>
 <li>Go to <code>Administration &gt; Time Settings &gt; System Time</code>.</li>
-<li>Configure the time zone under <strong>Manual Settings</strong> by using the "Click Here" button to import from your computer.</li>
-<li>Click <strong>Apply</strong>. ⏰</li>
+<li>Configure the time zone under <strong>Manual Settings</strong> by using the <code>Click Here</code> button to import from your computer.</li>
+<li>Click <strong>Apply</strong>.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Why not use SNTP?</p>
@@ -1050,17 +1055,17 @@
 <div class="admonition tip">
 <p class="admonition-title">🛠️ Running and Startup Configurations with Cisco Switches</p>
 <p>When working with Cisco switches, understanding the distinction between <strong>running</strong> and <strong>startup configurations</strong> is critical for managing and preserving network settings effectively.</p>
-<p><br>
-🔄 The <strong>running configuration</strong> refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s <strong>RAM</strong>. If the switch is restarted or powered off, the running configuration is erased.</p>
+<hr />
+<p>🔄 The <strong>running configuration</strong> refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s <strong>RAM</strong>. If the switch is restarted or powered off, the running configuration is erased.</p>
 <p>💾 The <strong>startup configuration</strong> is the saved version of your settings stored in <strong>NVRAM</strong> (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.</p>
 </div>
 <p>🔑 <strong>Saving Changes in the Web GUI</strong></p>
 <p>To ensure your changes are preserved after a reboot, you must save the <strong>running configuration</strong> to the <strong>startup configuration</strong>. Along the top of the Web GUI you’ll notice a flashing <strong>Save Icon</strong> (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.</p>
 <p>💡<strong>Bailout Strategy</strong>:
-If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved <strong>startup configuration</strong>, effectively bailing you out.</p>
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved <strong>startup configuration</strong>, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!</p>
 <h2 id="5-firmware-upgrade">5. Firmware Upgrade 🔧<a class="headerlink" href="#5-firmware-upgrade" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files.</li>
+<li>Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files. Be sure to download firmware from Cisco's website only.</li>
 <li>Navigate to <code>Administration &gt; File Management &gt; Firmware Operations</code>.</li>
 <li>Click <strong>Update Firmware</strong>, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀</li>
 </ul>
@@ -1091,7 +1096,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 <div class="admonition note">
 <p class="admonition-title">But do we have to?</p>
 <p>I'm sure you've worked a ticket before where you <em><strong>really</strong></em> wished someone labeled which port some critical device was plugged into. </p>
-<p>Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll <strong>save your teammates day</strong>!⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure <em>(firewalls, access points, switches, servers, printers, UPS)</em>, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.</p>
+<p>Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll <strong>save your teammates day in the future!</strong>⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure <em>(firewalls, access points, switches, servers, printers, UPS)</em>, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.</p>
 </div>
 <ul>
 <li>Go to <code>Port Management &gt; Port Settings</code>.</li>
@@ -1160,7 +1165,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 <p><strong>Access Ports</strong>: Used for devices that only need to communicate with a <strong>single VLAN or network</strong>. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN. Most ports should be configured to <strong>Access</strong> typically unless needed otherwise.</p>
 </li>
 <li>
-<p><strong>Trunk Ports</strong>: Configuring trunk ports allows the connected device to communicate with <strong>multiple VLANs</strong>. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of <strong>all possible VLANs</strong> so you'd need to configure a <strong>Trunk</strong> port on each switch. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC.</p>
+<p><strong>Trunk Ports</strong>: Configuring trunk ports allows the connected device to communicate with <strong>multiple VLANs</strong>. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of <strong>all possible VLANs</strong> so you'd need to configure a <strong>Trunk</strong> port on each switch. <br><br> Another common <strong>Trunk</strong> example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC for it to communicate.</p>
 </li>
 </ul>
 </div>
@@ -1313,7 +1318,7 @@ If a configuration change may cause an issue, restarting the switch without savi
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../network_info/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Network Details">
+          <a href="../network_info/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Network Information">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1323,7 +1328,7 @@ If a configuration change may cause an issue, restarting the switch without savi
                 Previous
               </span>
               <div class="md-ellipsis">
-                Network Details
+                Network Information
               </div>
             </div>
           </a>

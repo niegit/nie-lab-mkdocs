@@ -1,6 +1,7 @@
 site_name: NIE Lab Guide
 site_description: The Lab guide for all practice labs at NIE. Sharpen your skills with these exercises spanning networking, Microsoft, and general IT skills!
 site_author: Network It Easy
+
 theme:
   name: material
   favicon: /img/favicon.ico
@@ -11,16 +12,22 @@ theme:
     - navigation.footer # Enables previous/next page navigation
   palette:
     - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
   icon:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
+extra_css:
+  - stylesheets/extra.css
 plugins:
   - search
   - macros
@@ -32,7 +39,7 @@ nav:
   - Labs:
       - Networking:
           - Lab Overview: labs/networking/lab_overview.md
-          - Network Details: labs/networking/network_info.md
+          - Network Information: labs/networking/network_info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
           - Lab 2: labs/networking/lab2.md
           - Lab 3: labs/networking/lab3.md

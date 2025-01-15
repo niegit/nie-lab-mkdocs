@@ -20,7 +20,7 @@ This lab guides you through the complete setup process of a **{{ devices.cisco_s
 
 - Access to the {{ devices.cisco_switch.type }} **(_{{ devices.cisco_switch.name }}_)**.  
 
-- A PC connected to the switch for accessing the web GUI. 
+- A PC to connect to the switch for accessing the web GUI. 
 
 - A USB or PC to save and restore configuration files to and from.
 
@@ -30,11 +30,14 @@ This lab guides you through the complete setup process of a **{{ devices.cisco_s
 
 ## 1. Initial Setup - NIC Configuration and Reset ⚙️
 
-Before beginning, be sure to update your NIC settings:
+In most environments you will have a **DHCP server** _(firewall or DC typically)_ that hands out IP addresses when a device plugs into the network. Without one, **we'll have to assign our own IP address**. Cisco switches have a default IP address of `192.168.1.254` so we need to ensure our new IP is in the same subnet so that we can communicate.
 
-On Windows 11 you can get there from `Settings > Network & Internet > Advanced Network Settings` then expand your built-in Ethernet adapter and edit the IPv4 Properties and **save**.
+On Windows 11 you can update your NIC by going to `Settings > Network & Internet > Advanced Network Settings` then expand your built-in Ethernet adapter and edit the IPv4 Properties.
 
-- Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0`. 🌐
+- Set your NIC IP to `192.168.1.100` and ensure the subnet mask is `255.255.255.0` and **save**. 
+
+!!! tip
+    **If you are also plugged into a docking station**, then please temporarily **disable** your additional Ethernet Adapter(s) so that traffic doesn't get mistakenly routed through them. You can re-enable them at the end of the lab.
 
 ![NIC Adapter Settings](img/win11-nic-properties-default.jpg)
 
@@ -50,11 +53,10 @@ On Windows 11 you can get there from `Settings > Network & Internet > Advanced N
 
 ## 2. Connect to the Switch 🔄
 
-- **Ethernet Connection**: Connect your computer to the {{ devices.cisco_switch.type }} via an Ethernet cable into port 12 (top-right).
-- **Set Static NIC Settings**: Set your computer to `192.168.1.100/255.255.255.0` (no gateway needed at this point).
-- **Access the Switch**: Open a browser and visit `192.168.1.254` (or related DHCP address).
+- **Ethernet Connection**: Connect your computer to the {{ devices.cisco_switch.type }} via an Ethernet cable into port `GE12` (top-right).
+- **Access the Switch**: Open a browser and visit `192.168.1.254`.
 - **Login**: Use the default credentials: (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`) 🔑.
-- **Change Password**: Please change the password to something secure, such as `{{ devices.cisco_switch.custom_pass }}`.
+- **Change Password**: Please update the password to something secure, such as `{{ devices.cisco_switch.custom_pass }}`.
 
 ⚠️ Usernames and passwords are **case sensitive**, so be careful what you type!
 
@@ -73,7 +75,7 @@ On Windows 11 you can get there from `Settings > Network & Internet > Advanced N
   - Create a user with these details:
     - **Username**: `{{ devices.cisco_switch.custom_user }}`
     - **Password**: `{{ devices.cisco_switch.custom_pass }}`
-    - **Level**: `15` (this gives admin privileges).
+    - **Level**: `15`
   - **Note**: Make sure the user has full administrative rights (Level 15) to make all necessary configuration changes. 🛠️
 
 **System Settings**:
@@ -83,13 +85,13 @@ On Windows 11 you can get there from `Settings > Network & Internet > Advanced N
   - Set the **Contact** to `support@networkiteasy.com`.
   - Change the **Host Name** to **User Defined** and give it a new name: `{{ devices.cisco_switch.name }}`
   - Set a **Login Banner** and **Welcome Banner** (you can use the same text): `{{ devices.cisco_switch.banner }}`.
-  - Click **Apply**. 👍
+  - Click **Apply**.
 
 **Time Settings**:
 
   - Go to `Administration > Time Settings > System Time`.
-  - Configure the time zone under **Manual Settings** by using the "Click Here" button to import from your computer.
-  - Click **Apply**. ⏰
+  - Configure the time zone under **Manual Settings** by using the `Click Here` button to import from your computer.
+  - Click **Apply**.
 
 !!! note "Why not use SNTP?"
     In most cases it would probably make sense to configure SNTP servers for keeping time up-to-date. This allows the switch to check in with public servers whose sole purpose is keeping track of time. In this lab we won't have an outside Internet connection to reach the public servers, but be sure to try this out in future labs.
@@ -101,8 +103,9 @@ On Windows 11 you can get there from `Settings > Network & Internet > Advanced N
 !!! tip "🛠️ Running and Startup Configurations with Cisco Switches"
 
     When working with Cisco switches, understanding the distinction between **running** and **startup configurations** is critical for managing and preserving network settings effectively.
-    
-    <br>
+
+    ---
+
     🔄 The **running configuration** refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s **RAM**. If the switch is restarted or powered off, the running configuration is erased.
 
     💾 The **startup configuration** is the saved version of your settings stored in **NVRAM** (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.
@@ -112,12 +115,12 @@ On Windows 11 you can get there from `Settings > Network & Internet > Advanced N
 To ensure your changes are preserved after a reboot, you must save the **running configuration** to the **startup configuration**. Along the top of the Web GUI you’ll notice a flashing **Save Icon** (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.
 
 💡**Bailout Strategy**:
-If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved **startup configuration**, effectively bailing you out.
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved **startup configuration**, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!
 
 
 ## 5. Firmware Upgrade 🔧
 
-- Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files.
+- Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files. Be sure to download firmware from Cisco's website only.
 - Navigate to `Administration > File Management > Firmware Operations`.
 - Click **Update Firmware**, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀
 
@@ -143,7 +146,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 !!! note "But do we have to?"
     I'm sure you've worked a ticket before where you _**really**_ wished someone labeled which port some critical device was plugged into. 
 
-    Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll **save your teammates day**!⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure _(firewalls, access points, switches, servers, printers, UPS)_, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.
+    Take a few minutes now to get these critical ports updated with a brief description. It'll make your life easier later on, or better yet, maybe you'll **save your teammates day in the future!**⭐ Our lab doesn't have much at all, but good examples would be: descriptive message about uplinks between infrastructure _(firewalls, access points, switches, servers, printers, UPS)_, specific phones like 'reception', or any unique and customer-specific infrastructure that would be cause for an emergency if it went down on a weekend.
 
 - Go to `Port Management > Port Settings`.
 - Click the radio button for **GE1** and scroll down to the bottom of the page then select **edit**. 
@@ -190,7 +193,7 @@ Click **Apply** and save the configuration. 💾
 
     - **Access Ports**: Used for devices that only need to communicate with a **single VLAN or network**. Common use cases would be workstations that only need to communicate on the main LAN, or security cameras that should only be accessible on the security VLAN. Most ports should be configured to **Access** typically unless needed otherwise.
 
-    - **Trunk Ports**: Configuring trunk ports allows the connected device to communicate with **multiple VLANs**. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of **all possible VLANs** so you'd need to configure a **Trunk** port on each switch. Another common example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC.
+    - **Trunk Ports**: Configuring trunk ports allows the connected device to communicate with **multiple VLANs**. This is used for linking infrastrucutre together such as switches, access points, etc. For example, when linking switches together, they typically need to be made aware of **all possible VLANs** so you'd need to configure a **Trunk** port on each switch. <br><br> Another common **Trunk** example is when customers have Voice VLANs and PBX servers - you can leverage a trunk port so that the physical VoIP phone or handset can be plugged into the main Voice VLAN, but can tag the Lan VLAN on the switchport as well so that the phone can passthru the main Lan connection to a PC for it to communicate.
 
 - Navigate to `VLAN Management > Interface Settings`.
 - **Select** the following interfaces and **edit** them to **Trunk** and **Apply**:
@@ -200,8 +203,9 @@ Click **Apply** and save the configuration. 💾
 
 ## 11. Tagging VLANs 🏷️
 !!! tip "These can be hard to keep straight!"
-    - **Untagged / Native VLAN**: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default, especially in _'flat networks'_ where there are no VLANs.
-    - **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.
+    **Untagged / Native VLAN**: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to.
+    
+    **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can **communicate with other VLANs that have been tagged**. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.
 
 - Navigate to `VLAN Management > Port VLAN Membership`.
   - Select **GE2 {{ devices.ap01.name }}** and click **Join VLAN**
@@ -220,7 +224,9 @@ Click **Apply** and save the configuration. 💾
     - If using HTTP/HTTPS, the file will download directly to your PC via your browser.
     - If using USB, ensure a USB drive is inserted into the switch. It will save to the root of the USB.
 - **Encrypt Sensitive Data**: Always check the option to encrypt the configuration file to keep it secure. 🔒
-- Name your backup file something useful: e.g., `username_cisco_config_lab1.txt`.
+
+📢**Name your backup file!**  
+    Rename it to someting useful such as `username_cisco_config_baseline.txt`. We will add onto this configuration in future labs, but this is a great **baseline** to restore from in the future.
 
 ---
 
@@ -242,7 +248,7 @@ Click **Apply** and save the configuration. 💾
   - Choose **Update File** and upload your saved config file to the **Running Configuration**. Hit **Apply**. 
 
 !!! danger "Connection Lost . . . 🤖" 
-    Because you're updating to the running configuration, it should "instantly" switch to the IP stored in the config file. That means you're disconnected and need to update your NIC again. 😊
+    Because you're updating to the running configuration, it will instantly switch to the IP stored in the config file. That means you're disconnected and need to **update your NIC again.** 😊
 
   <br>
 **Reconnect to the Switch**
@@ -285,7 +291,7 @@ Click **Apply** and save the configuration. 💾
 
     This lab provided foundational skills for managing Cisco switches, but the techniques you’ve learned here apply across various network devices and scenarios from simple setups to complex enterprise environments.
 
-    ### Next Steps 🚀
+    ## Next Steps 🚀
 
     - Explore the GUI and practice restoring configurations to reinforce your troubleshooting skills.
     - Experiment with SNTP time settings and other advanced features to enhance your understanding of its capabilities.

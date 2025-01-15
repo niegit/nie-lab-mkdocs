@@ -1,15 +1,18 @@
-# Welcome to the NIE Lab Site 🚀
+# Welcome to the Lab 👋
 
-This is your one-stop resource for hands-on practice and learning within the NIE lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
+This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
 
 
-## Get Started with Labs 🧑‍💻
+## Get Started Below
 
 ### 🔗 Quick Links
-Explore our curated labs and start building your expertise:
+Explore our curated labs and start building your expertise now:
 
 - **[Networking Labs](labs/networking/lab_overview.md):** Configure switches, firewalls, and other networking essentials.
 - **[Azure Labs](labs/azure/azure_lab1.md):** Master cloud services and infrastructure with Azure.
+
+!!! tip 
+    Is there content you'd like to see here but don't currently? Let us know what **you** want to learn about!
 
 ---
 
@@ -20,8 +23,8 @@ Explore our curated labs and start building your expertise:
 
 <br>
 
-Need assistance? Contact us at **[it@networkiteasy.com](mailto:it@networkiteasy.com)** for any questions or help with labs.
+This lab is here to support your growth—have fun experimenting and learning! If you have any questions or feedback, please contact us at **[it@networkiteasy.com](mailto:it@networkiteasy.com)**.
 
 <br>
 
-**Happy Lab Learning!** 🎉
+**Happy Learning!** 🎉
