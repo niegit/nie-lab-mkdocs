@@ -258,6 +258,23 @@
   
 
       
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../feedback/" class="md-tabs__link">
+        
+  
+    
+  
+  Feedback
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -620,20 +637,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="14. Reset for Future Labs 🔄">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Next Steps 🚀
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -766,6 +777,26 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feedback
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -929,20 +960,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="14. Reset for Future Labs 🔄">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Next Steps 🚀
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1181,10 +1206,8 @@ If a configuration change may cause an issue, restarting the switch without savi
 <h2 id="11-tagging-vlans">11. Tagging VLANs 🏷️<a class="headerlink" href="#11-tagging-vlans" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">These can be hard to keep straight!</p>
-<ul>
-<li><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to. Aside from large enterprise environments, this will almost always be VLAN 1 by default, especially in <em>'flat networks'</em> where there are no VLANs.</li>
-<li><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can communicate with other VLANs that have been tagged. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.</li>
-</ul>
+<p><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to.</p>
+<p><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can <strong>communicate with other VLANs that have been tagged</strong>. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.</p>
 </div>
 <ul>
 <li>Navigate to <code>VLAN Management &gt; Port VLAN Membership</code>.</li>
@@ -1205,8 +1228,9 @@ If a configuration change may cause an issue, restarting the switch without savi
 </ul>
 </li>
 <li><strong>Encrypt Sensitive Data</strong>: Always check the option to encrypt the configuration file to keep it secure. 🔒</li>
-<li>Name your backup file something useful: e.g., <code>username_cisco_config_lab1.txt</code>.</li>
 </ul>
+<p>📢<strong>Name your backup file!</strong><br />
+    Rename it to someting useful such as <code>username_cisco_config_baseline.txt</code>. We will add onto this configuration in future labs, but this is a great <strong>baseline</strong> to restore from in the future.</p>
 <hr />
 <h2 id="13-reset-the-switch-and-restore-config">13. Reset the Switch and Restore Config 🔄<a class="headerlink" href="#13-reset-the-switch-and-restore-config" title="Permanent link">&para;</a></h2>
 <p><strong>Reset to Factory Defaults</strong></p>
@@ -1225,7 +1249,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Connection Lost . . . 🤖</p>
-<p>Because you're updating to the running configuration, it should "instantly" switch to the IP stored in the config file. That means you're disconnected and need to update your NIC again. 😊</p>
+<p>Because you're updating to the running configuration, it will instantly switch to the IP stored in the config file. That means you're disconnected and need to <strong>update your NIC again.</strong> 😊</p>
 </div>
 <p><br>
 <strong>Reconnect to the Switch</strong></p>
@@ -1273,7 +1297,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 <div class="admonition tip">
 <p class="admonition-title"><strong>The Bigger Picture</strong> 🌐</p>
 <p>This lab provided foundational skills for managing Cisco switches, but the techniques you’ve learned here apply across various network devices and scenarios from simple setups to complex enterprise environments.</p>
-<h3 id="next-steps">Next Steps 🚀<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<h2 id="next-steps">Next Steps 🚀<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Explore the GUI and practice restoring configurations to reinforce your troubleshooting skills.</li>
 <li>Experiment with SNTP time settings and other advanced features to enhance your understanding of its capabilities.</li>

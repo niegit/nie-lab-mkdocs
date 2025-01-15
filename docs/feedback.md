@@ -50,21 +50,25 @@ NIE Lab depends on people like yourself to help report issues, bugs, and inconsi
       return;
     }
 
-    fetch('https://webhook.site/f40f8065-99fe-49ad-ac05-f84c335479a7', {
+    fetch('{{ urls.feedback_webhook }}', {
       method: 'POST',
       mode: 'no-cors', // Bypass CORS
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: name, feedbackType: feedbackType, feedback: feedback })
-    })
-      .then(() => {
-        alert('Feedback submitted successfully!');
+      body: JSON.stringify({
+        name: name,
+        feedbackType: feedbackType,
+        feedback: feedback
       })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('We encountered an issue while submitting your feedback. Please try again later.');
-      });
+    })
+    .then(() => {
+      alert('Feedback submitted successfully!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('We encountered an issue while submitting your feedback. Please try again later.');
+    });
   });
 </script>
 
