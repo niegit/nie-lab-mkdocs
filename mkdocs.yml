@@ -45,6 +45,7 @@ nav:
           - Lab 3: labs/networking/lab3.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
+  - Feedback: feedback.md
 extra:
   vlans:
     lan:

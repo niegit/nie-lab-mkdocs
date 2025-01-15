@@ -1,4 +1,4 @@
-/* Light Mode */
+/* Light Mode - Any CSS for Light Mode goes here*/
 [data-md-color-scheme="default"] {
   /* Header and tab text colors in light mode */
   --md-primary-fg-color: #242524; /* Header text and tab names */
@@ -9,7 +9,8 @@
   --md-typeset-a-color--hover: #F15A2B; /* Accent color on hover */
 }
 
-/* Dark Mode */
+
+/* Dark Mode - Any CSS for Dark Mode goes here*/
 [data-md-color-scheme="slate"] {
   /* Header and tab text colors in dark mode */
   --md-primary-fg-color: #242524; /* Header text and tab names */
@@ -19,6 +20,10 @@
   --md-typeset-a-color: #8ab4f8; /* Lighter blue for links in dark mode */
   --md-typeset-a-color--hover: #F15A2B; /* Accent color on hover */
 }
+
+
+
+/* General Styling Overrides */
 
 /* Apply the link colors to the document content */
 .md-typeset a {
