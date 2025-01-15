@@ -1024,7 +1024,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because we're plugged directly into the switch we can communicate on the <strong>Layer 2 (L2) network</strong>, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!</p>
-<p><a href="https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/"><em>Layer 2 or Layer 3 - What's the Difference?</em> from <strong>Auvik</strong>📜</a></p>
+<p>📖<a href="https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/"><em>Layer 2 or Layer 3 - What's the Difference?</em> from <strong>Auvik</strong></a></p>
 </div>
 <hr />
 <h2 id="2-connect-to-the-switch">2. Connect to the Switch 🔄<a class="headerlink" href="#2-connect-to-the-switch" title="Permanent link">&para;</a></h2>
@@ -1032,7 +1032,7 @@
 <li><strong>Ethernet Connection</strong>: Connect your computer to the Cisco SG350X 24 Port Switch via an Ethernet cable into port <code>GE12</code> (top-right).</li>
 <li><strong>Access the Switch</strong>: Open a browser and visit <code>192.168.1.254</code>.</li>
 <li><strong>Login</strong>: Use the default credentials: (<code>cisco / cisco</code>) 🔑.</li>
-<li><strong>Change Password</strong>: Please update the password to something secure, such as <code>$ecureLab!</code>.</li>
+<li><strong>Change Password</strong>: Please update the password to something a <em>bit</em> more secure, such as <code>$ecureLab!</code>.</li>
 </ul>
 <p>⚠️ Usernames and passwords are <strong>case sensitive</strong>, so be careful what you type!</p>
 <div class="admonition danger">
@@ -1074,6 +1074,10 @@
 </div>
 <hr />
 <h2 id="4-save-configuration">4. Save Configuration 💾<a class="headerlink" href="#4-save-configuration" title="Permanent link">&para;</a></h2>
+<p>🔑 <strong>Saving Changes in the Web GUI</strong></p>
+<p>To ensure your changes are preserved after a reboot, you must save the <strong>running configuration</strong> to the <strong>startup configuration</strong>. Along the top of the Web GUI you’ll notice a flashing <strong>Save Icon</strong> (💾) prominently displayed. Clicking this icon copies your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.</p>
+<p>💡<strong>Bailout Strategy</strong>:
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved <strong>startup configuration</strong>, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!</p>
 <div class="admonition tip">
 <p class="admonition-title">🛠️ Running and Startup Configurations with Cisco Switches</p>
 <p>When working with Cisco switches, understanding the distinction between <strong>running</strong> and <strong>startup configurations</strong> is critical for managing and preserving network settings effectively.</p>
@@ -1081,10 +1085,6 @@
 <p>🔄 The <strong>running configuration</strong> refers to the current settings actively applied to the switch. Any changes you make—whether via CLI or the Web GUI—are reflected here immediately. However, these changes are temporary and exist only in the switch’s <strong>RAM</strong>. If the switch is restarted or powered off, the running configuration is erased.</p>
 <p>💾 The <strong>startup configuration</strong> is the saved version of your settings stored in <strong>NVRAM</strong> (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.</p>
 </div>
-<p>🔑 <strong>Saving Changes in the Web GUI</strong></p>
-<p>To ensure your changes are preserved after a reboot, you must save the <strong>running configuration</strong> to the <strong>startup configuration</strong>. Along the top of the Web GUI you’ll notice a flashing <strong>Save Icon</strong> (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.</p>
-<p>💡<strong>Bailout Strategy</strong>:
-If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved <strong>startup configuration</strong>, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!</p>
 <h2 id="5-firmware-upgrade">5. Firmware Upgrade 🔧<a class="headerlink" href="#5-firmware-upgrade" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files. Be sure to download firmware from Cisco's website only.</li>
@@ -1205,7 +1205,8 @@ If a configuration change may cause an issue, restarting the switch without savi
 <div class="admonition tip">
 <p class="admonition-title">These can be hard to keep straight!</p>
 <p><strong>Untagged / Native VLAN</strong>: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to.</p>
-<p><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can <strong>communicate with other VLANs that have been tagged</strong>. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.</p>
+<p><strong>Tagged VLANs</strong>: In cases where a port is configured as a <strong>Trunk port</strong>, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can <strong>communicate with other VLANs that have been tagged</strong>. </p>
+<p>In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.</p>
 </div>
 <ul>
 <li>Navigate to <code>VLAN Management &gt; Port VLAN Membership</code>.</li>

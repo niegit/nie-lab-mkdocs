@@ -1,6 +1,6 @@
 # We value your feedback!
 
-NIE Lab depends on people like yourself to help report issues, bugs, and inconsistencies, but we **really** want your feedback and suggestions! Let us know what you want to see here! Take a moment and let us know below, we truly appreciate your input.😊
+NIE Lab depends on people like yourself to help report issues, bugs, and inconsistencies, but we'd **really** love your feedback and suggestions as well! Let us know what you want to see here! Take a moment and let us know below, we truly appreciate your input.😊
 
 <br>
 
@@ -18,7 +18,7 @@ NIE Lab depends on people like yourself to help report issues, bugs, and inconsi
     </select>
   </div>
   <div class="form-group">
-    <label for="feedback" id="feedback-label">We appreciate the feedback! What suggestions are you thinking of?!</label>
+    <label for="feedback" id="feedback-label">We appreciate the feedback! What suggestions are you thinking of?</label>
     <textarea id="feedback" name="feedback" required></textarea>
   </div>
   <div class="form-group">
