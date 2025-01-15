@@ -44,28 +44,30 @@ NIE Lab depends on people like yourself to help report issues, bugs, and inconsi
     const name = document.getElementById('name').value;
     const feedbackType = document.getElementById('feedback-type').value;
     const feedback = document.getElementById('feedback').value;
+
+    if (!name || !feedback) {
+      alert('Please fill out all fields before submitting.');
+      return;
+    }
+
     fetch('https://webhook.site/f40f8065-99fe-49ad-ac05-f84c335479a7', {
       method: 'POST',
+      mode: 'no-cors', // Bypass CORS
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ name: name, feedbackType: feedbackType, feedback: feedback })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      alert('Feedback submitted successfully!');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('There was a problem with your submission. Please try again.');
-    });
+      .then(() => {
+        alert('Feedback submitted successfully!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('We encountered an issue while submitting your feedback. Please try again later.');
+      });
   });
 </script>
+
 
 <style>
   #feedback-form {
