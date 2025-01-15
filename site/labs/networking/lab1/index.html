@@ -988,9 +988,6 @@
 
 <!-- To Fix
 
-
-- Add generic instructions for configuring NIC. Might be best to add into a main page and link to it for multiple uses. Mention disabling dock if using on dock.
-
 - Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
 
 - Get Lab Sharepoint setup for Files
@@ -1035,7 +1032,7 @@
 <li><strong>Ethernet Connection</strong>: Connect your computer to the Cisco SG350X 24 Port Switch via an Ethernet cable into port <code>GE12</code> (top-right).</li>
 <li><strong>Access the Switch</strong>: Open a browser and visit <code>192.168.1.254</code>.</li>
 <li><strong>Login</strong>: Use the default credentials: (<code>cisco / cisco</code>) 🔑.</li>
-<li><strong>Change Password</strong>: Please update the password to something secure, such as <code>pass123!</code>.</li>
+<li><strong>Change Password</strong>: Please update the password to something secure, such as <code>$ecureLab!</code>.</li>
 </ul>
 <p>⚠️ Usernames and passwords are <strong>case sensitive</strong>, so be careful what you type!</p>
 <div class="admonition danger">
@@ -1050,7 +1047,7 @@
 <li>Go to <code>Administration &gt; User Accounts &gt; Add</code>.</li>
 <li>Create a user with these details:<ul>
 <li><strong>Username</strong>: <code>nie</code></li>
-<li><strong>Password</strong>: <code>pass123!</code></li>
+<li><strong>Password</strong>: <code>$ecureLab!</code></li>
 <li><strong>Level</strong>: <code>15</code></li>
 </ul>
 </li>
@@ -1094,6 +1091,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 <li>Navigate to <code>Administration &gt; File Management &gt; Firmware Operations</code>.</li>
 <li>Click <strong>Update Firmware</strong>, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀</li>
 </ul>
+<p>📢<em><strong>NOTE:</strong> The switch may already be on the latest firmware, and that's fine! For the purposes of this lab, you can still "upgrade" the firmware to the same version so that you can see the process.</em></p>
 <hr />
 <h2 id="6-configure-ip-address">6. Configure IP Address 🌍<a class="headerlink" href="#6-configure-ip-address" title="Permanent link">&para;</a></h2>
 <ul>

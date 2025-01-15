@@ -698,21 +698,25 @@
       return;
     }
 
-    fetch(tthis, {
+    fetch('https://engine.rewst.io/webhooks/custom/trigger/01946b93-eb43-7a50-8d4d-fcc366deaa30/cb4b611f-612d-4c1d-951f-79aa3fefeafd', {
       method: 'POST',
       mode: 'no-cors', // Bypass CORS
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: name, feedbackType: feedbackType, feedback: feedback })
-    })
-      .then(() => {
-        alert('Feedback submitted successfully!');
+      body: JSON.stringify({
+        name: name,
+        feedbackType: feedbackType,
+        feedback: feedback
       })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('We encountered an issue while submitting your feedback. Please try again later.');
-      });
+    })
+    .then(() => {
+      alert('Feedback submitted successfully!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('We encountered an issue while submitting your feedback. Please try again later.');
+    });
   });
 </script>
 

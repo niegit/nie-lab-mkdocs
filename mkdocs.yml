@@ -91,7 +91,7 @@ extra:
       default_user: "cisco"
       default_pass: "cisco"
       custom_user: "nie"
-      custom_pass: "pass123!"
+      custom_pass: "$ecureLab!"
       description: "Cisco SG350X 24 Port Switch"
       banner: "NIE 24-Port Cisco Lab Switch"
       mac: "40:A6:E8:EF:D0:EC"

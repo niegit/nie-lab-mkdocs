@@ -1,8 +1,5 @@
 <!-- To Fix
 
-
-- Add generic instructions for configuring NIC. Might be best to add into a main page and link to it for multiple uses. Mention disabling dock if using on dock.
-
 - Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
 
 - Get Lab Sharepoint setup for Files
@@ -46,7 +43,7 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 
     Because we're plugged directly into the switch we can communicate on the **Layer 2 (L2) network**, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!
 
-    [_Layer 2 or Layer 3 - What's the Difference?_ from **Auvik**📜](https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/)
+    📖[_Layer 2 or Layer 3 - What's the Difference?_ from **Auvik**](https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/)
 
 
 ---
@@ -56,7 +53,7 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 - **Ethernet Connection**: Connect your computer to the {{ devices.cisco_switch.type }} via an Ethernet cable into port `GE12` (top-right).
 - **Access the Switch**: Open a browser and visit `192.168.1.254`.
 - **Login**: Use the default credentials: (`{{ devices.cisco_switch.default_user }} / {{ devices.cisco_switch.default_pass }}`) 🔑.
-- **Change Password**: Please update the password to something secure, such as `{{ devices.cisco_switch.custom_pass }}`.
+- **Change Password**: Please update the password to something a _bit_ more secure, such as `{{ devices.cisco_switch.custom_pass }}`.
 
 ⚠️ Usernames and passwords are **case sensitive**, so be careful what you type!
 
@@ -100,6 +97,13 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 
 ## 4. Save Configuration 💾
 
+🔑 **Saving Changes in the Web GUI**
+
+To ensure your changes are preserved after a reboot, you must save the **running configuration** to the **startup configuration**. Along the top of the Web GUI you’ll notice a flashing **Save Icon** (💾) prominently displayed. Clicking this icon copies your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.
+
+💡**Bailout Strategy**:
+If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved **startup configuration**, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!
+
 !!! tip "🛠️ Running and Startup Configurations with Cisco Switches"
 
     When working with Cisco switches, understanding the distinction between **running** and **startup configurations** is critical for managing and preserving network settings effectively.
@@ -110,19 +114,14 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 
     💾 The **startup configuration** is the saved version of your settings stored in **NVRAM** (non-volatile memory). This configuration persists across reboots and is loaded automatically when the switch powers on.
 
-🔑 **Saving Changes in the Web GUI**
-
-To ensure your changes are preserved after a reboot, you must save the **running configuration** to the **startup configuration**. Along the top of the Web GUI you’ll notice a flashing **Save Icon** (💾) prominently displayed. Clicking this icon saves your current running configuration to NVRAM, effectively committing the changes as the new startup configuration.
-
-💡**Bailout Strategy**:
-If a configuration change may cause an issue, restarting the switch without saving allows it to revert to the last saved **startup configuration**, effectively bailing you out. This can be used in some scenarios to your benefit if planned accordingly!
-
 
 ## 5. Firmware Upgrade 🔧
 
 - Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files. Be sure to download firmware from Cisco's website only.
 - Navigate to `Administration > File Management > Firmware Operations`.
 - Click **Update Firmware**, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀
+
+📢_**NOTE:** The switch may already be on the latest firmware, and that's fine! For the purposes of this lab, you can still "upgrade" the firmware to the same version so that you can see the process._
 
 ---
 
@@ -205,7 +204,9 @@ Click **Apply** and save the configuration. 💾
 !!! tip "These can be hard to keep straight!"
     **Untagged / Native VLAN**: You will hear these terms often used interchangeably. The untagged, or native VLAN, dictates what network the device will be assigned to.
     
-    **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can **communicate with other VLANs that have been tagged**. In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.
+    **Tagged VLANs**: In cases where a port is configured as a **Trunk port**, you can tag additional VLANs that the port needs to communicate with. The device will be assigned to the untagged/native VLAN, but can **communicate with other VLANs that have been tagged**. 
+    
+    In the above example of linking switches together, you would configure the Untagged/Native VLAN to 1 so that it's accessible on the main LAN, but then tag all other VLANs so that it can "passthru" the other networks between switches.
 
 - Navigate to `VLAN Management > Port VLAN Membership`.
   - Select **GE2 {{ devices.ap01.name }}** and click **Join VLAN**
