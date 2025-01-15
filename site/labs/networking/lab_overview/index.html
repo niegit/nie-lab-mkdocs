@@ -101,8 +101,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="NIE Lab Guide" class="md-header__button md-logo" aria-label="NIE Lab Guide" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="/img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -281,8 +280,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="NIE Lab Guide" class="md-nav__button md-logo" aria-label="NIE Lab Guide" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="/img/logo.png" alt="logo">
 
     </a>
     NIE Lab Guide
@@ -446,16 +444,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-setup-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lab Setup Overview 🛠️
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Lab Setup Overview 🛠️">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#equipment-in-the-rack" class="md-nav__link">
     <span class="md-ellipsis">
       Equipment in the Rack
@@ -463,16 +451,20 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#how-to-use-the-lab" class="md-nav__link">
     <span class="md-ellipsis">
       How to Use the Lab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Success
     </span>
   </a>
   
@@ -680,16 +672,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-setup-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lab Setup Overview 🛠️
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Lab Setup Overview 🛠️">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#equipment-in-the-rack" class="md-nav__link">
     <span class="md-ellipsis">
       Equipment in the Rack
@@ -697,16 +679,20 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#how-to-use-the-lab" class="md-nav__link">
     <span class="md-ellipsis">
       How to Use the Lab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Success
     </span>
   </a>
   
@@ -733,16 +719,15 @@
 <p class="admonition-title">Test, Test, and Test Again!</p>
 <p>This is your <strong>safe space to fail and learn</strong>, so step outside your comfort zone and dive in! Here you can make changes without fear of bringing down the network or causing unexpected issues. Go ahead—break it and figure out how to fix it!</p>
 </div>
-<hr />
-<h2 id="lab-setup-overview">Lab Setup Overview 🛠️<a class="headerlink" href="#lab-setup-overview" title="Permanent link">&para;</a></h2>
+<p><br></p>
+<h2 id="equipment-in-the-rack">Equipment in the Rack<a class="headerlink" href="#equipment-in-the-rack" title="Permanent link">&para;</a></h2>
 <p>Our lab is housed in a compact, rolling 12U rack that can be easily moved to your desk or a dedicated <strong>lab bench</strong>. Here's what you'll find in the rack:  </p>
-<h3 id="equipment-in-the-rack">Equipment in the Rack<a class="headerlink" href="#equipment-in-the-rack" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>PDU (Power Distribution Unit):</strong> Powers all devices in the rack.  </li>
 <li><strong>WatchGuard T45:</strong> Firewall for network security and routing.  </li>
-<li><strong>Cisco SG350X-24P:</strong> Managed switch for core network configurations.  </li>
-<li><strong>Aruba Instant On 1930-24P:</strong> Secondary switch for extended network setups.  </li>
-<li><strong>Aruba Instant On AP22:</strong> Wireless access point for Wi-Fi connectivity.  </li>
+<li><strong>Cisco SG350X-24P:</strong> Managed switch ideal for more robust network configurations.  </li>
+<li><strong>Aruba Instant On 1930-24P:</strong> Cloud managed switch perfect for SMB network setups.  </li>
+<li><strong>Aruba Instant On AP22:</strong> Cloud managed wireless access point that enables Wi-Fi connectivity.  </li>
 <li>(Planned) <strong>Raspberry Pi with Windows Server &amp; ADDS:</strong> A versatile server for labs involving Active Directory.  </li>
 </ul>
 <p><a class="glightbox" href="../img/rack-full-front.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network Rack Front View" src="../img/rack-full-front.png" /></a>  </p>
@@ -800,6 +785,14 @@
 </ul>
 </li>
 </ol>
+<hr />
+<h2 id="tips-for-success">Tips for Success<a class="headerlink" href="#tips-for-success" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Experiment Freely</strong>: Feel confident resetting and reconfiguring devices without consequence.  </li>
+<li><strong>Learn Actively</strong>: Take advantage of our hands-on learning and comfortable configuring enterprise hardware. </li>
+<li><strong>Seek Support</strong>: Your manager and peers are here to assist you when needed. Just give us a shout!  </li>
+</ul>
+<p>Good luck and happy networking! 😊</p>
 <p><br>
 This lab is here to support your growth—have fun experimenting and learning! If you have any questions or feedback, please let us know!</p>
 
