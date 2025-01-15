@@ -130,7 +130,6 @@ extra:
       vlan: "LAN"
       description: "WatchGuard T45 Firewall."
       model: "T45"
-  social:
   palette:
     primary: deep purple
     accent: cyan
