@@ -12,7 +12,9 @@ Explore our curated labs and start building your expertise now:
 - **[Azure Labs](labs/azure/azure_lab1.md):** Master cloud services and infrastructure with Azure.
 
 !!! tip 
-    Is there content you'd like to see here but don't currently? Let us know what **you** want to learn about!
+    Is there content you'd like to see here but don't currently? Let us know what **you** want to learn about! 
+    
+    Use the **[feedback](feedback.md)** option along the top navigation menu!
 
 ---
 
@@ -23,7 +25,7 @@ Explore our curated labs and start building your expertise now:
 
 <br>
 
-This lab is here to support your growth—have fun experimenting and learning! If you have any questions or feedback, please contact us at **[it@networkiteasy.com](mailto:it@networkiteasy.com)**.
+This lab is here to support your growth—have fun experimenting and learning!
 
 <br>
 

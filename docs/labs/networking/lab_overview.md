@@ -52,8 +52,8 @@ Each lab will provide you with the specific instructions to complete that lab, b
     - Leave the infrastructure connected _(e.g., switches, firewall, AP)_.  
     - Power off devices and neatly organize cables. Leave the rack ready for the next person!  
 
-6. **Report Issues**  
-    - If you encounter any problems, contact [it@networkiteasy.com](mailto:it@networkiteasy.com) for assistance.  
+6. **Report Lab Issues**  
+    - Please use the **[feedback](../../feedback.md)** option along the top of the navigation menu to report any issues you encountered with the lab or submit new suggestions.
 
 ---
 
