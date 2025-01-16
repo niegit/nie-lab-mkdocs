@@ -8,7 +8,7 @@ This is your one-stop resource for hands-on practice and learning within the NIE
 ### 🔗 Quick Links
 Explore our curated labs and start building your expertise now:
 
-- **[Networking Labs](labs/networking/lab_overview.md):** Configure switches, firewalls, and other networking essentials.
+- **[Networking Labs](labs/networking/lab-overview.md):** Configure switches, firewalls, and other networking essentials.
 - **[Azure Labs](labs/azure/azure_lab1.md):** Master cloud services and infrastructure with Azure.
 
 !!! tip 

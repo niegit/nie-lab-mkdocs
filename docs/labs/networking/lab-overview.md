@@ -31,7 +31,7 @@ Each lab will provide you with the specific instructions to complete that lab, b
     - Move the rack to your desk or the **lab bench** in the back room. _You may need to unlock the caster wheels on the front of the rack._
     - Ensure it’s stable and positioned conveniently, but out of the way of others.
 
-    !!! tip "⛔ Do Not Disturb ⛔"  
+    !!! tip "⛔ Do Not Disturb"  
         While the lab is not overly noisy, please be considerate of those around you. If you are sitting near someone, please ask if they mind if you power on the lab. Otherwise, feel free to move to a hoteling desk or the lab bench in the back!  
 
 2. **Power It On**  

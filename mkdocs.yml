@@ -38,11 +38,11 @@ nav:
   - Home: index.md
   - Labs:
       - Networking:
-          - Lab Overview: labs/networking/lab_overview.md
-          - Network Information: labs/networking/network_info.md
-          - Lab 1 - Configure Cisco Switch: labs/networking/lab1.md
+          - Lab Overview: labs/networking/lab-overview.md
+          - Network Information: labs/networking/network-info.md
+          - Lab 1 - Configure Cisco Switch: labs/networking/cisco-switch-setup.md
           - Lab 2: labs/networking/lab2.md
-          - Lab 3: labs/networking/lab3.md
+          - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
   - Feedback: feedback.md
@@ -151,4 +151,6 @@ markdown_extensions:
       toc_depth: 3
   - footnotes
 extra_javascript:
-  - js/open_links_in_new_tab.js  # Include custom JavaScript file to force external links to open in New Tabs throughout docs
+  - https://alcdn.msauth.net/browser/2.25.0/js/msal-browser.min.js  # MSAL.js library
+  - js/open_links_in_new_tab.js  # Your existing custom script
+  - js/msal.js  # Your custom MSAL authentication logic
