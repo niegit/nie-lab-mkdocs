@@ -41,7 +41,7 @@ nav:
           - Lab Overview: labs/networking/lab-overview.md
           - Network Information: labs/networking/network-info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/cisco-switch-setup.md
-          - Lab 2: labs/networking/lab2.md
+          - Lab 2 - Adding Devices to Network: labs/networking/lab2.md
           - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md

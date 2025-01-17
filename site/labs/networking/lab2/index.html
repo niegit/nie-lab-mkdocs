@@ -667,14 +667,13 @@ Add a bit more at the beginning for "restoring your configuration"
 
 Update Jinja for PC01 / PC02? Name, User, Password
 
-
  -->
 
 <h1 id="warning-this-lab-is-not-ready-for-use-yet">⚠️WARNING:⚠️ This Lab is not ready for use yet.<a class="headerlink" href="#warning-this-lab-is-not-ready-for-use-yet" title="Permanent link">&para;</a></h1>
 <p><strong>We are still working on this lab, please check back at another time. We should be done by next week!</strong></p>
 <p>⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️</p>
 <h1 id="lab-2-advanced-switch-configuration">Lab 2: Advanced Switch Configuration<a class="headerlink" href="#lab-2-advanced-switch-configuration" title="Permanent link">&para;</a></h1>
-<p>In this lab you will work to restore a switch from your backup, solve network issues, and demonstrate VLAN tagging.</p>
+<p>In this lab, you will work to restore a switch from your backup, solve network issues, and demonstrate VLAN tagging.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Familiarity with VLAN concepts and switch port configurations.  </li>
@@ -691,20 +690,20 @@ Update Jinja for PC01 / PC02? Name, User, Password
 <hr />
 <div class="admonition tip">
 <p class="admonition-title">Key Concepts</p>
-<p>VLAN tagging separates network traffic into logical segments, improving security and performance.<br />
+<p>VLAN tagging separates network traffic into logical segments, improving SECURITY and performance.<br />
 You'll also be working with the following VLANs:</p>
 <ul>
 <li>
-<p><strong>LAN</strong>: Main Office Data VLAN (192.168.10.0/24)</p>
+<p><strong>LAN</strong>: Main Office Data VLAN (192.168.10.0/24)  </p>
 </li>
 <li>
-<p><strong>SECURITY</strong>: Security devices (Cameras, NVR, Building Access Controls) (192.168.20.0/24)</p>
+<p><strong>SECURITY</strong>: Security devices (Cameras, NVR, Building Access Controls) (192.168.20.0/24)  </p>
 </li>
 <li>
-<p><strong>VOIP</strong>: IP phones and voice-related services (192.168.30.0/24)</p>
+<p><strong>VOIP</strong>: IP phones and voice-related services (192.168.30.0/24)  </p>
 </li>
 <li>
-<p><strong>GUEST</strong>: Isolated guest network (192.168.40.0/26)</p>
+<p><strong>GUEST</strong>: Isolated guest network (192.168.40.0/26)  </p>
 </li>
 </ul>
 </div>
@@ -718,14 +717,16 @@ You'll also be working with the following VLANs:</p>
 <ol>
 <li><strong>Access the Switch GUI</strong>  <ul>
 <li>Open your browser and navigate to the management IP: <code>192.168.1.254</code>.  </li>
-<li>Use the credentials below:  </li>
+<li>Use the credentials below:  <ul>
 <li>Username: <code>cisco</code>  </li>
 <li>Password: <code>cisco</code>  </li>
 </ul>
 </li>
+</ul>
+</li>
 </ol>
 <div class="admonition tip">
-<p class="admonition-title">Don't forget your NIC adapter settings. Revisit the <a href="../cisco-switch-setup/">cisco setup guide</a> if you need a refesher.</p>
+<p class="admonition-title">Don't forget your NIC adapter settings. Revisit the <a href="../cisco-switch-setup/">cisco setup guide</a> if you need a refresher.</p>
 </div>
 <ol>
 <li>
@@ -739,18 +740,19 @@ You'll also be working with the following VLANs:</p>
 <p><strong>Upload Backup File</strong>  </p>
 <ul>
 <li>Choose the backup file from your local machine or your USB inserted into the switch.  </li>
-<li>Choose <strong>Running Configuration</strong> for the destination.</li>
+<li>Choose <strong>Running Configuration</strong> for the destination.  </li>
 <li>Click <strong>Apply</strong> and confirm the restore process.</li>
 </ul>
 </li>
-</ol>
-<!-- Fix this formatting below -->
-<ol>
-<li><strong>Reconnect to Switch</strong>  <ul>
-<li><strong>Update</strong> your <strong>NIC settings</strong> and <strong>reconnect</strong> to the switch with:</li>
-<li>IP Address: <code>192.168.10.2</code></li>
-<li>User: <code>nie</code></li>
+<li>
+<p><strong>Reconnect to Switch</strong>  </p>
+<ul>
+<li><strong>Update</strong> your <strong>NIC settings</strong> and <strong>reconnect</strong> to the switch with:  <ul>
+<li>IP Address: <code>192.168.10.2</code>  </li>
+<li>User: <code>nie</code>  </li>
 <li>Password: <code>$ecureLab!</code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -764,28 +766,28 @@ You'll also be working with the following VLANs:</p>
 <li>
 <p><strong>Turn on PC01 and Sign In</strong>  </p>
 <ul>
-<li>Plug <strong>Power</strong> into <code>PC01</code></li>
-<li>Plug in the <strong>Display Cable</strong> between <code>PC01</code> and the monitor.</li>
-<li>Plug the <strong>Ethernet</strong> cable into <code>PC01</code> and into <code>GE13</code> <em>(bottom-left)</em> of SW01</li>
-<li>Sign into <code>PC01</code> with the following credentials: <code>(LabAdmin/Password)</code></li>
+<li>Plug <strong>Power</strong> into <strong>PC01</strong>.  </li>
+<li>Plug in the <strong>Display Cable</strong> between <strong>PC01</strong> and the monitor.  </li>
+<li>Plug the <strong>Ethernet</strong> cable into <strong>PC01</strong> and into <code>GE13</code> <em>(bottom-left)</em> of <strong>SW01</strong>.  </li>
+<li>Sign into <strong>PC01</strong> with the following credentials: <code>(LabAdmin/Password)</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Update Network Settings</strong></p>
+<p><strong>Update Network Settings</strong>  </p>
 <ul>
-<li>Update the NIC so that it can communicate with the switch</li>
+<li>Update the NIC so that it can communicate with the switch.  </li>
 <li>Set the IP Address within the LAN subnet <em>(192.168.10.0/24)</em>. This exercise will use <code>192.168.10.13</code> for this example, feel free to use the same and follow along.</li>
 </ul>
 </li>
 </ol>
 <hr />
-<h2 id="task-3-cmd-and-conquer"><strong>Task 3: CMD and Conquer</strong><a class="headerlink" href="#task-3-cmd-and-conquer" title="Permanent link">&para;</a></h2>
-<p>Let's run some quick tests to confirm our setup so far by launching the <strong>Windows Terminal</strong>. Command Prompt (CMD) will suffice as well, but <strong>Terminal</strong> allows us to run many shells, not just CMD <em>(Command Prompt, PowerShell, Windows Subsystem for Linux)</em>.</p>
+<h2 id="task-3-cmd-and-conquer">Task 3: CMD and Conquer<a class="headerlink" href="#task-3-cmd-and-conquer" title="Permanent link">&para;</a></h2>
+<p>Let's run some quick tests to confirm our setup so far by launching the <strong>Windows Terminal</strong>. Command Prompt (CMD) will suffice as well, but <strong>Windows Terminal</strong> allows us to run commands in <strong>many</strong> shells <em>(Command Prompt, PowerShell, Windows Subsystem for Linux)</em>, not just CMD.*</p>
 <h3 id="whats-my-ip"><strong>What's my IP?</strong><a class="headerlink" href="#whats-my-ip" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Press <code>WIN + X</code> and select <strong>Terminal</strong>  </li>
-<li>Type <code>ipconfig</code> and hit <strong>Enter</strong>  <ul>
-<li><strong>Verify</strong> the Ethernet Adapter has the proper <code>IPv4</code> and <code>Subnet Mask</code> configured</li>
+<li>Press <code>WIN + X</code> and select <strong>Terminal</strong>.  </li>
+<li>Type <code>ipconfig</code> and hit <strong>Enter</strong>.  <ul>
+<li><strong>Verify</strong> the Ethernet Adapter has the proper <strong>IPv4</strong> and <strong>Subnet Mask</strong> configured.</li>
 </ul>
 </li>
 </ul>
@@ -793,97 +795,125 @@ You'll also be working with the following VLANs:</p>
 <div class="admonition tip">
 <p class="admonition-title">Can you hear me now?</p>
 <p>The <code>ping</code> command is one of the most commonly used network utilities for troubleshooting. This command sends a series of network packets to a designated IP or host in order to check if they can "talk" to one another. It's mostly used to verify that another device is online, and that the devices can establish a connection between one another.</p>
-<p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">Read more about Ping</a></p>
+<p>💡<strong>Tip:</strong> By default <code>ping</code> only sends 4 packets then stops, but using <code>ping -a</code> creates a <strong>rolling ping</strong> that runs continuosly until stopped with <code>ctrl+c</code>. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.</p>
+<p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">📚Read more about Ping</a></p>
 </div>
 <ul>
-<li>In the <strong>terminal</strong> type <code>ping 192.168.10.2</code> and hit <strong>Enter</strong></li>
+<li>In the <strong>terminal</strong>, type <code>ping 192.168.10.2</code> and hit <strong>Enter</strong>.</li>
 </ul>
-<p>If you were successful then you should see 4 packets were sent successfully to the switch. Each reply gives you the amount of time in milliseconds <em>(ms)</em> that it took to send a packet to the switch and receive it back. </p>
-<h1 id="pick-up-instructions-from-here">PICK UP INSTRUCTIONS FROM HERE<a class="headerlink" href="#pick-up-instructions-from-here" title="Permanent link">&para;</a></h1>
-<h2 id="task-3-test-network-connectivity-across-vlans">Task 3: Test Network Connectivity Across VLANs<a class="headerlink" href="#task-3-test-network-connectivity-across-vlans" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Network Testing</p>
-<p>Testing ensures that VLAN configurations work as expected and that inter-VLAN routing is functional.</p>
+<p>If you were successful, then you should see 4 packets sent successfully to the switch. Each reply gives you the amount of time in milliseconds <em>(ms)</em> that it took to send a packet to the switch and receive an "alive" response. </p>
+<div class="codehilite"><pre><span></span><code><span class="nv">C</span>:\<span class="nv">Users</span>\<span class="nv">LabUser</span><span class="o">&gt;</span><span class="nv">ping</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>
+
+<span class="nv">Pinging</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="nv">bytes</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">data</span>:
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">2</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">64</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">4</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">64</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">3</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">64</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">5</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">64</span>
+
+<span class="nv">Ping</span><span class="w"> </span><span class="nv">statistics</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>:
+<span class="nv">Packets</span>:<span class="w"> </span><span class="nv">Sent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="nv">Received</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="nv">Lost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ss">(</span><span class="mi">0</span><span class="o">%</span><span class="w"> </span><span class="nv">loss</span><span class="ss">)</span>,
+<span class="nv">Approximate</span><span class="w"> </span><span class="nv">round</span><span class="w"> </span><span class="nv">trip</span><span class="w"> </span><span class="nv">times</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">milli</span><span class="o">-</span><span class="nv">seconds</span>:
+<span class="nv">Minimum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Maximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="nv">ms</span>
+</code></pre></div>
+
+<ul>
+<li>From <strong>SW01</strong> try to <code>ping</code> your other device by it's IP address.</li>
+</ul>
+<p>If your switch and endpoints are configured correctly then you should be able successfully to ping one another. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>ping</code>, also known as <strong>ICMP</strong> traffic, may sometimes be blocked on purpose. Administrators may not want you to know if their infrastrucutre responds to the outside world. As useful as <code>ping</code> is, it can also be equally descrutive when used maliciously. So while generally you can use it to test connectivity, please know that it's not 100% accurate as the other device may have ICMP disabled or a device's built-in firewall may block it. </p>
 </div>
-<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<h2 id="task-4-review-vlans-on-switch">Task 4: Review VLANs on Switch<a class="headerlink" href="#task-4-review-vlans-on-switch" title="Permanent link">&para;</a></h2>
+<p>Now that you have the endpoints connected, we will configure VLANs on the switch to segment traffic between different logical networks. If you restored from a baseline then you likely have these already configured, but never hurts to <strong>verify explicitly</strong>.</p>
+<h3 id="steps_1">Steps:<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Connect Endpoints</strong>  </p>
+<p><strong>Access the VLAN Configuration Menu</strong>  </p>
 <ul>
-<li>Plug endpoints into switch ports configured for specific VLANs.  </li>
-<li>Example: Connect a PC to a port assigned to VLAN ID <code>30</code>.  </li>
+<li>On the switch GUI, navigate to <strong>VLAN Management → VLAN Settings</strong>.  </li>
+<li>Review the current VLAN configuration to ensure the necessary VLANs have been created. You should already have the following VLANs configured:</li>
 </ul>
+<p><strong>VLAN 1 - LAN</strong> (192.168.10.0/24)</p>
+<p><strong>VLAN 20 - SECURITY</strong> (192.168.20.0/24)</p>
+<p><strong>VLAN 30 - VOIP</strong> (192.168.30.0/24)</p>
+<p><strong>VLAN 40 - GUEST</strong> (192.168.40.0/26)</p>
 </li>
 <li>
-<p><strong>Test Intra-VLAN Communication</strong>  </p>
+<p><strong>Test Connectivity through Switch</strong> 
+Confirm the following is true about your devices by navigating to </p>
 <ul>
-<li>Use <code>ping</code> to verify communication between devices in the same VLAN.  </li>
+<li><strong>Your laptop</strong> (<code>GE12</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.  </li>
+<li><strong>PC01</strong> (<code>GE13</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.</li>
 </ul>
 </li>
-<li>
-<p><strong>Test Inter-VLAN Routing</strong>  </p>
-<ul>
-<li>Ensure the router or Layer 3 switch is configured for inter-VLAN routing.  </li>
-<li>Test connectivity between VLANs (e.g., LAN → SECURITY).  </li>
+</ol>
+<p><a class="glightbox" href="../img/cisco-cfg-lab2-task4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Port Configuration" src="../img/cisco-cfg-lab2-task4.png" /></a></p>
+<ol>
+<li><strong>Update Port for SECURITY VLAN</strong>  <ul>
+<li>Update the NIC for <strong>PC01</strong> to be on the <strong>SECURITY</strong> subnet (<em>192.168.20.0/24</em>) to allow it to communicate on the network. </li>
 </ul>
 </li>
 </ol>
 <hr />
-<h2 id="task-4-create-a-network-share-and-test-vlan-access">Task 4: Create a Network Share and Test VLAN Access<a class="headerlink" href="#task-4-create-a-network-share-and-test-vlan-access" title="Permanent link">&para;</a></h2>
-<div class="admonition question">
-<p class="admonition-title">Why Test VLAN Access?</p>
-<p>Testing file-sharing access across VLANs validates your network segmentation policies.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Note</strong>: Be careful when making changes to the port you're plugged into, especially in remote situations where you may be connected behind another device. Making a change to the port you’re connected to could result in losing connectivity, making it difficult to access the device any undo any configuration changes. It's always a good idea to take a moment and think through possible scenarios and impacts a change may make in the environment before you click.</p>
 </div>
-<h3 id="steps_2">Steps<a class="headerlink" href="#steps_2" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>Set Up a File Share</strong>  </p>
-<ul>
-<li>Create a shared folder on a device in VLAN <code>1</code>.  </li>
-</ul>
-</li>
-<li>
-<p><strong>Access the Share from Another VLAN</strong>  </p>
-<ul>
-<li>Attempt to connect to the shared folder from a device in VLAN <code>40</code>.  </li>
-</ul>
-</li>
-<li>
-<p><strong>Validate Security Rules</strong>  </p>
-<ul>
-<li>Verify that access is allowed or denied based on configured policies.</li>
-</ul>
-</li>
-</ol>
 <hr />
-<h2 id="verification-and-cleanup">Verification and Cleanup<a class="headerlink" href="#verification-and-cleanup" title="Permanent link">&para;</a></h2>
-<div class="admonition success">
-<p class="admonition-title">Verification Checklist</p>
-<ul>
-<li>VLANs are properly configured.  </li>
-<li>Endpoints can communicate as per design.  </li>
-<li>Inter-VLAN routing works as expected.  </li>
-</ul>
-</div>
-<ol>
-<li>
-<p><strong>Save Configuration</strong>  </p>
-<ul>
-<li>Save the final settings to prevent data loss during power cycles.  </li>
-</ul>
-</li>
-<li>
-<p><strong>Reset the Environment</strong>  </p>
-<ul>
-<li>Disconnect test devices and prepare the switch for the next lab session.  </li>
-</ul>
-</li>
-</ol>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Final Note</p>
-<p>Backup your final switch configuration to ensure it can be restored later if needed.</p>
-</div>
+<h2 id="task-5-verify-vlan-configuration-with-ping-test">Task 5: Verify VLAN Configuration with Ping Test<a class="headerlink" href="#task-5-verify-vlan-configuration-with-ping-test" title="Permanent link">&para;</a></h2>
+<!-- Let's test the connectivity between **PC01** and your laptop by pinging across VLANs.
+
+### Steps:
+
+1. **Ping Test Between Endpoints**  
+
+      - On **PC01**, open the **Windows Terminal** and run the following command:  
+      ```
+      ping 192.168.10.2
+      ```
+   - This will ping the switch. You should see request timeout or unreachable message.
+
+   - On **PC01**, open the **Windows Terminal** and run the following command:  
+     ```
+     ping 192.168.10.13
+     ```
+   - This will attempt to ping your device on a different VLAN. You should see request timeout or unreachable message.
+
+2. **Verify Results**  
+   - If the ping fails, it confirms that **PC01** and the other endpoint are isolated due to the different VLANs. This is expected without proper routing.
+
+---
+
+## Task 6: Troubleshoot Connectivity Issues
+
+If you encounter issues with pinging or connectivity, follow these troubleshooting steps:
+
+1. **Verify VLAN Assignments**  
+   - Ensure that **PC01** is correctly assigned to the **SECURITY VLAN** and that the VLAN configuration is correct.
+
+2. **Check IP Address Configuration**  
+   - Ensure that each PC has the correct IP address within its respective subnet.
+
+3. **Verify Port Configuration**  
+   - Double-check the port configuration for **PC01** and ensure it’s set to **tagged** for the SECURITY VLAN.
+
+4. **Test with Other VLANs**  
+   - Test connectivity between other devices in different VLANs to ensure proper segmentation.
+
+---
+
+## Task 7: Cleanup and Final Verification
+
+1. **Save Configuration**  
+   - Once you are done testing, ensure that you save the configuration to the startup configuration on the switch to preserve your changes.
+
+2. **Document Configuration**  
+   - Document the VLAN configurations, IP addresses, and any changes made to the switch for future reference.
+
+3. **Test Final Connectivity**  
+   - Perform a final round of tests to ensure that all VLANs are properly segmented and devices can communicate as expected.
+ -->
 
 
 

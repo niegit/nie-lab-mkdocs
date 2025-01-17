@@ -4,10 +4,10 @@ const msalConfig = {
         clientId: "32aac2ba-c417-49b6-b471-44a3b09741a3",
         authority: "https://login.microsoftonline.com/36b96bfe-8a1c-43ed-8c38-867abefcbc05",
         redirectUri: "http://localhost:8000",
-        /* redirectUri: "https://docs.nielabs.com/",  */
+/*         redirectUri: "https://docs.nielabs.com/",  */
     },
     cache: {
-        cacheLocation: "sessionStorage",  // Store the session in the browser sessionStorage
+        cacheLocation: "sessionStorage", // Store the session in the browser sessionStorage
         storeAuthStateInCookie: false,  // Use cookies for IE11 or Edge support
     },
     system: {
@@ -38,7 +38,7 @@ const msalConfig = {
 };
 
 const loginRequest = {
-    scopes: ["User.Read"],  // Ensure the user has the required scopes
+    scopes: ["User.Read"], // Ensure the user has the required scopes
 };
 
 const msalInstance = new msal.PublicClientApplication(msalConfig);
@@ -70,9 +70,22 @@ msalInstance.handleRedirectPromise().then((response) => {
     console.error("Error during redirect", error);
 });
 
-// Optionally, you can fetch user profile info from Graph API after login
-// Example of handling successful login response (from handleRedirectPromise)
+// Optionally, fetch user profile info from Graph API after login
 if (msalInstance.getAllAccounts().length > 0) {
-    const account = msalInstance.getAllAccounts()[0];
-    console.log("User details:", account);
+    const accounts = msalInstance.getAllAccounts();
+    const userName = accounts[0].name; // Or `name` if available
+    console.log("Logged-in user:", userName);
+
+    // Update the welcome message on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        const welcomeMessage = document.getElementById("welcome-message");
+        if (welcomeMessage) {
+            welcomeMessage.innerText = `Hey, ${userName}! 🎉`;
+            welcomeMessage.style.display = "block";
+            welcomeMessage.style.fontWeight = "bold";
+            welcomeMessage.style.fontSize = "1.2em";
+            welcomeMessage.style.marginBottom = "10px";
+            welcomeMessage.style.color = "#F15A2B";
+        }
+    });
 }
