@@ -1,7 +1,9 @@
 # Welcome to the Lab 👋
 
-This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
+<!-- This is rendered within the msal.js file. This is the only Graph item in the site, so left it as part of the auth. -->
+<span id="welcome-message"></span>
 
+This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
 
 ## Get Started Below
 

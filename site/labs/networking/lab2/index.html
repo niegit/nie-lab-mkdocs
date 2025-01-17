@@ -660,16 +660,26 @@
                   
 
 
+<!-- 
+TO DO List
+
+Add a bit more at the beginning for "restoring your configuration"
+
+Update Jinja for PC01 / PC02? Name, User, Password
+
+
+ -->
+
 <h1 id="warning-this-lab-is-not-ready-for-use-yet">⚠️WARNING:⚠️ This Lab is not ready for use yet.<a class="headerlink" href="#warning-this-lab-is-not-ready-for-use-yet" title="Permanent link">&para;</a></h1>
 <p><strong>We are still working on this lab, please check back at another time. We should be done by next week!</strong></p>
-<p>⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒</p>
+<p>⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️</p>
 <h1 id="lab-2-advanced-switch-configuration">Lab 2: Advanced Switch Configuration<a class="headerlink" href="#lab-2-advanced-switch-configuration" title="Permanent link">&para;</a></h1>
 <p>In this lab you will work to restore a switch from your backup, solve network issues, and demonstrate VLAN tagging.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Familiarity with VLAN concepts and switch port configurations.  </li>
 <li>GUI access to a managed switch.  </li>
-<li>Endpoints like PCs or laptops for testing network connectivity.</li>
+<li>Two Endpoint devices - You may use your laptop as well as PC01 (bottom shelf of rack).</li>
 </ul>
 <hr />
 <h2 id="required-equipment">Required Equipment<a class="headerlink" href="#required-equipment" title="Permanent link">&para;</a></h2>
@@ -707,10 +717,10 @@ You'll also be working with the following VLANs:</p>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Access the Switch GUI</strong>  <ul>
-<li>Open your browser and navigate to the management IP: <code>192.168.10.2</code>.  </li>
+<li>Open your browser and navigate to the management IP: <code>192.168.1.254</code>.  </li>
 <li>Use the credentials below:  </li>
-<li>Username: <code>nie</code>  </li>
-<li>Password: <code>$ecureLab!</code>  </li>
+<li>Username: <code>cisco</code>  </li>
+<li>Password: <code>cisco</code>  </li>
 </ul>
 </li>
 </ol>
@@ -721,21 +731,26 @@ You'll also be working with the following VLANs:</p>
 <li>
 <p><strong>Locate Backup/Restore Settings</strong>  </p>
 <ul>
-<li>Navigate to <code>Administration → File Management → Backup/Restore</code>.  </li>
-<li>Select the <strong>Restore Configuration</strong> option.</li>
+<li>Navigate to <code>Administration → File Management → File Operations</code>.  </li>
+<li>Select the <strong>Update File</strong> option.</li>
 </ul>
 </li>
 <li>
 <p><strong>Upload Backup File</strong>  </p>
 <ul>
 <li>Choose the backup file from your local machine or your USB inserted into the switch.  </li>
+<li>Choose <strong>Running Configuration</strong> for the destination.</li>
 <li>Click <strong>Apply</strong> and confirm the restore process.</li>
 </ul>
 </li>
-<li>
-<p><strong>Verify Configuration</strong>  </p>
-<ul>
-<li>Go to <strong>Status</strong> → <strong>Summary</strong> to confirm the restored settings match your requirements.</li>
+</ol>
+<!-- Fix this formatting below -->
+<ol>
+<li><strong>Reconnect to Switch</strong>  <ul>
+<li><strong>Update</strong> your <strong>NIC settings</strong> and <strong>reconnect</strong> to the switch with:</li>
+<li>IP Address: <code>192.168.10.2</code></li>
+<li>User: <code>nie</code></li>
+<li>Password: <code>$ecureLab!</code></li>
 </ul>
 </li>
 </ol>
@@ -744,60 +759,53 @@ You'll also be working with the following VLANs:</p>
 <p>After restoring the configuration, ensure you save it to the startup configuration.  </p>
 </div>
 <hr />
-<h2 id="task-2-configure-specific-ports-with-vlan-tags">Task 2: Configure Specific Ports with VLAN Tags<a class="headerlink" href="#task-2-configure-specific-ports-with-vlan-tags" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Important!</p>
-<p>Incorrect VLAN configurations can disrupt network traffic. Always verify your settings before applying changes.</p>
-</div>
-<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<h2 id="task-2-connect-more-endpoints">Task 2: Connect More Endpoints<a class="headerlink" href="#task-2-connect-more-endpoints" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p><strong>Access VLAN Management</strong>  </p>
+<p><strong>Turn on PC01 and Sign In</strong>  </p>
 <ul>
-<li>Navigate to <code>VLAN Management → VLAN Settings</code> in the switch GUI.  </li>
-<li>Review the existing VLANs or create new ones.  </li>
+<li>Plug <strong>Power</strong> into <code>PC01</code></li>
+<li>Plug in the <strong>Display Cable</strong> between <code>PC01</code> and the monitor.</li>
+<li>Plug the <strong>Ethernet</strong> cable into <code>PC01</code> and into <code>GE13</code> <em>(bottom-left)</em> of SW01</li>
+<li>Sign into <code>PC01</code> with the following credentials: <code>(LabAdmin/Password)</code></li>
 </ul>
 </li>
 <li>
-<p><strong>Confirm you have the following VLANs set:</strong>   </p>
+<p><strong>Update Network Settings</strong></p>
 <ul>
-<li>
-<p><code>1</code> <strong>LAN</strong></p>
-</li>
-<li>
-<p><code>20</code> <strong>SECURITY</strong></p>
-</li>
-<li>
-<p><code>30</code> <strong>VOIP</strong></p>
-</li>
-<li>
-<p><code>40</code> <strong>GUEST</strong></p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Assign VLANs to Ports</strong>  </p>
-<ul>
-<li>Navigate to <strong>Port Settings</strong>.  </li>
-<li>Assign VLAN IDs to the appropriate ports and set the mode to <strong>Access</strong>.  </li>
-<li>Example: Port 1 → VLAN ID <code>1</code> (LAN).</li>
-</ul>
-</li>
-<li>
-<p><strong>Configure Trunk Ports (if required)</strong>  </p>
-<ul>
-<li>Set the port mode to <strong>Trunk</strong> for ports connecting to other switches or routers.  </li>
-<li>Specify allowed VLANs (e.g., <code>1</code>, <code>20</code>).  </li>
+<li>Update the NIC so that it can communicate with the switch</li>
+<li>Set the IP Address within the LAN subnet <em>(192.168.10.0/24)</em>. This exercise will use <code>192.168.10.13</code> for this example, feel free to use the same and follow along.</li>
 </ul>
 </li>
 </ol>
 <hr />
+<h2 id="task-3-cmd-and-conquer"><strong>Task 3: CMD and Conquer</strong><a class="headerlink" href="#task-3-cmd-and-conquer" title="Permanent link">&para;</a></h2>
+<p>Let's run some quick tests to confirm our setup so far by launching the <strong>Windows Terminal</strong>. Command Prompt (CMD) will suffice as well, but <strong>Terminal</strong> allows us to run many shells, not just CMD <em>(Command Prompt, PowerShell, Windows Subsystem for Linux)</em>.</p>
+<h3 id="whats-my-ip"><strong>What's my IP?</strong><a class="headerlink" href="#whats-my-ip" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Press <code>WIN + X</code> and select <strong>Terminal</strong>  </li>
+<li>Type <code>ipconfig</code> and hit <strong>Enter</strong>  <ul>
+<li><strong>Verify</strong> the Ethernet Adapter has the proper <code>IPv4</code> and <code>Subnet Mask</code> configured</li>
+</ul>
+</li>
+</ul>
+<h3 id="ping-the-switch"><strong>Ping the Switch</strong><a class="headerlink" href="#ping-the-switch" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Can you hear me now?</p>
+<p>The <code>ping</code> command is one of the most commonly used network utilities for troubleshooting. This command sends a series of network packets to a designated IP or host in order to check if they can "talk" to one another. It's mostly used to verify that another device is online, and that the devices can establish a connection between one another.</p>
+<p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">Read more about Ping</a></p>
+</div>
+<ul>
+<li>In the <strong>terminal</strong> type <code>ping 192.168.10.2</code> and hit <strong>Enter</strong></li>
+</ul>
+<p>If you were successful then you should see 4 packets were sent successfully to the switch. Each reply gives you the amount of time in milliseconds <em>(ms)</em> that it took to send a packet to the switch and receive it back. </p>
+<h1 id="pick-up-instructions-from-here">PICK UP INSTRUCTIONS FROM HERE<a class="headerlink" href="#pick-up-instructions-from-here" title="Permanent link">&para;</a></h1>
 <h2 id="task-3-test-network-connectivity-across-vlans">Task 3: Test Network Connectivity Across VLANs<a class="headerlink" href="#task-3-test-network-connectivity-across-vlans" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Network Testing</p>
 <p>Testing ensures that VLAN configurations work as expected and that inter-VLAN routing is functional.</p>
 </div>
-<h3 id="steps_2">Steps<a class="headerlink" href="#steps_2" title="Permanent link">&para;</a></h3>
+<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p><strong>Connect Endpoints</strong>  </p>
@@ -826,7 +834,7 @@ You'll also be working with the following VLANs:</p>
 <p class="admonition-title">Why Test VLAN Access?</p>
 <p>Testing file-sharing access across VLANs validates your network segmentation policies.</p>
 </div>
-<h3 id="steps_3">Steps<a class="headerlink" href="#steps_3" title="Permanent link">&para;</a></h3>
+<h3 id="steps_2">Steps<a class="headerlink" href="#steps_2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p><strong>Set Up a File Share</strong>  </p>
