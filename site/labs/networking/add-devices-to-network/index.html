@@ -16,7 +16,7 @@
         <link rel="prev" href="../cisco-switch-setup/">
       
       
-        <link rel="next" href="../lab-roadmap/">
+        <link rel="next" href="../watchguard-firewall-setup/">
       
       
       <link rel="icon" href="/img/favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Lab 2 - NIE Lab Guide</title>
+        <title>Lab 2 - Adding Devices to Network - NIE Lab Guide</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#warning-this-lab-is-not-ready-for-use-yet" class="md-skip">
+        <a href="#lab-2-adding-devices-to-the-network" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 2
+              Lab 2 - Adding Devices to Network
             
           </span>
         </div>
@@ -489,16 +489,130 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 2 - Adding Devices to Network
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Lab 2
+    Lab 2 - Adding Devices to Network
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-restore-the-switch-configuration-from-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Restore the Switch Configuration from Backup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-connect-more-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Connect More Endpoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-cmd-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: CMD and Conquer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-verify-configuration-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Verify Configuration and Test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-break-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5. Break the Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-cleanup-and-final-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5: Cleanup and Final Verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../watchguard-firewall-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3 - Coming Soon
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -647,6 +761,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-restore-the-switch-configuration-from-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Restore the Switch Configuration from Backup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-connect-more-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Connect More Endpoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-cmd-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: CMD and Conquer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-verify-configuration-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Verify Configuration and Test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-break-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5. Break the Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-cleanup-and-final-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5: Cleanup and Final Verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -660,50 +845,30 @@
                   
 
 
-<!-- 
-TO DO List
-
-Add a bit more at the beginning for "restoring your configuration"
-
-Update Jinja for PC01 / PC02? Name, User, Password
-
- -->
-
-<h1 id="warning-this-lab-is-not-ready-for-use-yet">⚠️WARNING:⚠️ This Lab is not ready for use yet.<a class="headerlink" href="#warning-this-lab-is-not-ready-for-use-yet" title="Permanent link">&para;</a></h1>
-<p><strong>We are still working on this lab, please check back at another time. We should be done by next week!</strong></p>
-<p>⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️🔧🔒⚠️</p>
-<h1 id="lab-2-advanced-switch-configuration">Lab 2: Advanced Switch Configuration<a class="headerlink" href="#lab-2-advanced-switch-configuration" title="Permanent link">&para;</a></h1>
-<p>In this lab, you will work to restore a switch from your backup, solve network issues, and demonstrate VLAN tagging.</p>
+<h1 id="lab-2-adding-devices-to-the-network">Lab 2: Adding Devices to the Network<a class="headerlink" href="#lab-2-adding-devices-to-the-network" title="Permanent link">&para;</a></h1>
+<p>In this lab, you will work to restore a switch using your previous lab config file, you'll add additional endpoints to the network, test connections using the <code>ping</code> network utility, and test your VLAN tagging knowledge!</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Familiarity with VLAN concepts and switch port configurations.  </li>
-<li>GUI access to a managed switch.  </li>
-<li>Two Endpoint devices - You may use your laptop as well as PC01 (bottom shelf of rack).</li>
+<li>GUI access to a managed switch (e.g., Cisco SG350X 24 Port Switch).  </li>
+<li>Two Endpoint devices - You may use your laptop as well as <strong>PC01</strong> (bottom shelf of rack).</li>
 </ul>
-<hr />
-<h2 id="required-equipment">Required Equipment<a class="headerlink" href="#required-equipment" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Managed switch (e.g., Cisco SG350X 24 Port Switch).  </li>
-<li>Endpoints for connectivity testing.  </li>
-<li>Browser-based GUI access to the switch.</li>
-</ul>
-<hr />
 <div class="admonition tip">
-<p class="admonition-title">Key Concepts</p>
-<p>VLAN tagging separates network traffic into logical segments, improving SECURITY and performance.<br />
-You'll also be working with the following VLANs:</p>
+<p class="admonition-title">Key Concepts for Lab</p>
+<p>VLAN tagging separates network traffic into logical segments, improving security and performance.<br />
+You'll be working with the following VLANs:</p>
 <ul>
 <li>
-<p><strong>LAN</strong>: Main Office Data VLAN (192.168.10.0/24)  </p>
+<p><strong>LAN</strong>: Main Office Data VLAN (192.168.10.0/24)</p>
 </li>
 <li>
-<p><strong>SECURITY</strong>: Security devices (Cameras, NVR, Building Access Controls) (192.168.20.0/24)  </p>
+<p><strong>SECURITY</strong>: Security devices (Cameras, NVR, Building Access Controls) (192.168.20.0/24)</p>
 </li>
 <li>
-<p><strong>VOIP</strong>: IP phones and voice-related services (192.168.30.0/24)  </p>
+<p><strong>VOIP</strong>: IP phones and voice-related services (192.168.30.0/24)</p>
 </li>
 <li>
-<p><strong>GUEST</strong>: Isolated guest network (192.168.40.0/26)  </p>
+<p><strong>GUEST</strong>: Isolated guest network (192.168.40.0/26)</p>
 </li>
 </ul>
 </div>
@@ -711,9 +876,9 @@ You'll also be working with the following VLANs:</p>
 <h2 id="task-1-restore-the-switch-configuration-from-backup">Task 1: Restore the Switch Configuration from Backup<a class="headerlink" href="#task-1-restore-the-switch-configuration-from-backup" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Why Restore Configuration?</p>
-<p>Restoring a configuration ensures your switch has the desired settings without manually reconfiguring everything.</p>
+<p>Restoring a configuration ensures your switch has the desired settings without manually reconfiguring everything. </p>
+<p>Aside from being <strong>much</strong> faster to restore this way, it also provides some peace of mind knowing that everything is restored exactly as it had been previously, and no wondering in the middle of the night if you remembered to tag the port for that one computer in that one office for that one user that always complains - <em>what port what that plugged into again?</em></p>
 </div>
-<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Access the Switch GUI</strong>  <ul>
 <li>Open your browser and navigate to the management IP: <code>192.168.1.254</code>.  </li>
@@ -726,7 +891,7 @@ You'll also be working with the following VLANs:</p>
 </li>
 </ol>
 <div class="admonition tip">
-<p class="admonition-title">Don't forget your NIC adapter settings. Revisit the <a href="../cisco-switch-setup/">cisco setup guide</a> if you need a refresher.</p>
+<p class="admonition-title">Don't forget your NIC adapter settings. If your NIC is configured correctly and you still can't access it on the default IP, then you may need to factory reset it. Revisit the <a href="../cisco-switch-setup/">cisco setup guide</a> if you need a refresher.</p>
 </div>
 <ol>
 <li>
@@ -758,13 +923,13 @@ You'll also be working with the following VLANs:</p>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Save Your Work</p>
-<p>After restoring the configuration, ensure you save it to the startup configuration.  </p>
+<p>After restoring the configuration, ensure you save it to the startup configuration or else a reboot will wipe your config!</p>
 </div>
 <hr />
 <h2 id="task-2-connect-more-endpoints">Task 2: Connect More Endpoints<a class="headerlink" href="#task-2-connect-more-endpoints" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p><strong>Turn on PC01 and Sign In</strong>  </p>
+<p>Power on <strong>PC01</strong> and <strong>Sign In</strong>  </p>
 <ul>
 <li>Plug <strong>Power</strong> into <strong>PC01</strong>.  </li>
 <li>Plug in the <strong>Display Cable</strong> between <strong>PC01</strong> and the monitor.  </li>
@@ -782,26 +947,29 @@ You'll also be working with the following VLANs:</p>
 </ol>
 <hr />
 <h2 id="task-3-cmd-and-conquer">Task 3: CMD and Conquer<a class="headerlink" href="#task-3-cmd-and-conquer" title="Permanent link">&para;</a></h2>
-<p>Let's run some quick tests to confirm our setup so far by launching the <strong>Windows Terminal</strong>. Command Prompt (CMD) will suffice as well, but <strong>Windows Terminal</strong> allows us to run commands in <strong>many</strong> shells <em>(Command Prompt, PowerShell, Windows Subsystem for Linux)</em>, not just CMD.*</p>
-<h3 id="whats-my-ip"><strong>What's my IP?</strong><a class="headerlink" href="#whats-my-ip" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>What's my IP?</strong></p>
 <ul>
 <li>Press <code>WIN + X</code> and select <strong>Terminal</strong>.  </li>
-<li>Type <code>ipconfig</code> and hit <strong>Enter</strong>.  <ul>
+<li>Type <code>ipconfig</code> and hit <strong>Enter</strong>.  </li>
 <li><strong>Verify</strong> the Ethernet Adapter has the proper <strong>IPv4</strong> and <strong>Subnet Mask</strong> configured.</li>
 </ul>
 </li>
-</ul>
-<h3 id="ping-the-switch"><strong>Ping the Switch</strong><a class="headerlink" href="#ping-the-switch" title="Permanent link">&para;</a></h3>
+<li>
+<p><strong>Ping the Switch</strong></p>
 <div class="admonition tip">
 <p class="admonition-title">Can you hear me now?</p>
 <p>The <code>ping</code> command is one of the most commonly used network utilities for troubleshooting. This command sends a series of network packets to a designated IP or host in order to check if they can "talk" to one another. It's mostly used to verify that another device is online, and that the devices can establish a connection between one another.</p>
-<p>💡<strong>Tip:</strong> By default <code>ping</code> only sends 4 packets then stops, but using <code>ping -a</code> creates a <strong>rolling ping</strong> that runs continuosly until stopped with <code>ctrl+c</code>. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.</p>
+<p>💡<strong>Tip:</strong> By default <code>ping</code> only sends 4 packets then stops, but using <code>ping -a</code> creates a <strong>rolling ping</strong> that runs continuously until stopped with <code>ctrl+c</code>. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.</p>
 <p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">📚Read more about Ping</a></p>
 </div>
 <ul>
 <li>In the <strong>terminal</strong>, type <code>ping 192.168.10.2</code> and hit <strong>Enter</strong>.</li>
 </ul>
-<p>If you were successful, then you should see 4 packets sent successfully to the switch. Each reply gives you the amount of time in milliseconds <em>(ms)</em> that it took to send a packet to the switch and receive an "alive" response. </p>
+<p>If you were successful, then you should see 4 packets sent successfully to the switch. Each reply gives you the amount of time in milliseconds <em>(ms)</em> that it took to send a packet to the switch and receive an "alive" response.</p>
+</li>
+</ol>
 <div class="codehilite"><pre><span></span><code><span class="nv">C</span>:\<span class="nv">Users</span>\<span class="nv">LabUser</span><span class="o">&gt;</span><span class="nv">ping</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span>
 
 <span class="nv">Pinging</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">2</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="nv">bytes</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">data</span>:
@@ -817,16 +985,14 @@ You'll also be working with the following VLANs:</p>
 </code></pre></div>
 
 <ul>
-<li>From <strong>SW01</strong> try to <code>ping</code> your other device by it's IP address.</li>
+<li>From <strong>SW01</strong>, try to <code>ping</code> your other device by its IP address.</li>
 </ul>
-<p>If your switch and endpoints are configured correctly then you should be able successfully to ping one another. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>ping</code>, also known as <strong>ICMP</strong> traffic, may sometimes be blocked on purpose. Administrators may not want you to know if their infrastrucutre responds to the outside world. As useful as <code>ping</code> is, it can also be equally descrutive when used maliciously. So while generally you can use it to test connectivity, please know that it's not 100% accurate as the other device may have ICMP disabled or a device's built-in firewall may block it. </p>
+<p><code>ping</code>, also known as <strong>ICMP</strong> traffic, may sometimes be blocked on purpose. Administrators may not want you to know if their infrastructure responds to pings. As useful as <code>ping</code> is, it can also be equally destructive when used maliciously. So while generally you can use it to test connectivity, please know that it's not 100% accurate as the other device may have ICMP disabled or a device's built-in firewall may block it.  </p>
 </div>
-<h2 id="task-4-review-vlans-on-switch">Task 4: Review VLANs on Switch<a class="headerlink" href="#task-4-review-vlans-on-switch" title="Permanent link">&para;</a></h2>
-<p>Now that you have the endpoints connected, we will configure VLANs on the switch to segment traffic between different logical networks. If you restored from a baseline then you likely have these already configured, but never hurts to <strong>verify explicitly</strong>.</p>
-<h3 id="steps_1">Steps:<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="task-4-verify-configuration-and-test">Task 4: Verify Configuration and Test<a class="headerlink" href="#task-4-verify-configuration-and-test" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Access the VLAN Configuration Menu</strong>  </p>
@@ -840,8 +1006,7 @@ You'll also be working with the following VLANs:</p>
 <p><strong>VLAN 40 - GUEST</strong> (192.168.40.0/26)</p>
 </li>
 <li>
-<p><strong>Test Connectivity through Switch</strong> 
-Confirm the following is true about your devices by navigating to </p>
+<p><strong>Test Connectivity through Switch</strong>  </p>
 <ul>
 <li><strong>Your laptop</strong> (<code>GE12</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.  </li>
 <li><strong>PC01</strong> (<code>GE13</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.</li>
@@ -850,70 +1015,75 @@ Confirm the following is true about your devices by navigating to </p>
 </ol>
 <p><a class="glightbox" href="../img/cisco-cfg-lab2-task4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Port Configuration" src="../img/cisco-cfg-lab2-task4.png" /></a></p>
 <ol>
-<li><strong>Update Port for SECURITY VLAN</strong>  <ul>
-<li>Update the NIC for <strong>PC01</strong> to be on the <strong>SECURITY</strong> subnet (<em>192.168.20.0/24</em>) to allow it to communicate on the network. </li>
+<li>
+<p><strong>Ping away</strong>  </p>
+<ul>
+<li>Both of our devices should be able to communicate with one another, so let's <code>ping</code> from your laptop to <code>PC01</code>.</li>
+</ul>
+<p>Hopefully your ping was successful like the ones below! Some common issues may be switch configuration, Windows firewall blocking ICMP, and never forget to double check your cables even if you think you plugged everything in correctly!</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="nv">C</span>:\<span class="nv">Users</span>\<span class="nv">YourName</span><span class="o">&gt;</span><span class="nv">ping</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>
+
+<span class="nv">Pinging</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="nv">bytes</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">data</span>:
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">1</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">128</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">1</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">128</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">1</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">128</span>
+<span class="nv">Reply</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>:<span class="w"> </span><span class="nv">bytes</span><span class="o">=</span><span class="mi">32</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="mi">1</span><span class="nv">ms</span><span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="mi">128</span>
+
+<span class="nv">Ping</span><span class="w"> </span><span class="nv">statistics</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">10</span>.<span class="mi">13</span>:
+<span class="w">    </span><span class="nv">Packets</span>:<span class="w"> </span><span class="nv">Sent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="nv">Received</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="nv">Lost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ss">(</span><span class="mi">0</span><span class="o">%</span><span class="w"> </span><span class="nv">loss</span><span class="ss">)</span>,
+<span class="nv">Approximate</span><span class="w"> </span><span class="nv">round</span><span class="w"> </span><span class="nv">trip</span><span class="w"> </span><span class="nv">times</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">milli</span><span class="o">-</span><span class="nv">seconds</span>:
+<span class="w">    </span><span class="nv">Minimum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Maximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="nv">ms</span>
+</code></pre></div>
+
+<h2 id="task-5-break-the-connection">Task 5. Break the Connection<a class="headerlink" href="#task-5-break-the-connection" title="Permanent link">&para;</a></h2>
+<p>We know we have a connection established, but let's try to test our VLAN knowledge and break the connection! Let's pretend <strong>PC01</strong> is a security camera server and needs to be <strong>isolated to the SECURITY</strong> VLAN.</p>
+<ul>
+<li>Navigate back to <strong>SW01</strong> and update <code>GE13</code> so that the access VLAN is <code>20</code> and <strong>apply</strong> your changes.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Think about it</p>
+<p>What did we just do?  </p>
+<p>Currently <strong>PC01</strong> is plugged into <code>GE13</code> as an <strong>access</strong> port so it can only communicate on one VLAN, which we've now updated to VLAN <code>20</code>. So in theory, <strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network now.  </p>
+<p>What's going to happen when we <code>ping</code> the switch? Will it still work?</p>
+</div>
+<ul>
+<li>From <strong>PC01</strong> try to <code>ping</code> <strong>SW01</strong> on 192.168.10.2</li>
+</ul>
+<p><strong>Did you guess right?</strong></p>
+<ul>
+<li><strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network, but <strong>SW01</strong> is not in that subnet, and therefore can't communicate. Additionally, even if we <em>could</em> communicate, we never updated our NIC settings on <strong>PC01</strong> to reflect the new subnet.  </li>
+</ul>
+<p>You could go update the NIC on <strong>PC01</strong> to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a <strong>WatchGuard T45 Firewall</strong>! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.</p>
+<hr />
+<h2 id="task-5-cleanup-and-final-verification">Task 5: Cleanup and Final Verification<a class="headerlink" href="#task-5-cleanup-and-final-verification" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Save Configuration</strong>  </p>
+<ul>
+<li>Once you are done testing, ensure that you save the configuration to the startup configuration on the switch to preserve your changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reset Equipment to Factory Defaults</strong>  </p>
+<ul>
+<li>Ensure <strong>SW01</strong> has been factory reset and is ready for the next lab user.</li>
+</ul>
+</li>
+<li>
+<p><strong>Power Off Devices</strong>  </p>
+<ul>
+<li>Take a moment to power down <strong>PC01</strong> gracefully. The remaining hardware can be turned off via the single Red power toggle on the PDU.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clean Up and Organize</strong>  </p>
+<ul>
+<li>Please take a moment to organize the cables and equipment you used for this lab. Ensure</li>
 </ul>
 </li>
 </ol>
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Note</strong>: Be careful when making changes to the port you're plugged into, especially in remote situations where you may be connected behind another device. Making a change to the port you’re connected to could result in losing connectivity, making it difficult to access the device any undo any configuration changes. It's always a good idea to take a moment and think through possible scenarios and impacts a change may make in the environment before you click.</p>
-</div>
-<hr />
-<h2 id="task-5-verify-vlan-configuration-with-ping-test">Task 5: Verify VLAN Configuration with Ping Test<a class="headerlink" href="#task-5-verify-vlan-configuration-with-ping-test" title="Permanent link">&para;</a></h2>
-<!-- Let's test the connectivity between **PC01** and your laptop by pinging across VLANs.
-
-### Steps:
-
-1. **Ping Test Between Endpoints**  
-
-      - On **PC01**, open the **Windows Terminal** and run the following command:  
-      ```
-      ping 192.168.10.2
-      ```
-   - This will ping the switch. You should see request timeout or unreachable message.
-
-   - On **PC01**, open the **Windows Terminal** and run the following command:  
-     ```
-     ping 192.168.10.13
-     ```
-   - This will attempt to ping your device on a different VLAN. You should see request timeout or unreachable message.
-
-2. **Verify Results**  
-   - If the ping fails, it confirms that **PC01** and the other endpoint are isolated due to the different VLANs. This is expected without proper routing.
-
----
-
-## Task 6: Troubleshoot Connectivity Issues
-
-If you encounter issues with pinging or connectivity, follow these troubleshooting steps:
-
-1. **Verify VLAN Assignments**  
-   - Ensure that **PC01** is correctly assigned to the **SECURITY VLAN** and that the VLAN configuration is correct.
-
-2. **Check IP Address Configuration**  
-   - Ensure that each PC has the correct IP address within its respective subnet.
-
-3. **Verify Port Configuration**  
-   - Double-check the port configuration for **PC01** and ensure it’s set to **tagged** for the SECURITY VLAN.
-
-4. **Test with Other VLANs**  
-   - Test connectivity between other devices in different VLANs to ensure proper segmentation.
-
----
-
-## Task 7: Cleanup and Final Verification
-
-1. **Save Configuration**  
-   - Once you are done testing, ensure that you save the configuration to the startup configuration on the switch to preserve your changes.
-
-2. **Document Configuration**  
-   - Document the VLAN configurations, IP addresses, and any changes made to the switch for future reference.
-
-3. **Test Final Connectivity**  
-   - Perform a final round of tests to ensure that all VLANs are properly segmented and devices can communicate as expected.
- -->
 
 
 
@@ -966,13 +1136,13 @@ If you encounter issues with pinging or connectivity, follow these troubleshooti
         
         
           
-          <a href="../lab-roadmap/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Roadmap">
+          <a href="../watchguard-firewall-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 - Coming Soon">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab Roadmap
+                Lab 3 - Coming Soon
               </div>
             </div>
             <div class="md-footer__button md-icon">

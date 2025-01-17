@@ -41,12 +41,16 @@ nav:
           - Lab Overview: labs/networking/lab-overview.md
           - Network Information: labs/networking/network-info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/cisco-switch-setup.md
-          - Lab 2 - Adding Devices to Network: labs/networking/lab2.md
+          - Lab 2 - Adding Devices to Network: labs/networking/add-devices-to-network.md
+          - Lab 3 - Coming Soon: labs/networking/watchguard-firewall-setup.md
           - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
   - Feedback: feedback.md
 extra:
+  office:
+    location: 5400 Patton Dr. STE 4a, Lisle, Illinois 60532
+    contact: support@networkiteasy.com
   vlans:
     lan:
       name: "LAN"
@@ -54,10 +58,11 @@ extra:
       subnet: "192.168.10.0/24"
       subnet_mask: "255.255.255.0"
       cidr: /24
-      dhcp_range: "192.168.10.10 - .254"
+      dhcp_range: "192.168.10.20 - .254"
       dhcp_server: "DC01"
       gateway: "192.168.10.1"
       description: "Main Office Data VLAN"
+      domain_name: nielab.local
     security:
       name: "SECURITY"
       id: 20
@@ -147,6 +152,17 @@ extra:
       vlan: "LAN"
       description: "WatchGuard T45 Firewall."
       model: "T45"
+      default_ip: "10.0.1.1"
+      default_web_address: "https://10.0.1.1:8080"
+      default_subnet: 10.0.1.0/24
+      default_status_account: "status/readonly"
+      default_admin_account: "admin/readwrite" 
+      software_download: https://software.watchguard.com/SoftwareDownloads?current=true&familyId=a2R6S00000537cVUAQ
+  wan:
+    ip: "96.81.211.76"
+    subnet_mask: "255.255.255.240"
+    cidr: /28
+    gateway: "96.81.211.78" 
   urls:
     feedback_webhook: "https://engine.rewst.io/webhooks/custom/trigger/01946b93-eb43-7a50-8d4d-fcc366deaa30/cb4b611f-612d-4c1d-951f-79aa3fefeafd" 
   palette:

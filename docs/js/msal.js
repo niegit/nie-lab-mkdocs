@@ -3,8 +3,8 @@ const msalConfig = {
     auth: {
         clientId: "32aac2ba-c417-49b6-b471-44a3b09741a3",
         authority: "https://login.microsoftonline.com/36b96bfe-8a1c-43ed-8c38-867abefcbc05",
-/*         redirectUri: "http://localhost:8000", */
-        redirectUri: "https://docs.nielabs.com/", 
+        redirectUri: "http://localhost:8000",
+/*         redirectUri: "https://docs.nielabs.com/",  */
     },
     cache: {
         cacheLocation: "sessionStorage", // Store the session in the browser sessionStorage
