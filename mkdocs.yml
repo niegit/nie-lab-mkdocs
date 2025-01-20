@@ -172,7 +172,8 @@ extra:
     cidr: /28
     gateway: "96.81.211.78" 
   urls:
-    feedback_webhook: "https://engine.rewst.io/webhooks/custom/trigger/01946b93-eb43-7a50-8d4d-fcc366deaa30/cb4b611f-612d-4c1d-951f-79aa3fefeafd" 
+    feedback_webhook: "https://engine.rewst.io/webhooks/custom/trigger/01946b93-eb43-7a50-8d4d-fcc366deaa30/cb4b611f-612d-4c1d-951f-79aa3fefeafd"
+    lab_files: "https://dead.link.com"
   palette:
     primary: deep purple
     accent: cyan

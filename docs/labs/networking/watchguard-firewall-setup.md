@@ -88,7 +88,7 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
 
 ---
 
-## Create Temporary Network and Port
+## Create Temporary Network
 
 1. **Configure a Temporary Port**:  
 
@@ -116,7 +116,7 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
             - Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.)
 
 
-## Configuring VLANs to Firewall
+## Adding VLANs to Firewall
 
 1. Reconnect to the Firebox on the temp IP (`192.168.199.1`):
     - WSM > Connect to Firebox > Sign in.
@@ -142,8 +142,8 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
         Now you can **add** the **remaining VLANs** below using the same methods. **A couple caveats to be aware of though**:
 
         - The **IP Address** is a combination of the Default Gateway + the size of the subnet in CIDR notation _(meaning `/24` or similar)_
-        - Only add a **DHCP server** to the VLAN if the Firewall is specified for the particular VLAN, otherwise leave it disabled.
-        - For **Guest VLAN**, set the security zone to **Custom** instead of **Trusted**. Double check the network size as well, as it's not a /24.
+        - Only add a **DHCP server** to the VLAN if the **Firewall** is specified for the particular VLAN, otherwise leave it disabled for the VLAN.
+        - For the **GUEST and SECURITY VLANs**, set the security zone to **Custom** instead of **Trusted**. By default, trusted interfaces would typically allow and route traffic by default and we want to ensure **we** determine what routes to these VLANs via future policies.
 
             | **VLAN Name** | **VLAN ID** | **Subnet**         | **Default Gateway** | **DHCP Server**       | **DHCP Range**          |
             |---------------|-------------|--------------------|---------------------|-----------------------|-------------------------|
@@ -176,6 +176,19 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
 
 ---
 
+## Adjust Default Ping Policy
+
+Like we mentioned in the previous lab, `ping` can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for **ping traffic** allows it to work a little _too well_, which can lead to some confusing results later on in this lab. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. 
+
+1. **Open** the Default Policy named **Ping** by **double-clicking** it or right-clicking and Modify Policy.
+2. In the **To** box, remove **Any**. 
+3. In the **To** box, add the following: **_Any-Trusted, Any-External, Any-Optional_**
+4. Hit **OK** to save the policy changes.
+
+![WG Ping Policy](img/firewall-ping-policy.png)
+
+---
+
 ## Final Steps
 1. **Backup Baseline Configuration**:
     - Go to **File > Save > As File**.
@@ -194,4 +207,6 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
 
 ---
 
-Great work!🎉 You now have a baseline configuration for the firewall. There's still more work we need to do, and we need to connect it to Internet to update our feature key and unlock subscription services. We'll pick up from here in future labs, but in the meantime feel free to review [NIE's technical documenation](https://nie.itglue.com/3451640/docs/6433440) that our Field team uses when they prep new firewalls.
+Great work!🎉 
+
+You now have a baseline configuration for the firewall. There's still more work we need to do, and we need to connect it to Internet to update our feature key and unlock subscription services. We'll pick up from here in future labs, but in the meantime feel free to review [NIE's technical documenation](https://nie.itglue.com/3451640/docs/6433440) that our Field team uses when they prep new firewalls.
