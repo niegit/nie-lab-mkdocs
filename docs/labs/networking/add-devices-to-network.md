@@ -60,7 +60,7 @@ In this lab, you will work to restore a switch using your previous lab config fi
     - Plug **Power** into **{{ devices.pc01.name }}**.  
     - Plug in the **Display Cable** between **{{ devices.pc01.name }}** and the monitor.  
     - Plug the **Ethernet** cable into **{{ devices.pc01.name }}** and into `GE13` _(bottom-left)_ of **{{ devices.cisco_switch.name }}**.  
-    - Sign into **{{ devices.pc01.name }}** with the following credentials: `(LabAdmin/Password)`.
+    - Sign into **{{ devices.pc01.name }}** with the following credentials: `{{ devices.pc01.user_account }}`.
 
 2. **Update Network Settings**  
     - Update the NIC so that it can communicate with the switch.  

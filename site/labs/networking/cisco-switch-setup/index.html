@@ -689,7 +689,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 3 - Coming Soon
+    Lab 3 - Configure WatchGuard Firewall
   </span>
   
 
@@ -1077,7 +1077,7 @@
 <p><strong>System Settings</strong>:</p>
 <ul>
 <li>Go to <code>Administration &gt; System Settings</code>.</li>
-<li>Set the <strong>System Location</strong> to <code>5400 Patton Dr. Unit 4A, Lisle, Illinois 60532</code>.</li>
+<li>Set the <strong>System Location</strong> to <code>5400 Patton Dr. STE 4a, Lisle, Illinois 60532</code>.</li>
 <li>Set the <strong>Contact</strong> to <code>support@networkiteasy.com</code>.</li>
 <li>Change the <strong>Host Name</strong> to <strong>User Defined</strong> and give it a new name: <code>SW01</code></li>
 <li>Set a <strong>Login Banner</strong> and <strong>Welcome Banner</strong> (you can use the same text): <code>NIE 24-Port Cisco Lab Switch</code>.</li>
@@ -1231,9 +1231,11 @@ If a configuration change may cause an issue, restarting the switch without savi
 </div>
 <ul>
 <li>Navigate to <code>VLAN Management &gt; Port VLAN Membership</code>.</li>
-<li>Select <strong>GE2 AP01</strong> and click <strong>Join VLAN</strong></li>
+<li>Select <strong>GE2 AP01</strong> and click <strong>Join VLAN</strong><ul>
 <li>Set to <strong>User Defined</strong> and only tag the <strong>GUEST</strong> (<code>40</code>).</li>
 <li><strong>Apply</strong> your changes and close the window.</li>
+</ul>
+</li>
 <li><strong>Save Config</strong>: Make sure all your changes are saved! 💾</li>
 </ul>
 <hr />
@@ -1258,10 +1260,15 @@ If a configuration change may cause an issue, restarting the switch without savi
 <li>Navigate to <code>Administration &gt; Reboot</code>.</li>
 <li>Choose <strong>Immediate</strong> and select <strong>Restore to Factory Defaults</strong>. Click <strong>Reboot</strong> and <strong>OK</strong>.</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>⏰ This process will take <strong>about 5 minutes</strong> while the switch reloads the factory defaults. At that time, the <strong>master</strong> and number <strong>1</strong> light on the switch should be solid green, and the <strong>system</strong> light will flash continuously. Please continue with the next steps in the meantime so that your computer can connect to the switch once it's finished. </p>
+<p>If you have been waiting for longer than 5-10 minutes, please review the prior steps carefully to ensure you completed them correctly. You can restart the switch and try to access it on either IP we've been using in this lab, but your NIC will need to be configured for the proper network.</p>
+</div>
 <p><br>
 <strong>Restore the Configuration</strong></p>
 <ul>
-<li>Reset your NIC Adapter to something like <code>192.168.1.100</code> and reconnect to the switch at the default IP <code>192.168.1.254</code>.</li>
+<li><strong>Reset your NIC Adapter</strong> to something like <code>192.168.1.100</code> and reconnect to the switch at the default IP <code>192.168.1.254</code>.</li>
 <li>Log in using the default credentials (<code>cisco/cisco</code>).</li>
 <li>Configure a temporary new password to complete the login.</li>
 <li>Navigate to <code>Administration &gt; File Management &gt; File Operations</code>.</li>

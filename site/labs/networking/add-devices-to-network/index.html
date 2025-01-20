@@ -580,9 +580,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-5-cleanup-and-final-verification" class="md-nav__link">
+  <a href="#task-5-cleanup-the-lab" class="md-nav__link">
     <span class="md-ellipsis">
-      Task 5: Cleanup and Final Verification
+      Task 5: Cleanup The Lab
     </span>
   </a>
   
@@ -608,7 +608,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 3 - Coming Soon
+    Lab 3 - Configure WatchGuard Firewall
   </span>
   
 
@@ -822,9 +822,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-5-cleanup-and-final-verification" class="md-nav__link">
+  <a href="#task-5-cleanup-the-lab" class="md-nav__link">
     <span class="md-ellipsis">
-      Task 5: Cleanup and Final Verification
+      Task 5: Cleanup The Lab
     </span>
   </a>
   
@@ -934,7 +934,7 @@ You'll be working with the following VLANs:</p>
 <li>Plug <strong>Power</strong> into <strong>PC01</strong>.  </li>
 <li>Plug in the <strong>Display Cable</strong> between <strong>PC01</strong> and the monitor.  </li>
 <li>Plug the <strong>Ethernet</strong> cable into <strong>PC01</strong> and into <code>GE13</code> <em>(bottom-left)</em> of <strong>SW01</strong>.  </li>
-<li>Sign into <strong>PC01</strong> with the following credentials: <code>(LabAdmin/Password)</code>.</li>
+<li>Sign into <strong>PC01</strong> with the following credentials: <code>{{ no such element: super_collections.SuperDict object['user_account'] }}</code>.</li>
 </ul>
 </li>
 <li>
@@ -951,7 +951,7 @@ You'll be working with the following VLANs:</p>
 <li>
 <p><strong>What's my IP?</strong></p>
 <ul>
-<li>Press <code>WIN + X</code> and select <strong>Terminal</strong>.  </li>
+<li>Press <code>Windows Key + X</code> and select <strong>Terminal</strong>.  </li>
 <li>Type <code>ipconfig</code> and hit <strong>Enter</strong>.  </li>
 <li><strong>Verify</strong> the Ethernet Adapter has the proper <strong>IPv4</strong> and <strong>Subnet Mask</strong> configured.</li>
 </ul>
@@ -984,9 +984,6 @@ You'll be working with the following VLANs:</p>
 <span class="nv">Minimum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Maximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="nv">ms</span>,<span class="w"> </span><span class="nv">Average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="nv">ms</span>
 </code></pre></div>
 
-<ul>
-<li>From <strong>SW01</strong>, try to <code>ping</code> your other device by its IP address.</li>
-</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code>ping</code>, also known as <strong>ICMP</strong> traffic, may sometimes be blocked on purpose. Administrators may not want you to know if their infrastructure responds to pings. As useful as <code>ping</code> is, it can also be equally destructive when used maliciously. So while generally you can use it to test connectivity, please know that it's not 100% accurate as the other device may have ICMP disabled or a device's built-in firewall may block it.  </p>
@@ -1006,8 +1003,9 @@ You'll be working with the following VLANs:</p>
 <p><strong>VLAN 40 - GUEST</strong> (192.168.40.0/26)</p>
 </li>
 <li>
-<p><strong>Test Connectivity through Switch</strong>  </p>
+<p><strong>Test Connectivity through Switch</strong></p>
 <ul>
+<li><strong>VLAN Management → Port VLAN Membership</strong></li>
 <li><strong>Your laptop</strong> (<code>GE12</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.  </li>
 <li><strong>PC01</strong> (<code>GE13</code>) should be assigned to the <strong>LAN</strong> VLAN with an <strong>access port</strong>.</li>
 </ul>
@@ -1018,7 +1016,8 @@ You'll be working with the following VLANs:</p>
 <li>
 <p><strong>Ping away</strong>  </p>
 <ul>
-<li>Both of our devices should be able to communicate with one another, so let's <code>ping</code> from your laptop to <code>PC01</code>.</li>
+<li>Both of our devices should be able to communicate with one another, so let's <code>ping</code> from your laptop to <strong>PC01</strong>.</li>
+<li>Now the reverse: <code>ping</code> from your <strong>PC01</strong> to your laptop.</li>
 </ul>
 <p>Hopefully your ping was successful like the ones below! Some common issues may be switch configuration, Windows firewall blocking ICMP, and never forget to double check your cables even if you think you plugged everything in correctly!</p>
 </li>
@@ -1038,12 +1037,12 @@ You'll be working with the following VLANs:</p>
 </code></pre></div>
 
 <h2 id="task-5-break-the-connection">Task 5. Break the Connection<a class="headerlink" href="#task-5-break-the-connection" title="Permanent link">&para;</a></h2>
-<p>We know we have a connection established, but let's try to test our VLAN knowledge and break the connection! Let's pretend <strong>PC01</strong> is a security camera server and needs to be <strong>isolated to the SECURITY</strong> VLAN.</p>
+<p>We know we have a connection established, but let's try to test our VLAN knowledge and break the connection. Let's pretend <strong>PC01</strong> is a security camera server and needs to be <strong>isolated to the SECURITY</strong> VLAN so that other network traffic can't communicate with it.</p>
 <ul>
 <li>Navigate back to <strong>SW01</strong> and update <code>GE13</code> so that the access VLAN is <code>20</code> and <strong>apply</strong> your changes.</li>
 </ul>
 <div class="admonition question">
-<p class="admonition-title">Think about it</p>
+<p class="admonition-title">Think about it...</p>
 <p>What did we just do?  </p>
 <p>Currently <strong>PC01</strong> is plugged into <code>GE13</code> as an <strong>access</strong> port so it can only communicate on one VLAN, which we've now updated to VLAN <code>20</code>. So in theory, <strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network now.  </p>
 <p>What's going to happen when we <code>ping</code> the switch? Will it still work?</p>
@@ -1051,24 +1050,18 @@ You'll be working with the following VLANs:</p>
 <ul>
 <li>From <strong>PC01</strong> try to <code>ping</code> <strong>SW01</strong> on 192.168.10.2</li>
 </ul>
-<p><strong>Did you guess right?</strong></p>
+<p><strong>Did you guess it right?!</strong></p>
 <ul>
-<li><strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network, but <strong>SW01</strong> is not in that subnet, and therefore can't communicate. Additionally, even if we <em>could</em> communicate, we never updated our NIC settings on <strong>PC01</strong> to reflect the new subnet.  </li>
+<li><strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network, but <strong>SW01</strong> is not in that subnet, and therefore can't communicate. Even if we <em>could</em> communicate, we never updated our NIC settings on <strong>PC01</strong> to reflect the new subnet, so <strong>PC01</strong> likely has a "No Network" symbol and can't connect to <em>any</em> network currently. </li>
 </ul>
 <p>You could go update the NIC on <strong>PC01</strong> to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a <strong>WatchGuard T45 Firewall</strong>! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.</p>
 <hr />
-<h2 id="task-5-cleanup-and-final-verification">Task 5: Cleanup and Final Verification<a class="headerlink" href="#task-5-cleanup-and-final-verification" title="Permanent link">&para;</a></h2>
+<h2 id="task-5-cleanup-the-lab">Task 5: Cleanup The Lab<a class="headerlink" href="#task-5-cleanup-the-lab" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p><strong>Save Configuration</strong>  </p>
-<ul>
-<li>Once you are done testing, ensure that you save the configuration to the startup configuration on the switch to preserve your changes.</li>
-</ul>
-</li>
 <li>
 <p><strong>Reset Equipment to Factory Defaults</strong>  </p>
 <ul>
-<li>Ensure <strong>SW01</strong> has been factory reset and is ready for the next lab user.</li>
+<li>Ensure <strong>SW01</strong> has been factory reset and is ready for the next lab user. No need to save our config from this lab!</li>
 </ul>
 </li>
 <li>
@@ -1080,7 +1073,7 @@ You'll be working with the following VLANs:</p>
 <li>
 <p><strong>Clean Up and Organize</strong>  </p>
 <ul>
-<li>Please take a moment to organize the cables and equipment you used for this lab. Ensure</li>
+<li>Please take a moment to organize the cables and equipment you used for this lab. Ensure it's ready for the next user!</li>
 </ul>
 </li>
 </ol>
@@ -1136,13 +1129,13 @@ You'll be working with the following VLANs:</p>
         
         
           
-          <a href="../watchguard-firewall-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 - Coming Soon">
+          <a href="../watchguard-firewall-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 - Configure WatchGuard Firewall">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab 3 - Coming Soon
+                Lab 3 - Configure WatchGuard Firewall
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -186,7 +186,7 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
     - **Power off** the Firebox using the switch located on the back.
     - **Press and hold** the **Reset** button _(next to power)_.
     - **While holding** the reset button, **power on** the Firebox.
-    - **Continue holding** the button until the **AtTTN** indicator begins to flash _(about 20 seconds)_.
+    - **Continue holding** the button until the **ATTN** indicator begins to flash _(about 20 seconds)_.
     - **Release** the reset button but do not power off the Firebox.
     - **Wait** for the reset process to complete _(up to 70 seconds)_. The **ATTN** indicator will stay lit.
     

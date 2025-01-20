@@ -24,7 +24,7 @@
     
     
       
-        <title>Lab 3 - Coming Soon - NIE Lab Guide</title>
+        <title>Lab 3 - Configure WatchGuard Firewall - NIE Lab Guide</title>
       
     
     
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 3 - Coming Soon
+              Lab 3 - Configure WatchGuard Firewall
             
           </span>
         </div>
@@ -514,7 +514,7 @@
           
   
   <span class="md-ellipsis">
-    Lab 3 - Coming Soon
+    Lab 3 - Configure WatchGuard Firewall
   </span>
   
 
@@ -525,7 +525,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 3 - Coming Soon
+    Lab 3 - Configure WatchGuard Firewall
   </span>
   
 
@@ -574,9 +574,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-watchguard-system-manager-wsm" class="md-nav__link">
+  <a href="#connecting-with-watchguard-system-manager-wsm" class="md-nav__link">
     <span class="md-ellipsis">
-      Using WatchGuard System Manager (WSM)
+      Connecting with WatchGuard System Manager (WSM)
     </span>
   </a>
   
@@ -795,9 +795,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-watchguard-system-manager-wsm" class="md-nav__link">
+  <a href="#connecting-with-watchguard-system-manager-wsm" class="md-nav__link">
     <span class="md-ellipsis">
-      Using WatchGuard System Manager (WSM)
+      Connecting with WatchGuard System Manager (WSM)
     </span>
   </a>
   
@@ -845,6 +845,19 @@
                   
 
 
+<!-- 
+
+Explain Cert Issue for Web GUI
+
+Add Custom Creds for Firewall Labs
+
+
+
+
+
+
+ -->
+
 <h1 id="watchguard-firewall-lab-guide">WatchGuard Firewall Lab Guide<a class="headerlink" href="#watchguard-firewall-lab-guide" title="Permanent link">&para;</a></h1>
 <h2 id="pre-requisites">Pre-Requisites<a class="headerlink" href="#pre-requisites" title="Permanent link">&para;</a></h2>
 <ul>
@@ -862,7 +875,7 @@
 <li>
 <p>Default login: <code>https://10.0.1.1:8080</code>.</p>
 <ul>
-<li>Explain cert issue: click <strong>Advanced</strong> and <strong>Continue</strong> to https://10.0.1.1:8080 (unsafe) to get to GUI.</li>
+<li>Your browser may block the connection due to SSL certificate: click <strong>Advanced</strong> and <strong>Continue</strong> to https://10.0.1.1:8080 (unsafe) to get to GUI.</li>
 <li>Credentials: defaults are <code>admin/readwrite</code>.</li>
 </ul>
 </li>
@@ -893,10 +906,14 @@
 </ul>
 </li>
 <li><strong>Configure Trusted Interface</strong>:<ul>
-<li>Leave defaults (we'll update them later in the lab). This allows a DHCP server to get an IP and log into the firewall.</li>
+<li>Leave defaults as we'll update them later in the lab. For now, the defaults create a DHCP server to get an IP and log into the firewall.</li>
 </ul>
 </li>
-<li><strong>Update Passwords</strong> (define unique passwords)!!!!!!!!</li>
+<li><strong>Update Passwords</strong><ul>
+<li><code>status/$ecureLab@</code></li>
+<li><code>admin/$ecureLab!</code></li>
+</ul>
+</li>
 <li>Click <strong>Next</strong>.</li>
 <li><strong>Update</strong> System Settings:<ul>
 <li>Name: <code>NIE-LAB-T45-PAX8</code>.</li>
@@ -908,15 +925,15 @@
 <li>Click <strong>Next</strong>.</li>
 <li><strong>Skip Feature Key</strong> for now since we don't have Internet.</li>
 <li>Review information and click <strong>Next</strong>.</li>
-<li>If WSM isn't installed, download it from <a href="https://software.watchguard.com/SoftwareDownloads?current=true&amp;familyId=a2R6S00000537cVUAQ">WatchGuard Downloads</a>.</li>
 </ol>
 <hr />
-<h2 id="using-watchguard-system-manager-wsm">Using WatchGuard System Manager (WSM)<a class="headerlink" href="#using-watchguard-system-manager-wsm" title="Permanent link">&para;</a></h2>
+<h2 id="connecting-with-watchguard-system-manager-wsm">Connecting with WatchGuard System Manager (WSM)<a class="headerlink" href="#connecting-with-watchguard-system-manager-wsm" title="Permanent link">&para;</a></h2>
+<p><em>If you don't have WatchGuard System Manager (WSM) already installed, download it from <a href="https://software.watchguard.com/SoftwareDownloads?current=true&amp;familyId=a2R6S00000537cVUAQ">WatchGuard Downloads</a>.</em></p>
 <ol>
 <li>Launch WatchGuard System Manager from your computer.</li>
 <li>Go to <strong>File &gt; Connect to Device</strong>:<ul>
-<li>IP: <code>10.0.1.1</code>.</li>
-<li>NEED TO ADD IN PASSWORDS</li>
+<li><strong>IP Address:</strong> <code>10.0.1.1</code>.</li>
+<li><strong>Credentials:</strong> <code>status/$ecureLab@</code></li>
 </ul>
 </li>
 <li>Right-click the device and open <strong>Policy Manager</strong>.</li>
@@ -949,10 +966,10 @@
 <ul>
 <li>Go to <strong>Network &gt; Configuration</strong>:<ul>
 <li>Double-click <strong>Interface 4</strong> to configure.</li>
-<li>Select <strong>Trusted</strong> from the dropdown.</li>
-<li><strong>Name</strong> the interface: "Temp Network".</li>
+<li>Select <strong>Trusted</strong> type from the dropdown.</li>
+<li><strong>Name</strong> the interface: <code>Temp Network</code>.</li>
 <li><strong>Set IP</strong>: <code>192.168.199.1/24</code>.</li>
-<li>Setup DHCP server:<ul>
+<li><strong>Add</strong> a DHCP server:<ul>
 <li>Starting IP: <code>192.168.199.100</code>.</li>
 <li>Ending IP: <code>192.168.199.110</code>.</li>
 </ul>
@@ -962,15 +979,18 @@
 </li>
 <li>Save changes (<strong>File &gt; Save &gt; To Firebox</strong>):<ul>
 <li><strong>No</strong> to feature key warning (no Internet).</li>
-<li>Provide <strong>admin credentials</strong> and click <strong>OK</strong>.</li>
+<li>Provide <strong>admin credentials</strong> <em>(<code>admin/$ecureLab!</code>)</em> and click <strong>OK</strong>.</li>
 <li>WatchGuard stores config files in your documents. <strong>Save the config</strong> here temporarily. At the end of the lab, we'll make a final baseline backup to store in your permanent lab files.</li>
-<li>Say yes to the feature key warning.</li>
+<li>Say <strong>yes</strong> to the feature key warning.</li>
 </ul>
 </li>
-<li>Disconnect from the firewall in WSM by right-clicking or closing WSM.</li>
+<li><strong>Close</strong> the policy manager window and <strong>disconnect</strong> from the firewall in WSM by right-clicking the device.</li>
 <li><strong>Test New Interface</strong>:<ul>
-<li>Plug into <strong>Interface 4</strong> of the WatchGuard instead of Interface 1.</li>
-<li>Confirm you received a new IP via DHCP in the temp network by using the <code>ipconfig</code> command.</li>
+<li><strong>Move</strong> your ethernet connection into <strong>Interface 4</strong> of the WatchGuard instead of Interface 1.</li>
+<li><strong>Confirm</strong> you received a new <strong>IP via DHCP</strong> in the temp network by using the <code>ipconfig</code> command.<ul>
+<li>Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1014,6 +1034,7 @@
 <ul>
 <li><strong>Name:</strong> <code>LAN</code></li>
 <li><strong>Security Zone</strong>: <code>Trusted</code></li>
+<li><strong>VLAN ID</strong>: <code>1</code></li>
 <li><strong>IP Address</strong>: <code>192.168.10.1/24</code></li>
 <li><strong>DHCP Server</strong>: Check <code>Use DHCP Server</code><ul>
 <li>Click <strong>Add</strong> and <strong>set</strong> the <strong>starting and ending IP</strong> addresses <code>(192.168.10.20 - .254)</code></li>
@@ -1072,15 +1093,28 @@
 </ul>
 </li>
 </ul>
+<p><a class="glightbox" href="../img/all-firewall-vlans.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All Firewall VLANs" src="../img/all-firewall-vlans.png" /></a></p>
 <p><strong>Update Interface after VLANs have been added:</strong>  </p>
 <ul>
 <li><strong>Double-click</strong> on <code>Interface 1</code>.</li>
 <li><strong>Update</strong> the <strong>dropdown</strong> to <code>VLAN</code>.</li>
 <li><strong>Update</strong> the <strong>name</strong> to <code>Trusted VLANs</code>.</li>
 <li><strong>Configure</strong> the <strong>untagged VLAN</strong> checkbox to <code>LAN</code> (at the bottom):</li>
-<li><strong>Tag</strong> all <strong>remaining VLANs</strong> using the checkbox at the top so that the main LAN port can pass all VLANs through to the switches.</li>
+<li><strong>Tag</strong> the other <strong>remaining VLANs</strong> using the checkbox at the top so that the main LAN port can pass all VLANs through to the switches. <strong>Do NOT tag the main LAN</strong>.</li>
 <li>Click <strong>OK</strong>, then <strong>OK</strong> again.</li>
 </ul>
+<p><strong>Verify Network Changes:</strong></p>
+<ul>
+<li>Save our changes to the firewall with <strong>File &gt; Save &gt; To Firebox</strong>.<ul>
+<li><strong>No</strong> to feature key warning</li>
+<li><strong>Authenticate</strong> as admin user</li>
+<li><strong>Yes</strong> to warning</li>
+</ul>
+</li>
+<li>After the save is successful, <strong>move</strong> the cable back to <strong>Eth 1</strong>.</li>
+<li>Run <code>ipconfig</code> to confirm you received a proper IP from DHCP within the <strong>LAN</strong> subnet <em>(192.168.10.0/24)</em>.</li>
+</ul>
+<p>If you are successful, then you're good to go!</p>
 </li>
 </ol>
 <hr />
@@ -1092,22 +1126,16 @@
 <li>Store in your lab files (e.g., OneDrive or USB).</li>
 </ul>
 </li>
-<li><strong>Verify Network Changes</strong>:<ul>
-<li>Move the cable back to <strong>Eth 1</strong>.</li>
-<li>Run <code>ipconfig</code> to confirm you received a proper IP from DHCP within the <strong>LAN</strong> subnet <em>(192.168.10.0/24)</em>.</li>
-<li>If successful, you're good to go!</li>
-</ul>
-</li>
 <li>
 <p><strong>Wipe Firewall for Next User</strong>:<br />
     Once you're all done, be sure to reset the firewall for the next lab user. For WatchGuard T45 Firewall models, follow these steps to factory reset:</p>
 <ul>
 <li><strong>Power off</strong> the Firebox using the switch located on the back.</li>
-<li>Press and hold the <strong>Reset</strong> button <em>(next to power)</em></li>
+<li><strong>Press and hold</strong> the <strong>Reset</strong> button <em>(next to power)</em>.</li>
 <li><strong>While holding</strong> the reset button, <strong>power on</strong> the Firebox.</li>
-<li><strong>Continue holding</strong> the button until the <strong>Attn</strong> indicator begins to flash <em>(about 20 seconds)</em>.</li>
+<li><strong>Continue holding</strong> the button until the <strong>ATTN</strong> indicator begins to flash <em>(about 20 seconds)</em>.</li>
 <li><strong>Release</strong> the reset button but do not power off the Firebox.</li>
-<li><strong>Wait</strong> for the reset process to complete (up to 70 seconds). The <strong>ATTN</strong> indicator will stay lit.</li>
+<li><strong>Wait</strong> for the reset process to complete <em>(up to 70 seconds)</em>. The <strong>ATTN</strong> indicator will stay lit.</li>
 </ul>
 <p>The firewall has been reset. You can confirm this by running an <code>ipconfig</code> and verifying the IP you were given is within the default subnet of 10.0.1.0/24.</p>
 </li>
