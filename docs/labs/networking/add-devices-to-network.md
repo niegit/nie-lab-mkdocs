@@ -6,7 +6,7 @@ In this lab, you will work to restore a switch using your previous lab config fi
 
 - Familiarity with VLAN concepts and switch port configurations.  
 - GUI access to a managed switch (e.g., {{ extra.devices.cisco_switch.type }}).  
-- Two Endpoint devices - You may use your laptop as well as **PC01** (bottom shelf of rack).
+- Two Endpoint devices - You may use your laptop as well as **{{ devices.pc01.name }}** (bottom shelf of rack).
 
 !!! tip "Key Concepts for Lab"
     VLAN tagging separates network traffic into logical segments, improving security and performance.  
@@ -56,11 +56,11 @@ In this lab, you will work to restore a switch using your previous lab config fi
 ## Task 2: Connect More Endpoints
 
 
-1. Power on **PC01** and **Sign In**  
-    - Plug **Power** into **PC01**.  
-    - Plug in the **Display Cable** between **PC01** and the monitor.  
-    - Plug the **Ethernet** cable into **PC01** and into `GE13` _(bottom-left)_ of **{{ devices.cisco_switch.name }}**.  
-    - Sign into **PC01** with the following credentials: `(LabAdmin/Password)`.
+1. Power on **{{ devices.pc01.name }}** and **Sign In**  
+    - Plug **Power** into **{{ devices.pc01.name }}**.  
+    - Plug in the **Display Cable** between **{{ devices.pc01.name }}** and the monitor.  
+    - Plug the **Ethernet** cable into **{{ devices.pc01.name }}** and into `GE13` _(bottom-left)_ of **{{ devices.cisco_switch.name }}**.  
+    - Sign into **{{ devices.pc01.name }}** with the following credentials: `(LabAdmin/Password)`.
 
 2. **Update Network Settings**  
     - Update the NIC so that it can communicate with the switch.  
@@ -72,7 +72,7 @@ In this lab, you will work to restore a switch using your previous lab config fi
 
 1. **What's my IP?**
 
-    - Press `WIN + X` and select **Terminal**.  
+    - Press `Windows Key + X` and select **Terminal**.  
     - Type `ipconfig` and hit **Enter**.  
     - **Verify** the Ethernet Adapter has the proper **IPv4** and **Subnet Mask** configured.
 
@@ -104,9 +104,7 @@ Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 Approximate round trip times in milli-seconds:
 Minimum = 2ms, Maximum = 5ms, Average = 3ms
 ```
- 
 
-- From **{{ devices.cisco_switch.name }}**, try to `ping` your other device by its IP address.
 
 !!! warning  
     `ping`, also known as **ICMP** traffic, may sometimes be blocked on purpose. Administrators may not want you to know if their infrastructure responds to pings. As useful as `ping` is, it can also be equally destructive when used maliciously. So while generally you can use it to test connectivity, please know that it's not 100% accurate as the other device may have ICMP disabled or a device's built-in firewall may block it.  
@@ -124,14 +122,16 @@ Minimum = 2ms, Maximum = 5ms, Average = 3ms
       **VLAN {{ vlan.id }} - {{ vlan.name }}** ({{ vlan.subnet }})
       {% endfor %}
 
-2. **Test Connectivity through Switch**  
+2. **Test Connectivity through Switch**
+    - **VLAN Management → Port VLAN Membership**
     - **Your laptop** (`GE12`) should be assigned to the **{{ vlans.lan.name }}** VLAN with an **access port**.  
-    - **PC01** (`GE13`) should be assigned to the **{{ vlans.lan.name }}** VLAN with an **access port**.
+    - **{{ devices.pc01.name }}** (`GE13`) should be assigned to the **{{ vlans.lan.name }}** VLAN with an **access port**.
 
 ![Port Configuration](img/cisco-cfg-lab2-task4.png)
 
 3. **Ping away**  
-    - Both of our devices should be able to communicate with one another, so let's `ping` from your laptop to `PC01`.
+    - Both of our devices should be able to communicate with one another, so let's `ping` from your laptop to **{{ devices.pc01.name }}**.
+    - Now the reverse: `ping` from your **{{ devices.pc01.name }}** to your laptop.
 
     Hopefully your ping was successful like the ones below! Some common issues may be switch configuration, Windows firewall blocking ICMP, and never forget to double check your cables even if you think you plugged everything in correctly!
 
@@ -154,38 +154,35 @@ Approximate round trip times in milli-seconds:
 
 ## Task 5. Break the Connection
 
-We know we have a connection established, but let's try to test our VLAN knowledge and break the connection! Let's pretend **PC01** is a security camera server and needs to be **isolated to the {{ vlans.security.name }}** VLAN.
+We know we have a connection established, but let's try to test our VLAN knowledge and break the connection. Let's pretend **{{ devices.pc01.name }}** is a security camera server and needs to be **isolated to the {{ vlans.security.name }}** VLAN so that other network traffic can't communicate with it.
 
 - Navigate back to **{{ devices.cisco_switch.name }}** and update `GE13` so that the access VLAN is `{{ vlans.security.id }}` and **apply** your changes.
 
-!!! question "Think about it"  
+!!! question "Think about it..."  
     What did we just do?  
 
-    Currently **PC01** is plugged into `GE13` as an **access** port so it can only communicate on one VLAN, which we've now updated to VLAN `{{ vlans.security.id }}`. So in theory, **PC01** can only communicate on the `{{ vlans.security.subnet }}` network now.  
+    Currently **{{ devices.pc01.name }}** is plugged into `GE13` as an **access** port so it can only communicate on one VLAN, which we've now updated to VLAN `{{ vlans.security.id }}`. So in theory, **{{ devices.pc01.name }}** can only communicate on the `{{ vlans.security.subnet }}` network now.  
 
     What's going to happen when we `ping` the switch? Will it still work?
 
-- From **PC01** try to `ping` **{{ devices.cisco_switch.name }}** on {{ devices.cisco_switch.ip }}
+- From **{{ devices.pc01.name }}** try to `ping` **{{ devices.cisco_switch.name }}** on {{ devices.cisco_switch.ip }}
 
 
-**Did you guess right?**
+**Did you guess it right?!**
 
-- **PC01** can only communicate on the `{{ vlans.security.subnet }}` network, but **{{ devices.cisco_switch.name }}** is not in that subnet, and therefore can't communicate. Additionally, even if we _could_ communicate, we never updated our NIC settings on **PC01** to reflect the new subnet.  
+- **{{ devices.pc01.name }}** can only communicate on the `{{ vlans.security.subnet }}` network, but **{{ devices.cisco_switch.name }}** is not in that subnet, and therefore can't communicate. Even if we _could_ communicate, we never updated our NIC settings on **{{ devices.pc01.name }}** to reflect the new subnet, so **{{ devices.pc01.name }}** likely has a "No Network" symbol and can't connect to _any_ network currently. 
 
-You could go update the NIC on **PC01** to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a **{{ devices.firewall.type }}**! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.
+You could go update the NIC on **{{ devices.pc01.name }}** to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a **{{ devices.firewall.type }}**! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.
 
 ---
 
-## Task 5: Cleanup and Final Verification
-
-1. **Save Configuration**  
-    - Once you are done testing, ensure that you save the configuration to the startup configuration on the switch to preserve your changes.
+## Task 5: Cleanup The Lab
 
 2. **Reset Equipment to Factory Defaults**  
-    - Ensure **{{ devices.cisco_switch.name }}** has been factory reset and is ready for the next lab user.
+    - Ensure **{{ devices.cisco_switch.name }}** has been factory reset and is ready for the next lab user. No need to save our config from this lab!
 
 3. **Power Off Devices**  
-    - Take a moment to power down **PC01** gracefully. The remaining hardware can be turned off via the single Red power toggle on the PDU.
+    - Take a moment to power down **{{ devices.pc01.name }}** gracefully. The remaining hardware can be turned off via the single Red power toggle on the PDU.
 
 4. **Clean Up and Organize**  
-    - Please take a moment to organize the cables and equipment you used for this lab. Ensure
+    - Please take a moment to organize the cables and equipment you used for this lab. Ensure it's ready for the next user!

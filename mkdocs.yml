@@ -42,7 +42,7 @@ nav:
           - Network Information: labs/networking/network-info.md
           - Lab 1 - Configure Cisco Switch: labs/networking/cisco-switch-setup.md
           - Lab 2 - Adding Devices to Network: labs/networking/add-devices-to-network.md
-          - Lab 3 - Coming Soon: labs/networking/watchguard-firewall-setup.md
+          - Lab 3 - Configure WatchGuard Firewall: labs/networking/watchguard-firewall-setup.md
           - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
@@ -158,6 +158,13 @@ extra:
       default_status_account: "status/readonly"
       default_admin_account: "admin/readwrite" 
       software_download: https://software.watchguard.com/SoftwareDownloads?current=true&familyId=a2R6S00000537cVUAQ
+      custom_status_account: "status/$ecureLab@"
+      custom_admin_account: "admin/$ecureLab!"
+    pc01:
+      name: PC01
+      mac: E4:54:E8:51:60:13
+      description: Dell OptiPlex 3080 used for testing connections.
+      type: Dell OptiPlex 3080
   wan:
     ip: "96.81.211.76"
     subnet_mask: "255.255.255.240"

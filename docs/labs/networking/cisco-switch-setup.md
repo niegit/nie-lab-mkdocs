@@ -78,8 +78,8 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 **System Settings**:
 
   - Go to `Administration > System Settings`.
-  - Set the **System Location** to `5400 Patton Dr. Unit 4A, Lisle, Illinois 60532`.
-  - Set the **Contact** to `support@networkiteasy.com`.
+  - Set the **System Location** to `{{ office.location }}`.
+  - Set the **Contact** to `{{ office.contact }}`.
   - Change the **Host Name** to **User Defined** and give it a new name: `{{ devices.cisco_switch.name }}`
   - Set a **Login Banner** and **Welcome Banner** (you can use the same text): `{{ devices.cisco_switch.banner }}`.
   - Click **Apply**.
@@ -210,8 +210,8 @@ Click **Apply** and save the configuration. 💾
 
 - Navigate to `VLAN Management > Port VLAN Membership`.
   - Select **GE2 {{ devices.ap01.name }}** and click **Join VLAN**
-  - Set to **User Defined** and only tag the **{{ vlans.guest.name }}** (`{{ vlans.guest.id }}`).
-  - **Apply** your changes and close the window.
+    - Set to **User Defined** and only tag the **{{ vlans.guest.name }}** (`{{ vlans.guest.id }}`).
+    - **Apply** your changes and close the window.
   - **Save Config**: Make sure all your changes are saved! 💾
 
 ---
@@ -239,10 +239,15 @@ Click **Apply** and save the configuration. 💾
   - Navigate to `Administration > Reboot`.
   - Choose **Immediate** and select **Restore to Factory Defaults**. Click **Reboot** and **OK**.
 
+!!! tip
+    ⏰ This process will take **about 5 minutes** while the switch reloads the factory defaults. At that time, the **master** and number **1** light on the switch should be solid green, and the **system** light will flash continuously. Please continue with the next steps in the meantime so that your computer can connect to the switch once it's finished. 
+    
+    If you have been waiting for longer than 5-10 minutes, please review the prior steps carefully to ensure you completed them correctly. You can restart the switch and try to access it on either IP we've been using in this lab, but your NIC will need to be configured for the proper network.
+
 <br>
 **Restore the Configuration**
 
-  - Reset your NIC Adapter to something like `192.168.1.100` and reconnect to the switch at the default IP `192.168.1.254`.
+  - **Reset your NIC Adapter** to something like `192.168.1.100` and reconnect to the switch at the default IP `192.168.1.254`.
   - Log in using the default credentials (`{{ devices.cisco_switch.default_user}}/{{ devices.cisco_switch.default_pass}}`).
   - Configure a temporary new password to complete the login.
   - Navigate to `Administration > File Management > File Operations`.
