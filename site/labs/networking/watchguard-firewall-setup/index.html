@@ -583,18 +583,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-temporary-network-and-port" class="md-nav__link">
+  <a href="#create-temporary-network" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Temporary Network and Port
+      Create Temporary Network
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-vlans-to-firewall" class="md-nav__link">
+  <a href="#adding-vlans-to-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring VLANs to Firewall
+      Adding VLANs to Firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adjust-default-ping-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust Default Ping Policy
     </span>
   </a>
   
@@ -804,18 +813,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-temporary-network-and-port" class="md-nav__link">
+  <a href="#create-temporary-network" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Temporary Network and Port
+      Create Temporary Network
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-vlans-to-firewall" class="md-nav__link">
+  <a href="#adding-vlans-to-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring VLANs to Firewall
+      Adding VLANs to Firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adjust-default-ping-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust Default Ping Policy
     </span>
   </a>
   
@@ -955,7 +973,7 @@ Add Custom Creds for Firewall Labs
 </li>
 </ol>
 <hr />
-<h2 id="create-temporary-network-and-port">Create Temporary Network and Port<a class="headerlink" href="#create-temporary-network-and-port" title="Permanent link">&para;</a></h2>
+<h2 id="create-temporary-network">Create Temporary Network<a class="headerlink" href="#create-temporary-network" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Configure a Temporary Port</strong>:  </p>
@@ -996,7 +1014,7 @@ Add Custom Creds for Firewall Labs
 </ul>
 </li>
 </ol>
-<h2 id="configuring-vlans-to-firewall">Configuring VLANs to Firewall<a class="headerlink" href="#configuring-vlans-to-firewall" title="Permanent link">&para;</a></h2>
+<h2 id="adding-vlans-to-firewall">Adding VLANs to Firewall<a class="headerlink" href="#adding-vlans-to-firewall" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Reconnect to the Firebox on the temp IP (<code>192.168.199.1</code>):</p>
@@ -1048,9 +1066,9 @@ Add Custom Creds for Firewall Labs
 <p>Now you can <strong>add</strong> the <strong>remaining VLANs</strong> below using the same methods. <strong>A couple caveats to be aware of though</strong>:</p>
 <ul>
 <li>The <strong>IP Address</strong> is a combination of the Default Gateway + the size of the subnet in CIDR notation <em>(meaning <code>/24</code> or similar)</em></li>
-<li>Only add a <strong>DHCP server</strong> to the VLAN if the Firewall is specified for the particular VLAN, otherwise leave it disabled.</li>
+<li>Only add a <strong>DHCP server</strong> to the VLAN if the <strong>Firewall</strong> is specified for the particular VLAN, otherwise leave it disabled for the VLAN.</li>
 <li>
-<p>For <strong>Guest VLAN</strong>, set the security zone to <strong>Custom</strong> instead of <strong>Trusted</strong>. Double check the network size as well, as it's not a /24.</p>
+<p>For the <strong>GUEST and SECURITY VLANs</strong>, set the security zone to <strong>Custom</strong> instead of <strong>Trusted</strong>. By default, trusted interfaces would typically allow and route traffic by default and we want to ensure <strong>we</strong> determine what routes to these VLANs via future policies.</p>
 <table>
 <thead>
 <tr>
@@ -1118,6 +1136,16 @@ Add Custom Creds for Firewall Labs
 </li>
 </ol>
 <hr />
+<h2 id="adjust-default-ping-policy">Adjust Default Ping Policy<a class="headerlink" href="#adjust-default-ping-policy" title="Permanent link">&para;</a></h2>
+<p>Like we mentioned in the previous lab, <code>ping</code> can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for <strong>ping traffic</strong> allows it to work a little <em>too well</em>, which can lead to some confusing results later on in this lab. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. </p>
+<ol>
+<li><strong>Open</strong> the Default Policy named <strong>Ping</strong> by <strong>double-clicking</strong> it or right-clicking and Modify Policy.</li>
+<li>In the <strong>To</strong> box, remove <strong>Any</strong>. </li>
+<li>In the <strong>To</strong> box, add the following: <strong><em>Any-Trusted, Any-External, Any-Optional</em></strong></li>
+<li>Hit <strong>OK</strong> to save the policy changes.</li>
+</ol>
+<p><a class="glightbox" href="../img/firewall-ping-policy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="WG Ping Policy" src="../img/firewall-ping-policy.png" /></a></p>
+<hr />
 <h2 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Backup Baseline Configuration</strong>:<ul>
@@ -1141,7 +1169,8 @@ Add Custom Creds for Firewall Labs
 </li>
 </ol>
 <hr />
-<p>Great work!🎉 You now have a baseline configuration for the firewall. There's still more work we need to do, and we need to connect it to Internet to update our feature key and unlock subscription services. We'll pick up from here in future labs, but in the meantime feel free to review <a href="https://nie.itglue.com/3451640/docs/6433440">NIE's technical documenation</a> that our Field team uses when they prep new firewalls.</p>
+<p>Great work!🎉 </p>
+<p>You now have a baseline configuration for the firewall. There's still more work we need to do, and we need to connect it to Internet to update our feature key and unlock subscription services. We'll pick up from here in future labs, but in the meantime feel free to review <a href="https://nie.itglue.com/3451640/docs/6433440">NIE's technical documenation</a> that our Field team uses when they prep new firewalls.</p>
 
 
 

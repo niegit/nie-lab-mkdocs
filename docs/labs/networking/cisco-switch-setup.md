@@ -117,7 +117,7 @@ If a configuration change may cause an issue, restarting the switch without savi
 
 ## 5. Firmware Upgrade 🔧
 
-- Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the lab files. Be sure to download firmware from Cisco's website only.
+- Search for the latest firmware version for your Cisco switch on Google or use the firmware provided in the [lab files]({{ urls.lab_files}}). Be sure to download firmware from Cisco's website only.
 - Navigate to `Administration > File Management > Firmware Operations`.
 - Click **Update Firmware**, browse to the folder containing the firmware on your PC and apply the upgrade. If you are using a USB, then it needs to be on the root of the drive. 🚀
 

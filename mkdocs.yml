@@ -173,7 +173,7 @@ extra:
     gateway: "96.81.211.78" 
   urls:
     feedback_webhook: "https://engine.rewst.io/webhooks/custom/trigger/01946b93-eb43-7a50-8d4d-fcc366deaa30/cb4b611f-612d-4c1d-951f-79aa3fefeafd"
-    lab_files: "https://dead.link.com"
+    lab_files: "https://networkiteasy-my.sharepoint.com/:f:/p/dustin_l/EmBaZ0lvBzlMtdxgWilxVREBBPFPR-y7WOJizvE92L4CRA?e=cPRhYn"
   palette:
     primary: deep purple
     accent: cyan
@@ -186,5 +186,5 @@ markdown_extensions:
   - footnotes
 extra_javascript:
   - https://alcdn.msauth.net/browser/2.25.0/js/msal-browser.min.js  # MSAL.js library
-  - js/open_links_in_new_tab.js  # Your existing custom script
-  - js/msal.js  # Your custom MSAL authentication logic
+  - js/open_links_in_new_tab.js  # JS to opene xternal links in new tab
+  - js/msal.js  # MSAL logic for Entra Authentication
