@@ -81,7 +81,7 @@ In this lab, you will work to restore a switch using your previous lab config fi
     !!! tip "Can you hear me now?"  
         The `ping` command is one of the most commonly used network utilities for troubleshooting. This command sends a series of network packets to a designated IP or host in order to check if they can "talk" to one another. It's mostly used to verify that another device is online, and that the devices can establish a connection between one another.
 
-        💡**Tip:** By default `ping` only sends 4 packets then stops, but using `ping -a` creates a **rolling ping** that runs continuously until stopped with `ctrl+c`. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.
+        💡**Tip:** By default `ping` only sends 4 packets then stops, but using `ping -t` creates a **rolling ping** that runs continuously until stopped with `ctrl+c`. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.
 
         [📚Read more about Ping](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping)
 
@@ -170,7 +170,7 @@ We know we have a connection established, but let's try to test our VLAN knowled
 
 **Did you guess it right?!**
 
-- **{{ devices.pc01.name }}** can only communicate on the `{{ vlans.security.subnet }}` network, but **{{ devices.cisco_switch.name }}** is not in that subnet, and therefore can't communicate. Even if we _could_ communicate, we never updated our NIC settings on **{{ devices.pc01.name }}** to reflect the new subnet, so **{{ devices.pc01.name }}** likely has a "No Network" symbol and can't connect to _any_ network currently. 
+- **{{ devices.pc01.name }}** can only communicate on the `{{ vlans.security.subnet }}` network, but **{{ devices.cisco_switch.name }}** is not in that subnet, and therefore they can't communicate. Even if we _could_ communicate, we never updated our NIC settings on **{{ devices.pc01.name }}** to reflect the new subnet, so **{{ devices.pc01.name }}** likely can't connect to _any_ network currently 😉. 
 
 You could go update the NIC on **{{ devices.pc01.name }}** to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a **{{ devices.firewall.type }}**! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.
 

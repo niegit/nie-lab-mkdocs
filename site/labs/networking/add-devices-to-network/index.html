@@ -961,7 +961,7 @@ You'll be working with the following VLANs:</p>
 <div class="admonition tip">
 <p class="admonition-title">Can you hear me now?</p>
 <p>The <code>ping</code> command is one of the most commonly used network utilities for troubleshooting. This command sends a series of network packets to a designated IP or host in order to check if they can "talk" to one another. It's mostly used to verify that another device is online, and that the devices can establish a connection between one another.</p>
-<p>💡<strong>Tip:</strong> By default <code>ping</code> only sends 4 packets then stops, but using <code>ping -a</code> creates a <strong>rolling ping</strong> that runs continuously until stopped with <code>ctrl+c</code>. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.</p>
+<p>💡<strong>Tip:</strong> By default <code>ping</code> only sends 4 packets then stops, but using <code>ping -t</code> creates a <strong>rolling ping</strong> that runs continuously until stopped with <code>ctrl+c</code>. This can be helpful when rebooting a server as it allows you to start a rolling ping against it to monitor the reboot progress and verify when it's back up.</p>
 <p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">📚Read more about Ping</a></p>
 </div>
 <ul>
@@ -1052,7 +1052,7 @@ You'll be working with the following VLANs:</p>
 </ul>
 <p><strong>Did you guess it right?!</strong></p>
 <ul>
-<li><strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network, but <strong>SW01</strong> is not in that subnet, and therefore can't communicate. Even if we <em>could</em> communicate, we never updated our NIC settings on <strong>PC01</strong> to reflect the new subnet, so <strong>PC01</strong> likely has a "No Network" symbol and can't connect to <em>any</em> network currently. </li>
+<li><strong>PC01</strong> can only communicate on the <code>192.168.20.0/24</code> network, but <strong>SW01</strong> is not in that subnet, and therefore they can't communicate. Even if we <em>could</em> communicate, we never updated our NIC settings on <strong>PC01</strong> to reflect the new subnet, so <strong>PC01</strong> likely can't connect to <em>any</em> network currently 😉. </li>
 </ul>
 <p>You could go update the NIC on <strong>PC01</strong> to be in the correct subnet, but it would be no help in this current lab. To communicate between VLANs we need something to route those requests on the Layer 3 network. Something like a <strong>WatchGuard T45 Firewall</strong>! We'll come back to more advanced VLAN configurations once we get our firewall configured in the next lab.</p>
 <hr />

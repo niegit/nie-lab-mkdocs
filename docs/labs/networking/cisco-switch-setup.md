@@ -2,8 +2,6 @@
 
 - Add ipconfig /all screenshots and steps when needed to help drive troubleshooting
 
-- Get Lab Sharepoint setup for Files
-
  -->
 
 
@@ -42,8 +40,6 @@ On Windows 11 you can update your NIC by going to `Settings > Network & Internet
 !!! note
 
     Because we're plugged directly into the switch we can communicate on the **Layer 2 (L2) network**, therefore we do not need a router, or default gateway, to route our network requests. We're going to be navigating Web GUIs directly by IP Addresses so we have no need for DNS servers either - We can leave both sections blank for this lab!
-
-    📖[_Layer 2 or Layer 3 - What's the Difference?_ from **Auvik**](https://www.auvik.com/franklyit/blog/layer-3-switches-layer-2/)
 
 
 ---

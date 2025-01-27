@@ -781,30 +781,29 @@
 </div>
 <p><br></p>
 <h2 id="equipment-in-the-rack">Equipment in the Rack<a class="headerlink" href="#equipment-in-the-rack" title="Permanent link">&para;</a></h2>
-<p>Our lab is housed in a compact, rolling 12U rack that can be easily moved to your desk or a dedicated <strong>lab bench</strong>. Here's what you'll find in the rack:  </p>
+<p>Our lab is housed in a compact, rolling 12U rack that is located in the back of our office within the Lab area. There is a dedicated lab bench next to the network rack that has monitors attached with necessary cabling to run two endpoints simultaneously. In addition to the rack and bench, the area also has the only Lab WAN Uplink in the office, so <strong>any labs that require Internet will need to be performed near the dedicated lab bench</strong>. </p>
+<p>The rack is on wheels, so once you gain a baseline understanding of how it all works, you'll also be able to roll it to your desk to work on labs that do not require Internet. We are continuing to work on our lab and add equipment, but here is a good breakdown of our core hardware: </p>
 <ul>
 <li><strong>PDU (Power Distribution Unit):</strong> Powers all devices in the rack.  </li>
 <li><strong>WatchGuard T45:</strong> Firewall appliance for network security and routing.  </li>
 <li><strong>Cisco SG350X-24P:</strong> Managed switch ideal for more robust network configurations.  </li>
 <li><strong>Aruba Instant On 1930-24P:</strong> Cloud managed switch perfect for SMB network setups.  </li>
 <li><strong>Aruba Instant On AP22:</strong> Cloud managed wireless access point that enables Wi-Fi connectivity.  </li>
-<li>(Planned) <strong>Raspberry Pi with Windows Server &amp; ADDS:</strong> A versatile server for labs involving Active Directory.  </li>
+<li><strong>Windows Endpoints:</strong> Dedicated Lab PC's used to connect to hardware, configure equipment, and test connectivity.</li>
+<li><strong>Monitor:</strong> Attached is a 24" monitor that you can use when the lab is "mobile" and away from the dedicated lab bench.  </li>
 </ul>
 <p><a class="glightbox" href="../img/rack-full-front.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network Rack Front View" src="../img/rack-full-front.png" /></a>  </p>
 <hr />
 <h2 id="how-to-use-the-lab">How to Use the Lab<a class="headerlink" href="#how-to-use-the-lab" title="Permanent link">&para;</a></h2>
 <p>Each lab will provide you with the specific instructions to complete that lab, but below is <strong>general</strong> information about getting setup.</p>
+<p><a class="glightbox" href="../img/lab-desk-full-front.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Lab Bench Desk" src="../img/lab-desk-full-front.png" /></a></p>
 <ol>
 <li>
-<p><strong>Position the Rack</strong>  </p>
+<p><strong>Getting Ready</strong>  </p>
 <ul>
-<li>Move the rack to your desk or the <strong>lab bench</strong> in the back room. <em>You may need to unlock the caster wheels on the front of the rack.</em></li>
-<li>Ensure it’s stable and positioned conveniently, but out of the way of others.</li>
+<li><strong>Update your Teams status</strong> to let your teammates know you are working on labs and move to the back room.</li>
+<li>Ensure it’s stable and positioned conveniently, but out of the way of others. <em>You may need to unlock the caster wheels on the front of the rack if you need to reposition the rack.</em></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">⛔ Do Not Disturb</p>
-<p>While the lab is not overly noisy, please be considerate of those around you. If you are sitting near someone, please ask if they mind if you power on the lab. Otherwise, feel free to move to a hoteling desk or the lab bench in the back!  </p>
-</div>
 </li>
 <li>
 <p><strong>Power It On</strong>  </p>
@@ -815,17 +814,17 @@
 <li>
 <p><strong>Connect Your Laptop</strong>  </p>
 <ul>
-<li>Use the provided <strong>blue Ethernet cables</strong> to connect your laptop to the lab. Each specific lab will give you more information on how to get connected. If you need additional cables please let someone know.</li>
+<li>Use the provided <strong>blue Ethernet cables</strong> to connect your laptop or other endpoints to the lab. Each specific lab will give you more information on how to get connected. If you need additional cables please let someone know.</li>
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Connecting the Lab to Internet</p>
-<p><strong>Internet Access:</strong> Most of our labs don't require Internet to function as we're mostly communicating on the Layer 2 network. If a specific lab calls for Internet, please be sure to connect the firewall WAN into the dedicated <strong>Lab Network</strong> port in the back room! <strong>Please do NOT plug any part of the lab into the existing network.</strong>  </p>
+<p><strong>Internet Access:</strong> Not all of our labs require Internet access. If a specific lab calls for Internet or you need to test with Internet, please be sure to connect the firewall WAN into the dedicated and labeled <strong>Green (Lab WAN Uplink) Ethernet Cable</strong> in the back room! <strong>Please do NOT plug any part of the lab into the existing office network.</strong></p>
 </div>
 </li>
 <li>
 <p><strong>Save Your Work</strong>  </p>
 <ul>
-<li>Our labs will continuously build onto one another, so having a defined placed to store your configuration files will be important. We recommend saving them to your <strong>OneDrive</strong> or to a dedicated <strong>USB drive</strong>.  </li>
+<li>Some of our labs will continuously build onto one another, so having a defined placed to store your configuration files will be important. We recommend saving them to your <strong>OneDrive</strong> or to a dedicated <strong>USB drive</strong>.  </li>
 <li>By doing this, you'll be able to quickly restore your previous configurations and pick up exactly where you left off last time!</li>
 </ul>
 </li>
@@ -851,8 +850,6 @@
 <li><strong>Learn Actively</strong>: Take advantage of our hands-on learning and comfortable configuring enterprise hardware. </li>
 <li><strong>Seek Support</strong>: Your manager and peers are here to assist you when needed. Just give us a shout!  </li>
 </ul>
-<p><br></p>
-<p>Good luck and happy networking! 😊</p>
 
 
 

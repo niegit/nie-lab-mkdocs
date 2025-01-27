@@ -864,15 +864,7 @@
 
 
 <!-- 
-
-Explain Cert Issue for Web GUI
-
-Add Custom Creds for Firewall Labs
-
-
-
-
-
+Thigns To Do:
 
  -->
 
@@ -880,9 +872,10 @@ Add Custom Creds for Firewall Labs
 <h2 id="pre-requisites">Pre-Requisites<a class="headerlink" href="#pre-requisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>A computer with an accessible Ethernet port</li>
-<li>WatchGuard System Manager (WSM) installed</li>
-<li>WatchGuard T45 Firewall or other model</li>
+<li>WatchGuard System Manager (WSM) installed on a PC</li>
+<li>WatchGuard T45 Firewall or other WatchGuard Firewall model</li>
 <li>A location to store your configuration files</li>
+<li>🌐 Internet Access - <strong>be sure to use the Lab WAN for Internet</strong> </li>
 </ul>
 <hr />
 <h2 id="power-on-and-get-connected">Power On and Get Connected<a class="headerlink" href="#power-on-and-get-connected" title="Permanent link">&para;</a></h2>
@@ -896,9 +889,10 @@ Add Custom Creds for Firewall Labs
 <li>Your browser may block the connection due to SSL certificate: click <strong>Advanced</strong> and <strong>Continue</strong> to https://10.0.1.1:8080 (unsafe) to get to GUI.</li>
 <li>Credentials: defaults are <code>admin/readwrite</code>.</li>
 </ul>
-</li>
-<li>
-<p>Add instructions on resetting the firewall if the previous lab user didn't do it at the end.</p>
+<div class="admonition note">
+<p class="admonition-title">Resetting WatchGuard Firewall</p>
+<p>The previous lab user(s) should have reset the firewall when finished, but if they did not, it's a quick process to do. Please jump to the end of this guide to the <a href="/watchguard-firewall-setup/#final-steps">final steps</a> portion to wipe the firewall.</p>
+</div>
 </li>
 </ol>
 <hr />

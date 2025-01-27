@@ -24,7 +24,7 @@ Easily locate lab devices and their key details, including IPs, VLANs, and descr
 | **Device Name** | **Type**          | **IP Address**     | **VLAN**   | **MAC Address**        | **Description**        |
 |-----------------|-------------------|--------------------|-----------|------------------------|-------------------------|
 {% for device in extra.devices.values() -%}
-| {{ device.name }} | {{ device.type | default("Not Available")}}  | {{ device.ip | default("Not Available")}}     | {{ device.vlan }}| default("Not Available") | {{ device.mac | default("Not Available") }} | {{ device.description | default("No description defined.") }} |
+| {{ device.name }} | {{ device.type | default("Not Available")}}  | {{ device.ip | default("Not Available")}}     | {{ device.vlan| default("Not Available") }} | {{ device.mac | default("Not Available") }} | {{ device.description | default("No description defined.") }} |
 {% endfor %}
 
 ---

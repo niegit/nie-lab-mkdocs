@@ -1,13 +1,5 @@
 <!-- 
-
-Explain Cert Issue for Web GUI
-
-Add Custom Creds for Firewall Labs
-
-
-
-
-
+Thigns To Do:
 
  -->
 
@@ -15,21 +7,25 @@ Add Custom Creds for Firewall Labs
 
 ## Pre-Requisites
 - A computer with an accessible Ethernet port
-- WatchGuard System Manager (WSM) installed
-- {{ devices.firewall.type }} or other model
+- WatchGuard System Manager (WSM) installed on a PC
+- {{ devices.firewall.type }} or other WatchGuard Firewall model
 - A location to store your configuration files
+- 🌐 Internet Access - **be sure to use the Lab WAN for Internet** 
 
 ---
 
 ## Power On and Get Connected
-1. Plug cable into **LAN** (port 1) of the {{ devices.firewall.type }} and into your NIC.
+1. Power on the Network Rack and ensure devices have power.
+2. Plug cable into **LAN** (port 1) of the {{ devices.firewall.type }} and into your NIC.
+2. Plug the dedicated **Green LAB WAN Uplink** cable into the **WAN** (port 0) of the {{ devices.firewall.type }}.
 2. WatchGuard provides a DHCP server by default (`{{ devices.firewall.default_subnet}}`) so make sure your **NIC is set to DHCP** or within the subnet. _May need to disable docking station NIC if you're also uplinked through it._
 3. Run `ipconfig` to check if you received an IP in the subnet.
 4. Default login: `{{ devices.firewall.default_web_address}}`.
     - Your browser may block the connection due to SSL certificate: click **Advanced** and **Continue** to {{ devices.firewall.default_web_address}} (unsafe) to get to GUI.
     - Credentials: defaults are `{{ devices.firewall.default_admin_account }}`.
 
-5. Add instructions on resetting the firewall if the previous lab user didn't do it at the end.
+    !!! note "Resetting WatchGuard Firewall"
+        The previous lab user(s) should have reset the firewall when finished, but if they did not, it's a quick process to do. Please jump to the end of this guide to the [final steps](#final-steps) portion to wipe the firewall. Once done, then please continue from this step.
 
 ---
 
@@ -45,7 +41,7 @@ Add Custom Creds for Firewall Labs
     - DNS servers: 
         - `1.1.1.1` (CloudFlare) 
         - `8.8.8.8` (Google).
-        - **Note:** It will test the servers and fail, which is fine at this point.
+        - **Note:** If you are not plugged into Internet then this will fail, but you can still continue on.
     - Click **Next**.
 3. **Configure Trusted Interface**:
     - Leave defaults as we'll update them later in the lab. For now, the defaults create a DHCP server to get an IP and log into the firewall.
@@ -59,8 +55,10 @@ Add Custom Creds for Firewall Labs
     - Contact: `{{ office.contact }}`.
 7. **Set Time Zone**: `GMT-6:00 Central Time US and Canada`.
 8. Click **Next**.
-9. **Skip Feature Key** for now since we don't have Internet.
+9. **Skip Feature Key** for now.
 10. Review information and click **Next**.
+
+You can close out of the browser once finished.
 
 ---
 
@@ -74,17 +72,19 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
 3. Right-click the device and open **Policy Manager**.
 4. Take a moment to review the information we previously configured.
     - Go to **Setup > System** and confirm the information is correct. If something is incorrect, now is the time to update it!
-
-    <!-- 2. **Upgrade Firmware**:
-    - Look for the latest firmware for the firewall.
-    - Check the current version running.
+5. **Update the Feature Key**
+    - From Policy Manager open **Setup > Feature Key**
+    - **Download** the feature key from the web. If it does not work, then you can manually **import** the key located in the [lab files]({{ urls.lab_files}}) and within the Firewall baselines folder. 
+5. **Upgrade Firmware**:
+    - You can **check the current firmware version** back from the main WSM window. While connected to the firewall, you'll see at the end of the name is _[Fireware OS v.12.10...]_ indicating the current version.
     - Download new firmware if an upgrade is needed: [WatchGuard T45 Software](https://software.watchguard.com/SoftwareDownloads?current=true&familyId=a2R6S00000537cVUAQ).
-        - Install it on your machine (simple "next, next" installer).
+        - Install it on your machine _(simple "next, next" installer)._
     - Go to **File > Upgrade**:
         - Save the current config in the default location for now.
         - Sign in with admin credentials.
-        - Browse to the firmware file. If there’s a popup saying no files, ensure you’ve installed the `.exe` firmware.
-        - Click **OK**, then **Yes**, and wait for it to finish. -->
+        - Browse to the firmware file if it didn't automatically locate it. If there’s a popup saying no files, ensure you’ve installed the `.exe` firmware.
+        - Click **OK**, then **Yes**, and wait for it to finish _(about 3 minutes)_.
+        - **Re-Open** the updated configuration file when finished. 
 
 ---
 
@@ -93,7 +93,7 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
 1. **Configure a Temporary Port**:  
 
     !!! question "Why are we making a temporary network?"
-        Unlike the cisco switch, you can make changes in policy manager without updating the "running configuration". **In order for changes to take effect they must be saved to the firewall.** That means this step is technically unneccessary, but by creating a temporary network we'll have a "Get out of jail free card" that we can use to get back into the firewall incase our we have a mistake in our configuration. It also gives you another opportunity at configuring interfaces.🎉🎊
+        Unlike the cisco switch, you can make changes in policy manager without updating the "running configuration". **In order for changes to take effect they must be saved to the firewall.** That means this step is technically unneccessary _(and we would never do this at a customer!)_, but by creating a temporary network we'll have a "Get out of jail free card" for our labs that we can use to get back into the firewall incase we have a mistake in our configuration. It also gives you another opportunity at configuring interfaces.🎉🎊
 
     - Go to **Network > Configuration**:
         - Double-click **Interface 4** to configure.
@@ -105,15 +105,16 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
             - Ending IP: `192.168.199.110`.
         - Click **OK**, then **OK** again.
     - Save changes (**File > Save > To Firebox**):
-        - **No** to feature key warning (no Internet).
         - Provide **admin credentials** _(`{{ devices.firewall.custom_admin_account }}`)_ and click **OK**.
         - WatchGuard stores config files in your documents. **Save the config** here temporarily. At the end of the lab, we'll make a final baseline backup to store in your permanent lab files.
-        - Say **yes** to the feature key warning.
     - **Close** the policy manager window and **disconnect** from the firewall in WSM by right-clicking the device.
 2. **Test New Interface**:
         - **Move** your ethernet connection into **Interface 4** of the WatchGuard instead of Interface 1.
         - **Confirm** you received a new **IP via DHCP** in the temp network by using the `ipconfig` command.
-            - Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.)
+            - Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.) Running an `ipconfig /renew` may help to force a new IP from DHCP as well.
+
+
+---
 
 
 ## Adding VLANs to Firewall
@@ -163,22 +164,10 @@ _If you don't have WatchGuard System Manager (WSM) already installed, download i
     - **Tag** the other **remaining VLANs** using the checkbox at the top so that the main LAN port can pass all VLANs through to the switches. **Do NOT tag the main LAN**.
     - Click **OK**, then **OK** again.
 
-    **Verify Network Changes:**
-
-    - Save our changes to the firewall with **File > Save > To Firebox**.
-        - **No** to feature key warning
-        - **Authenticate** as admin user
-        - **Yes** to warning
-    - After the save is successful, **move** the cable back to **Eth 1**.
-    - Run `ipconfig` to confirm you received a proper IP from DHCP within the **{{ vlans.lan.name }}** subnet _({{ vlans.lan.subnet }})_.
-
-    If you are successful, then you're good to go!
-
----
 
 ## Adjust Default Ping Policy
 
-Like we mentioned in the previous lab, `ping` can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for **ping traffic** allows it to work a little _too well_, which can lead to some confusing results later on in this lab. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. 
+Like we mentioned in the previous lab, `ping` can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for **ping traffic** allows it to work a little _too well_, which can lead to some confusing results in future labs. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. 
 
 1. **Open** the Default Policy named **Ping** by **double-clicking** it or right-clicking and Modify Policy.
 2. In the **To** box, remove **Any**. 
@@ -187,11 +176,24 @@ Like we mentioned in the previous lab, `ping` can be a great network utility for
 
 ![WG Ping Policy](img/firewall-ping-policy.png)
 
+
+---
+
+## Save and Verify Network Changes
+
+1. Save our changes to the firewall with **File > Save > To Firebox**.
+    - **Authenticate** as the admin user
+    - You may say **Yes** to warnings about overwriting the file
+2. After the save is successful, **move** the cable back to **Eth 1**.
+3. Run `ipconfig /renew` to confirm you received a proper IP from DHCP within the **{{ vlans.lan.name }}** subnet _({{ vlans.lan.subnet }})_.
+
+If you are successful, then you're all set to save our baseline configuration for future labs!
+
 ---
 
 ## Final Steps
 1. **Backup Baseline Configuration**:
-    - Go to **File > Save > As File**.
+    - Go to **File > Save > As File**. You may need to disconnect and reconnect to the firewall in WSM since we've made network changes.
     - **Save** with a descriptive name, e.g., `baseline_watchguard_firewall.xml`.
     - Store in your lab files (e.g., OneDrive or USB).
 3. **Wipe Firewall for Next User**:  
