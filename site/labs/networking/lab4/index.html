@@ -662,14 +662,11 @@ Restore Firewall from baseline - Log into defaults (if defaults aren't configure
 Note: User accounts are not stored in the config file, therefore the admin/status accounts will be set to their defaults as well. Refer to the last lab for that info, but these are good accounts "to know" going forward
 - File > Open > Configuration File (No to saving) > Navigate to Baseline config and open
 - Save the restored config to the Firewall (File > Save > To Firebox)
-    - NO to adding feature key warning (No Internet)
     - use default Admin creds
     - cancel save location
-    - Yes to feature key warning
-    - Yes to limited functionality
-    No to saving changes
-- IPConfig /renew to get new lease
-- ipconfig to check IP received from LAN port
+    - Yes to IP address mismatch
+    - No to saving changes
+- IPConfig /renew to get new lease and check IP received from LAN port
 - Disconnect from WSM (changed IPs)
 
 

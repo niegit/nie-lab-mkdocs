@@ -610,6 +610,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#save-and-verify-network-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save and Verify Network Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Final Steps
@@ -840,6 +849,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#save-and-verify-network-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save and Verify Network Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Final Steps
@@ -880,7 +898,9 @@ Thigns To Do:
 <hr />
 <h2 id="power-on-and-get-connected">Power On and Get Connected<a class="headerlink" href="#power-on-and-get-connected" title="Permanent link">&para;</a></h2>
 <ol>
+<li>Power on the Network Rack and ensure devices have power.</li>
 <li>Plug cable into <strong>LAN</strong> (port 1) of the WatchGuard T45 Firewall and into your NIC.</li>
+<li>Plug the dedicated <strong>Green LAB WAN Uplink</strong> cable into the <strong>WAN</strong> (port 0) of the WatchGuard T45 Firewall.</li>
 <li>WatchGuard provides a DHCP server by default (<code>10.0.1.0/24</code>) so make sure your <strong>NIC is set to DHCP</strong> or within the subnet. <em>May need to disable docking station NIC if you're also uplinked through it.</em></li>
 <li>Run <code>ipconfig</code> to check if you received an IP in the subnet.</li>
 <li>
@@ -891,7 +911,7 @@ Thigns To Do:
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Resetting WatchGuard Firewall</p>
-<p>The previous lab user(s) should have reset the firewall when finished, but if they did not, it's a quick process to do. Please jump to the end of this guide to the <a href="/watchguard-firewall-setup/#final-steps">final steps</a> portion to wipe the firewall.</p>
+<p>The previous lab user(s) should have reset the firewall when finished, but if they did not, it's a quick process to do. Please jump to the end of this guide to the <a href="#final-steps">final steps</a> portion to wipe the firewall. Once done, then please continue from this step.</p>
 </div>
 </li>
 </ol>
@@ -911,7 +931,7 @@ Thigns To Do:
 <li>DNS servers: <ul>
 <li><code>1.1.1.1</code> (CloudFlare) </li>
 <li><code>8.8.8.8</code> (Google).</li>
-<li><strong>Note:</strong> It will test the servers and fail, which is fine at this point.</li>
+<li><strong>Note:</strong> If you are not plugged into Internet then this will fail, but you can still continue on.</li>
 </ul>
 </li>
 <li>Click <strong>Next</strong>.</li>
@@ -935,9 +955,10 @@ Thigns To Do:
 </li>
 <li><strong>Set Time Zone</strong>: <code>GMT-6:00 Central Time US and Canada</code>.</li>
 <li>Click <strong>Next</strong>.</li>
-<li><strong>Skip Feature Key</strong> for now since we don't have Internet.</li>
+<li><strong>Skip Feature Key</strong> for now.</li>
 <li>Review information and click <strong>Next</strong>.</li>
 </ol>
+<p>You can close out of the browser once finished.</p>
 <hr />
 <h2 id="connecting-with-watchguard-system-manager-wsm">Connecting with WatchGuard System Manager (WSM)<a class="headerlink" href="#connecting-with-watchguard-system-manager-wsm" title="Permanent link">&para;</a></h2>
 <p><em>If you don't have WatchGuard System Manager (WSM) already installed, download it from <a href="https://software.watchguard.com/SoftwareDownloads?current=true&amp;familyId=a2R6S00000537cVUAQ">WatchGuard Downloads</a>.</em></p>
@@ -949,21 +970,30 @@ Thigns To Do:
 </ul>
 </li>
 <li>Right-click the device and open <strong>Policy Manager</strong>.</li>
-<li>
-<p>Take a moment to review the information we previously configured.</p>
-<ul>
+<li>Take a moment to review the information we previously configured.<ul>
 <li>Go to <strong>Setup &gt; System</strong> and confirm the information is correct. If something is incorrect, now is the time to update it!</li>
 </ul>
-<!-- 2. **Upgrade Firmware**:
-- Look for the latest firmware for the firewall.
-- Check the current version running.
-- Download new firmware if an upgrade is needed: <a href="https://software.watchguard.com/SoftwareDownloads?current=true&amp;familyId=a2R6S00000537cVUAQ">WatchGuard T45 Software</a>.
-    - Install it on your machine (simple "next, next" installer).
-- Go to **File > Upgrade**:
-    - Save the current config in the default location for now.
-    - Sign in with admin credentials.
-    - Browse to the firmware file. If there’s a popup saying no files, ensure you’ve installed the <code>.exe</code> firmware.
-    - Click **OK**, then **Yes**, and wait for it to finish. -->
+</li>
+<li><strong>Update the Feature Key</strong><ul>
+<li>From Policy Manager open <strong>Setup &gt; Feature Key</strong></li>
+<li><strong>Download</strong> the feature key from the web. If it does not work, then you can manually <strong>import</strong> the key located in the <a href="https://networkiteasy-my.sharepoint.com/:f:/p/dustin_l/EmBaZ0lvBzlMtdxgWilxVREBBPFPR-y7WOJizvE92L4CRA?e=cPRhYn">lab files</a> and within the Firewall baselines folder. </li>
+</ul>
+</li>
+<li><strong>Upgrade Firmware</strong>:<ul>
+<li>You can <strong>check the current firmware version</strong> back from the main WSM window. While connected to the firewall, you'll see at the end of the name is <em>[Fireware OS v.12.10...]</em> indicating the current version.</li>
+<li>Download new firmware if an upgrade is needed: <a href="https://software.watchguard.com/SoftwareDownloads?current=true&amp;familyId=a2R6S00000537cVUAQ">WatchGuard T45 Software</a>.<ul>
+<li>Install it on your machine <em>(simple "next, next" installer).</em></li>
+</ul>
+</li>
+<li>Go to <strong>File &gt; Upgrade</strong>:<ul>
+<li>Save the current config in the default location for now.</li>
+<li>Sign in with admin credentials.</li>
+<li>Browse to the firmware file if it didn't automatically locate it. If there’s a popup saying no files, ensure you’ve installed the <code>.exe</code> firmware.</li>
+<li>Click <strong>OK</strong>, then <strong>Yes</strong>, and wait for it to finish <em>(about 3 minutes)</em>.</li>
+<li><strong>Re-Open</strong> the updated configuration file when finished. </li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
 <hr />
@@ -973,7 +1003,7 @@ Thigns To Do:
 <p><strong>Configure a Temporary Port</strong>:  </p>
 <div class="admonition question">
 <p class="admonition-title">Why are we making a temporary network?</p>
-<p>Unlike the cisco switch, you can make changes in policy manager without updating the "running configuration". <strong>In order for changes to take effect they must be saved to the firewall.</strong> That means this step is technically unneccessary, but by creating a temporary network we'll have a "Get out of jail free card" that we can use to get back into the firewall incase our we have a mistake in our configuration. It also gives you another opportunity at configuring interfaces.🎉🎊</p>
+<p>Unlike the cisco switch, you can make changes in policy manager without updating the "running configuration". <strong>In order for changes to take effect they must be saved to the firewall.</strong> That means this step is technically unneccessary <em>(and we would never do this at a customer!)</em>, but by creating a temporary network we'll have a "Get out of jail free card" for our labs that we can use to get back into the firewall incase we have a mistake in our configuration. It also gives you another opportunity at configuring interfaces.🎉🎊</p>
 </div>
 <ul>
 <li>Go to <strong>Network &gt; Configuration</strong>:<ul>
@@ -990,17 +1020,15 @@ Thigns To Do:
 </ul>
 </li>
 <li>Save changes (<strong>File &gt; Save &gt; To Firebox</strong>):<ul>
-<li><strong>No</strong> to feature key warning (no Internet).</li>
 <li>Provide <strong>admin credentials</strong> <em>(<code>admin/$ecureLab!</code>)</em> and click <strong>OK</strong>.</li>
 <li>WatchGuard stores config files in your documents. <strong>Save the config</strong> here temporarily. At the end of the lab, we'll make a final baseline backup to store in your permanent lab files.</li>
-<li>Say <strong>yes</strong> to the feature key warning.</li>
 </ul>
 </li>
 <li><strong>Close</strong> the policy manager window and <strong>disconnect</strong> from the firewall in WSM by right-clicking the device.</li>
 <li><strong>Test New Interface</strong>:<ul>
 <li><strong>Move</strong> your ethernet connection into <strong>Interface 4</strong> of the WatchGuard instead of Interface 1.</li>
 <li><strong>Confirm</strong> you received a new <strong>IP via DHCP</strong> in the temp network by using the <code>ipconfig</code> command.<ul>
-<li>Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.)</li>
+<li>Troubleshoot the connection if not (check your adapter settings, reset the connection, etc.) Running an <code>ipconfig /renew</code> may help to force a new IP from DHCP as well.</li>
 </ul>
 </li>
 </ul>
@@ -1008,6 +1036,7 @@ Thigns To Do:
 </ul>
 </li>
 </ol>
+<hr />
 <h2 id="adding-vlans-to-firewall">Adding VLANs to Firewall<a class="headerlink" href="#adding-vlans-to-firewall" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -1115,23 +1144,10 @@ Thigns To Do:
 <li><strong>Tag</strong> the other <strong>remaining VLANs</strong> using the checkbox at the top so that the main LAN port can pass all VLANs through to the switches. <strong>Do NOT tag the main LAN</strong>.</li>
 <li>Click <strong>OK</strong>, then <strong>OK</strong> again.</li>
 </ul>
-<p><strong>Verify Network Changes:</strong></p>
-<ul>
-<li>Save our changes to the firewall with <strong>File &gt; Save &gt; To Firebox</strong>.<ul>
-<li><strong>No</strong> to feature key warning</li>
-<li><strong>Authenticate</strong> as admin user</li>
-<li><strong>Yes</strong> to warning</li>
-</ul>
-</li>
-<li>After the save is successful, <strong>move</strong> the cable back to <strong>Eth 1</strong>.</li>
-<li>Run <code>ipconfig</code> to confirm you received a proper IP from DHCP within the <strong>LAN</strong> subnet <em>(192.168.10.0/24)</em>.</li>
-</ul>
-<p>If you are successful, then you're good to go!</p>
 </li>
 </ol>
-<hr />
 <h2 id="adjust-default-ping-policy">Adjust Default Ping Policy<a class="headerlink" href="#adjust-default-ping-policy" title="Permanent link">&para;</a></h2>
-<p>Like we mentioned in the previous lab, <code>ping</code> can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for <strong>ping traffic</strong> allows it to work a little <em>too well</em>, which can lead to some confusing results later on in this lab. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. </p>
+<p>Like we mentioned in the previous lab, <code>ping</code> can be a great network utility for troubleshooting and verifying network connectivity! However, WatchGuard's built in policy for <strong>ping traffic</strong> allows it to work a little <em>too well</em>, which can lead to some confusing results in future labs. We'll scope this specific policy in a bit so that it still works and is helpful, but won't lead us down the wrong path with "false positives" in later troubleshooting. </p>
 <ol>
 <li><strong>Open</strong> the Default Policy named <strong>Ping</strong> by <strong>double-clicking</strong> it or right-clicking and Modify Policy.</li>
 <li>In the <strong>To</strong> box, remove <strong>Any</strong>. </li>
@@ -1140,10 +1156,22 @@ Thigns To Do:
 </ol>
 <p><a class="glightbox" href="../img/firewall-ping-policy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="WG Ping Policy" src="../img/firewall-ping-policy.png" /></a></p>
 <hr />
+<h2 id="save-and-verify-network-changes">Save and Verify Network Changes<a class="headerlink" href="#save-and-verify-network-changes" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Save our changes to the firewall with <strong>File &gt; Save &gt; To Firebox</strong>.<ul>
+<li><strong>Authenticate</strong> as the admin user</li>
+<li>You may say <strong>Yes</strong> to warnings about overwriting the file</li>
+</ul>
+</li>
+<li>After the save is successful, <strong>move</strong> the cable back to <strong>Eth 1</strong>.</li>
+<li>Run <code>ipconfig /renew</code> to confirm you received a proper IP from DHCP within the <strong>LAN</strong> subnet <em>(192.168.10.0/24)</em>.</li>
+</ol>
+<p>If you are successful, then you're all set to save our baseline configuration for future labs!</p>
+<hr />
 <h2 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Backup Baseline Configuration</strong>:<ul>
-<li>Go to <strong>File &gt; Save &gt; As File</strong>.</li>
+<li>Go to <strong>File &gt; Save &gt; As File</strong>. You may need to disconnect and reconnect to the firewall in WSM since we've made network changes.</li>
 <li><strong>Save</strong> with a descriptive name, e.g., <code>baseline_watchguard_firewall.xml</code>.</li>
 <li>Store in your lab files (e.g., OneDrive or USB).</li>
 </ul>

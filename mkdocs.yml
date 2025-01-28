@@ -46,6 +46,7 @@ nav:
           - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md
+  - Lab Calendar: calendar.md
   - Feedback: feedback.md
 extra:
   office:
