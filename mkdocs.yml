@@ -43,6 +43,7 @@ nav:
           - Lab 1 - Configure Cisco Switch: labs/networking/cisco-switch-setup.md
           - Lab 2 - Adding Devices to Network: labs/networking/add-devices-to-network.md
           - Lab 3 - Configure WatchGuard Firewall: labs/networking/watchguard-firewall-setup.md
+          - Lab 4 - Building Out the Network: labs/networking/lab4.md
           - Lab Roadmap: labs/networking/lab-roadmap.md
       - Azure:
           - Azure Lab Info: labs/azure/azure_lab1.md

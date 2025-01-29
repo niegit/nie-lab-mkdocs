@@ -93,3 +93,174 @@ Test Again...again
 
 
  -->
+
+# Lab 4: Putting It All Together 
+
+## 🚧 Under Construction 🛠️
+This lab is still under construction. Check back next week!
+
+## Overview  
+In this lab, we will take everything we've learned so far and integrate it into a complete network setup. This includes reloading the firewall and switch configurations, connecting the firewall to the switch, confirming DHCP servers, configuring VLANs, and setting up policies to control network traffic.  
+
+---
+
+## Step 1: Preparing for Configuration  
+
+1. **Disconnect** the firewall LAN cable going into `{{ devices.cisco_switch.name }}`.   
+2. **Plug your PC directly into the firewall LAN port** for initial configuration.  
+
+---
+
+## Step 2: Restore Firewall from Baseline  
+
+1. **Log into the firewall using default settings.**   
+    - Use `ipconfig` in CMD to check if you received an IP in the defaults.  
+    - If no IP is received, adjust your NIC settings or reset the firewall.  
+
+    !!! tip "Credentials Reset"
+        **User accounts are not stored within the firewall configuration file**, but rather the firebox itself. That means the credentials we configured in the last lab won't be there because we reset the firewall for other users. You will need to use the default firebox credentials to get connected. While you can review them on the [Network Information](network-info.md) page, they are also just "good to know" in general. 
+ 
+2. **Use WatchGuard System Manager (WSM)** to connect to the device with default settings.  
+3. **Launch Policy Manager.**  
+4. **Restore the baseline configuration:**  
+    - Go to `File > Open > Configuration File` _(Select "No" to saving current config)._  
+    - Navigate to the **Baseline Config** and open it.  
+5. **Save the restored config to the firewall:**  
+    - `File > Save > To Firebox`  
+    - Use default admin credentials.  
+    - Cancel save location.  
+    - Select **Yes** to IP address mismatch.  
+    - Select **No** to saving changes.  
+6. **Renew IP lease:**  
+    - Run `ipconfig /renew` to confirm a new IP from the LAN port.  
+7. **Disconnect from WSM**, as IP addresses have now changed.  
+
+---
+
+## Step 3: Restore Switch Configuration  
+
+1. **Move your PC's uplink** from the firewall to `GE12` on **{{devices.cisco_switch.name}}.**  
+    - Keep the firewall LAN unplugged for now to prevent DHCP issues.  
+2. **Set NIC settings for default Cisco login and create a temporary account.**  
+3. **Restore {{devices.cisco_switch.name}}** config from baseline.  
+    - Connectivity will be lost due to IP changes
+
+---
+
+## Step 4: Connect Devices  
+
+1. Connect **{{devices.cisco_switch.name}}** to {{ devices.firewall.name }} by uplinking the **LAN** interface to switchport `GE01`. 
+2. **Set NIC to DHCP.**  
+3. **Renew IP lease:**  
+    - Run `ipconfig /renew` and confirm DHCP-assigned address.  
+    - Verify that the default gateway is now pointing to the firewall.  
+4. **Ping switch IP** to confirm connectivity.  
+5. **Plug PC01 into switch `GE13` and power it on.**  
+    - Confirm it receives an IP via DHCP.  
+    - If needed, adjust NIC settings.  
+6. **Test pinging between devices:**  
+    - If you are using your NIE provided laptop, the built-in firewall may block incoming ICMP traffic, but you should be able to ping **outbound**. That means you should be able to ping other devices, but other devices may not be able to ping you.
+
+---
+
+## Step 5: Adjust VLANs  
+
+1. **Sign into {{devices.cisco_switch.name}}** and **save** the restored config.
+2. **Set `GE12` to the {{vlans.security.name}} VLAN** by setting the Access VLAN to **{{vlans.security.id}}**.
+3. **Check connectivity:**  
+    - Run `ipconfig`
+4. **Bounce the port to force a new lease:**  
+    - Go to `Port Management > Port Settings`.  
+    - Select `GE13` and edit.  
+    - Set `Administrative Status` to **Down**, then apply.  
+    - Set `Administrative Status` to **Up**, then apply.
+
+    !!! tip "Bouncing Ports on Switches"
+        Sometimes a "logical layer" reconnect _(like `ipconfig /renew`)_ is not enough for a device to pick up it's network changes . The best way to force it is to unplug the cable from the switch or the device and then plug it back into the NIC. In Cisco IOS we can accomplish the same by administratively shutting down the port and turning it back on again. 
+        
+        If you've used the Cisco CLI then this is the equivalent of issuing a `shutdown` and `no shutdown` _(or more commonly referred to as a `shut` and `no shut`)_ command to an interface.
+
+5. **Run `ipconfig` again on `{{devices.pc01.name}}`.**  
+    - Confirm it now has an IP in VLAN {{vlans.security.id}} from the firewall via DHCP.  
+6. **Test connectivity:**  
+    - Ping from your PC to `{{devices.pc01.name}}`—it should fail due to firewall rules.  
+
+---
+
+## Step 6: Check Firewall Traffic  
+
+1. **Launch WatchGuard System Manager.**  
+2. **Open the Traffic Monitor.**  
+3. **Filter by `{{devices.pc01.name}}`'s IP address**.  
+4. **Ping `{{devices.pc01.name}}` again from your PC.**  
+   - You should see `Deny` attempts in the Traffic Monitor.  
+   - This confirms that ICMP traffic from LAN to the Security VLAN is blocked.  
+
+---
+
+## Step 7: Create a Policy to Allow VLAN Traffic  
+
+1. **Open Policy Manager.**  
+2. **Create a new policy:**  
+    Press the `+` button in the ribbon menu to add a new policy and select `Packet Filter > Ping`  
+    - Name: **ALLOW-PING-FROM-LAN-TO-SECURITY**  
+    - `From`: LAN  
+    - `To`: SECURITY  
+    - NEED TO ADD STEPS FOR ENABLING LOGGING x2 ON POLICIES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+3. **Move the policy above the default Ping rule** so it takes precedence. 
+
+    !!! tip "Auto Order Mode"
+        WSM may automatically detect and re-order the policies for you within policy manager. While semi-helpful, it prevents you from being able to make adjustments to the order yourself. Since firewalls process ACLs starting from the top down, this may be an issue when needing to override the order of policies. 
+
+        **To disable this**, select `view > Auto-Order Mode > Uncheck`. Now you should be able to drag policies to re-order how they process.  
+
+4. **Save and apply** the policy to the firewall.  
+
+---
+
+## Step 8: Test Again  
+
+1. **Reopen Traffic Monitor and filter for `{{devices.pc01.name}}`.**  
+2. **Ping `{{devices.pc01.name}}` again.**  
+    - You should now see **Allowed** traffic instead of Denied.  
+    - The logs should reference **ALLOW-PING-FROM-LAN-TO-SECURITY**.  
+
+---
+
+## Step 9: Restrict Policy Scope  
+
+By default, this policy allows **all LAN devices** to reach the **SECURITY VLAN**. Instead, we will restrict access to a single device.  
+
+1. **Open Policy Manager.**  
+2. **Set up a DHCP Reservation for your PC on the LAN.**  
+    - Go to `Network Configuration > VLAN > LAN`.  
+    - Add a Reserved Address:  
+        - **Name:** Use your PC’s hostname (`hostname` command in CMD).  
+        - **IP Address:** Assign `192.168.10.100`.  
+        - **MAC Address:** Get the Ethernet adapter MAC (`ipconfig /all`). It's the **physical address** for the NIC adapter you're plugged in to. 
+3. **Create an Alias for this device:**  
+    - Go to `Setup > Aliases > Add`.  
+    - **Name:** Match your PC hostname or reserved IP.  
+    - **Add Member:** Choose **Host IPv4** and enter `192.168.10.100`.  
+4. **Modify the Ping Policy:**  
+    - Remove **LAN** from the `From` box.  
+    - Add the **Alias** you just created instead.  
+    - Rename the policy to **ALLOW-PING-FROM-PC-TO-SECURITY**.  
+    - Save and apply the updated configuration.  
+
+---
+
+## Step 10: Final Testing  
+
+1. **Renew your IP lease:**  
+    - Run `ipconfig /renew`.  
+    - Verify that your PC has `192.168.10.100`.  
+2. **Test pinging `{{devices.pc01.name}}`—it should work.**  
+3. **Test changing your IP manually:**  
+    - Assign a **different** IP in the LAN subnet.  
+    - Set the gateway to the firewall.  
+    - **Ping `{{devices.pc01.name}}`—it should fail!**  
+        - This confirms that only the reserved PC is allowed to communicate with the Security VLAN.  
+
+---
+
