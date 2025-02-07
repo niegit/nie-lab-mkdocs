@@ -3,9 +3,15 @@
 <!-- This is rendered within the msal.js file. This is the only Graph item in the site, so left it as part of the auth. -->
 <span id="welcome-message"></span>
 
-This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
-
 ## Get Started Below
+
+
+<!-- <iframe src="https://networkiteasy-my.sharepoint.com/personal/dustin_l_networkiteasy_com/_layouts/15/embed.aspx?UniqueId=2626fd68-cc2f-4ce9-8cb8-1a74e61a62b1&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="100%" height="450" allowfullscreen></iframe> -->
+
+<iframe style="border:2px solid #34A1D9; border-radius:8px; box-shadow:0px 4px 10px rgba(0,0,0,0.1);" 
+src="https://networkiteasy-my.sharepoint.com/personal/dustin_l_networkiteasy_com/_layouts/15/embed.aspx?UniqueId=2626fd68-cc2f-4ce9-8cb8-1a74e61a62b1&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="100%" height="450" allowfullscreen></iframe>
+
+This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
 
 ### 🔗 Quick Links
 Explore our curated labs and start building your expertise now:
