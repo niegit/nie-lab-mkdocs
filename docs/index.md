@@ -9,7 +9,7 @@
 src="https://networkiteasy-my.sharepoint.com/personal/dustin_l_networkiteasy_com/_layouts/15/embed.aspx?UniqueId=2626fd68-cc2f-4ce9-8cb8-1a74e61a62b1&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="100%" height="450" allowfullscreen></iframe>
 
 !!! tip "Video not playing?"
-    You can the video directly from this [link](https://networkiteasy-my.sharepoint.com/:v:/p/dustin_l/EWj9JiYvzOlMjLgadOYaYrEB3AZuP6T_xjQzhz8-iVtJHA) using your NIE account.
+    You can view the video directly from this [link](https://networkiteasy-my.sharepoint.com/:v:/p/dustin_l/EWj9JiYvzOlMjLgadOYaYrEB3AZuP6T_xjQzhz8-iVtJHA) using your NIE account. No need to request access, as viewing this link will update permissions automatically for the video above.
 
 
 This is your one-stop resource for hands-on practice and learning within the NIE Lab environment. Whether you're working with networking, Azure, or other technologies, we've got you covered!
