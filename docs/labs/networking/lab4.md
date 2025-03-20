@@ -97,7 +97,7 @@ Test Again...again
 # Lab 4: Putting It All Together 
 
 ## 🚧 Under Construction 🛠️
-This lab is still under construction.
+This lab is still under construction, but mostly finished. If you feel confident in your skills, feel free to continue below, just know it may not be 100% correct.
 
 ## Overview  
 In this lab, we will take everything we've learned so far and integrate it into a complete network setup. This includes reloading the firewall and switch configurations, connecting the firewall to the switch, confirming DHCP servers, configuring VLANs, and setting up policies to control network traffic.  

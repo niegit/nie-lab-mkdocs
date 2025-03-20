@@ -204,6 +204,7 @@ If you are successful, then you're all set to save our baseline configuration fo
     - **Continue holding** the button until the **ATTN** indicator begins to flash _(about 20 seconds)_.
     - **Release** the reset button but do not power off the Firebox.
     - **Wait** for the reset process to complete _(up to 70 seconds)_. The **ATTN** indicator will stay lit.
+    - OPTIONAL: **Reboot** the firewall. Since we're putting this away for the next user this step is not needed at this time, however, if you were resetting the firewall and continuing to use it in this lab session you will need to reboot once it's back up. The firewall will be operational once it comes up after this reboot.
     
     The firewall has been reset. You can confirm this by running an `ipconfig` and verifying the IP you were given is within the default subnet of {{ devices.firewall.default_subnet }}.
 
