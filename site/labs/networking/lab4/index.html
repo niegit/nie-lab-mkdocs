@@ -1091,7 +1091,7 @@ Test Again...again
 
 <h1 id="lab-4-putting-it-all-together">Lab 4: Putting It All Together<a class="headerlink" href="#lab-4-putting-it-all-together" title="Permanent link">&para;</a></h1>
 <h2 id="under-construction">🚧 Under Construction 🛠️<a class="headerlink" href="#under-construction" title="Permanent link">&para;</a></h2>
-<p>This lab is still under construction.</p>
+<p>This lab is still under construction, but mostly finished. If you feel confident in your skills, feel free to continue below, just know it may not be 100% correct.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>In this lab, we will take everything we've learned so far and integrate it into a complete network setup. This includes reloading the firewall and switch configurations, connecting the firewall to the switch, confirming DHCP servers, configuring VLANs, and setting up policies to control network traffic.  </p>
 <hr />
@@ -1175,7 +1175,7 @@ Test Again...again
 <h2 id="step-5-adjust-vlans">Step 5: Adjust VLANs<a class="headerlink" href="#step-5-adjust-vlans" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Sign into SW01</strong> and <strong>save</strong> the restored config.</li>
-<li><strong>Set <code>GE12</code> to the SECURITY VLAN</strong> by setting the Access VLAN to <strong>20</strong>.</li>
+<li><strong>Set <code>GE13</code> to the SECURITY VLAN</strong> by setting the Access VLAN to <strong>20</strong>.</li>
 <li><strong>Check connectivity:</strong>  <ul>
 <li>Run <code>ipconfig</code></li>
 </ul>
@@ -1219,12 +1219,20 @@ Test Again...again
 <h2 id="step-7-create-a-policy-to-allow-vlan-traffic">Step 7: Create a Policy to Allow VLAN Traffic<a class="headerlink" href="#step-7-create-a-policy-to-allow-vlan-traffic" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Open Policy Manager.</strong>  </li>
-<li><strong>Create a new policy:</strong><br />
-    Press the <code>+</code> button in the ribbon menu to add a new policy and select <code>Packet Filter &gt; Ping</code>  <ul>
+<li>
+<p><strong>Create a new policy:</strong><br />
+    Press the <code>+</code> button in the ribbon menu to add a new policy and select <code>Packet Filter &gt; Ping</code>  </p>
+<ul>
 <li>Name: <strong>ALLOW-PING-FROM-LAN-TO-SECURITY</strong>  </li>
 <li><code>From</code>: LAN  </li>
 <li><code>To</code>: SECURITY  </li>
-<li>NEED TO ADD STEPS FOR ENABLING LOGGING x2 ON POLICIES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! </li>
+<li><strong>Configure logging</strong> on the Policy so that we can review the traffic in the future.<ul>
+<li><strong>Select</strong> the <strong>Properties</strong> tab along the top</li>
+<li><strong>Click</strong> the <strong>Logging</strong> button</li>
+<li>Check the boxes for <code>send log message</code> and <code>send a log message for reports</code> then <strong>select OK</strong>.</li>
+</ul>
+</li>
+<li><strong>Click OK</strong> to save the policy</li>
 </ul>
 </li>
 <li>

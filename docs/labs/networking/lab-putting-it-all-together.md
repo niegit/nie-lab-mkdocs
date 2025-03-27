@@ -166,7 +166,7 @@ In this lab, we will take everything we've learned so far and integrate it into 
 ## Step 5: Adjust VLANs  
 
 1. **Sign into {{devices.cisco_switch.name}}** and **save** the restored config.
-2. **Set `GE12` to the {{vlans.security.name}} VLAN** by setting the Access VLAN to **{{vlans.security.id}}**.
+2. **Set `GE13` to the {{vlans.security.name}} VLAN** by setting the Access VLAN to **{{vlans.security.id}}**.
 3. **Check connectivity:**  
     - Run `ipconfig`
 4. **Bounce the port to force a new lease:**  
@@ -206,15 +206,20 @@ In this lab, we will take everything we've learned so far and integrate it into 
     - Name: **ALLOW-PING-FROM-LAN-TO-SECURITY**  
     - `From`: LAN  
     - `To`: SECURITY  
-    - NEED TO ADD STEPS FOR ENABLING LOGGING x2 ON POLICIES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    - **Configure logging** on the Policy so that we can review the traffic in the future.
+        - **Select** the **Properties** tab along the top
+        - **Click** the **Logging** button
+        - Check the boxes for `send log message` and `send a log message for reports` then **select OK**.
+    - **Click OK** to save the policy
+
 3. **Move the policy above the default Ping rule** so it takes precedence. 
+4. **Save and apply** the policy to the firewall.  
 
     !!! tip "Auto Order Mode"
-        WSM may automatically detect and re-order the policies for you within policy manager. While semi-helpful, it prevents you from being able to make adjustments to the order yourself. Since firewalls process ACLs starting from the top down, this may be an issue when needing to override the order of policies. 
+        Policy Manager may automatically detect and re-order the policies for you within policy manager. While semi-helpful, it prevents you from being able to make adjustments to the order yourself. Since firewalls process ACLs starting from the top down, this may be an issue when needing to override the order of policies. 
 
         **To disable this**, select `view > Auto-Order Mode > Uncheck`. Now you should be able to drag policies to re-order how they process.  
 
-4. **Save and apply** the policy to the firewall.  
 
 ---
 
