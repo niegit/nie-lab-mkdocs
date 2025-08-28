@@ -29,6 +29,18 @@ Easily locate lab devices and their key details, including IPs, VLANs, and descr
 
 ---
 
+### 🔑 **Device Credentials**
+
+Use the table below to reference common or default credentials for devices.
+
+| **Device Name** | **Device Type** | **Custom Username** | **Custom Password** | **Default Username** | **Default Password** |
+|-----------------|------------------|---------------------|---------------------|----------------------|----------------------|
+{% for dev in extra.devices.values() -%}
+| {{ dev.name }} | {{ dev.type }} | {{ dev.custom_user if dev.custom_user is defined else (dev.user_account if dev.user_account is defined else "") }} | {{ dev.custom_pass if dev.custom_pass is defined else "" }} | {{ dev.default_user if dev.default_user is defined else "" }} | {{ dev.default_pass if dev.default_pass is defined else "" }} |
+{% endfor %}
+
+---
+
 ### 🔄 **Network Design and Topology**
 
 This section outlines the physical and logical setup of the lab network for better visualization and troubleshooting.

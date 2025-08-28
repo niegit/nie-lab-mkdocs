@@ -167,6 +167,8 @@ extra:
       description: Dell OptiPlex 3080 used for testing connections.
       type: Dell OptiPlex 3080
       user_account: "LabUser / $ecureLab!"
+      custom_user: LabUser
+      custom_pass: $ecureLab!
   wan:
     ip: "96.81.211.76"
     subnet_mask: "255.255.255.240"
